@@ -69,23 +69,49 @@ const rsvpForm = document.getElementById('rsvp-form');
 const wishesContainer = document.getElementById('wishes-container');
 const wishesSection = document.getElementById('wishes-section');
 
-// Load existing wishes from localStorage
-const loadWishes = () => {
-    const wishes = JSON.parse(localStorage.getItem('wedding_wishes')) || [];
-    if (wishes.length > 0) {
-        wishesSection.style.display = 'block';
-        wishesContainer.innerHTML = '';
-        wishes.forEach(wish => {
-            const badgeClass = wish.attendance === 'Hadir' ? 'hadir' : 'tidak-hadir';
-            const wishEl = document.createElement('div');
-            wishEl.className = 'wish-item';
-            wishEl.innerHTML = `
-                <h4>${wish.name} <span class="badge ${badgeClass}">${wish.attendance}</span></h4>
-                <span class="date">${wish.date}</span>
-                <p>${wish.message}</p>
-            `;
-            wishesContainer.appendChild(wishEl);
-        });
+// TODO: Masukkan URL Web App Google Apps Script Anda di dalam tanda kutip di bawah ini
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTNMU9dRzZ-L9UUGjHScRDtGUorEqvTUQD54n_-1Mkg-uuGYmKQg/exec';
+
+// Load existing wishes from Google Sheets
+const loadWishes = async () => {
+    if (!SCRIPT_URL) {
+        console.warn("URL Google Apps Script belum ditambahkan.");
+        return;
+    }
+
+    try {
+        const response = await fetch(SCRIPT_URL);
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+            wishesSection.style.display = 'block';
+            wishesContainer.innerHTML = '';
+
+            // Balik urutan agar ucapan terbaru berada di atas
+            data.reverse().forEach(wish => {
+                const badgeClass = wish.Attendance === 'Hadir' ? 'hadir' : 'tidak-hadir';
+                const wishEl = document.createElement('div');
+                wishEl.className = 'wish-item';
+
+                // Format tanggal menjadi tulisan yang mudah dibaca
+                let displayDate = wish.Timestamp;
+                try {
+                    const d = new Date(wish.Timestamp);
+                    if (!isNaN(d)) {
+                        displayDate = d.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                    }
+                } catch (e) { }
+
+                wishEl.innerHTML = `
+                    <h4>${wish.Name} <span class="badge ${badgeClass}">${wish.Attendance}</span></h4>
+                    <span class="date">${displayDate}</span>
+                    <p>${wish.Message}</p>
+                `;
+                wishesContainer.appendChild(wishEl);
+            });
+        }
+    } catch (error) {
+        console.error('Ada masalah saat memuat ucapan:', error);
     }
 };
 
@@ -95,8 +121,14 @@ if (wishesContainer && wishesSection) {
 }
 
 if (rsvpForm) {
-    rsvpForm.addEventListener('submit', (e) => {
+    rsvpForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (!SCRIPT_URL) {
+            alert("Sistem belum siap: URL Google Apps Script belum diatur pada script.js");
+            return;
+        }
+
         const btn = e.target.querySelector('button');
         const originalText = btn.innerText;
 
@@ -112,35 +144,50 @@ if (rsvpForm) {
         btn.innerText = "Mengirim...";
         btn.disabled = true;
 
-        // Simulate network request and save
-        setTimeout(() => {
-            // Save to localStorage
-            const wishes = JSON.parse(localStorage.getItem('wedding_wishes')) || [];
-            const newWish = {
-                name: name,
-                attendance: attendance,
-                message: message,
-                date: new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })
-            };
+        // Persiapkan data yang akan dikirim ke Spreadsheet
+        const formData = new FormData();
+        formData.append('Name', name);
+        formData.append('Attendance', attendance);
+        formData.append('Message', message);
 
-            wishes.unshift(newWish); // Add to beginning
-            localStorage.setItem('wedding_wishes', JSON.stringify(wishes));
+        try {
+            // Kirim data ke Google Apps Script
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            });
 
-            // Reload UI
-            loadWishes();
+            if (response.ok) {
+                btn.innerText = "RSVP Terkirim! 🎉";
+                btn.style.background = "#4CAF50";
+                btn.style.color = "#fff";
+                e.target.reset();
 
-            btn.innerText = "RSVP Terkirim! 🎉";
-            btn.style.background = "#4CAF50";
+                // Muat ulang daftar ucapan dari server
+                loadWishes();
+
+                // Kembalikan tombol ke bentuk semula setelah 3 detik
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = "";
+                    btn.style.color = "";
+                    btn.disabled = false;
+                }, 3000);
+            } else {
+                throw new Error("Respon server tidak valid.");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            btn.innerText = "Gagal Mengirim";
+            btn.style.background = "#f44336";
             btn.style.color = "#fff";
-            e.target.reset();
 
-            // Reset button style after 3 seconds
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.style.background = "";
                 btn.style.color = "";
                 btn.disabled = false;
             }, 3000);
-        }, 1000);
+        }
     });
 }
