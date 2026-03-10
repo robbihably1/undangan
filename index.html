@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Robbi & Lugas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <audio id="bgm" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn" class="floating-btn">🎵 Putar Musik</button>
+
+    <header class="hero">
+        <div class="hero-content reveal">
+            <p class="subtitle">THE WEDDING OF</p>
+            <h1>Robbi & Lugas</h1>
+            <p class="date">23 Agustus 2026</p>
+            <a href="#couple" class="scroll-down">Buka Undangan ⬇</a>
+        </div>
+    </header>
+
+    <section id="couple" class="section-dark">
+        <div class="container reveal">
+            <h2>Sang Mempelai</h2>
+            <div class="couple-grid">
+                <div class="glass-card profile-card">
+                    <img src="https://images.unsplash.com/photo-1549416878-b9ca95e26903?auto=format&fit=crop&w=400&q=80"
+                        alt="Groom" class="avatar">
+                    <h3>Romeo Montague</h3>
+                    <p>Putra dari Keluarga Bpk. Montague & Ibu Montague</p>
+                    <a href="#" class="ig-link">@romeo_m</a>
+                </div>
+                <div class="glass-card profile-card">
+                    <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400&q=80"
+                        alt="Bride" class="avatar">
+                    <h3>Juliet Capulet</h3>
+                    <p>Putri dari Keluarga Bpk. Capulet & Ibu Capulet</p>
+                    <a href="#" class="ig-link">@juliet_c</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="countdown" class="section-bg image-bg">
+        <div class="container glass-card text-center reveal">
+            <h2>Menuju Hari Bahagia</h2>
+            <p>Kami sangat menantikan kehadiran Bapak/Ibu/Saudara/i untuk melengkapi kebahagiaan kami.</p>
+            <div class="timer-wrap">
+                <div class="time-box"><span id="days">00</span>Hari</div>
+                <div class="time-box"><span id="hours">00</span>Jam</div>
+                <div class="time-box"><span id="minutes">00</span>Menit</div>
+                <div class="time-box"><span id="seconds">00</span>Detik</div>
+            </div>
+            <a href="#events" class="btn btn-gold">Lihat Detail Acara</a>
+        </div>
+    </section>
+
+    <section id="events" class="section-dark">
+        <div class="container reveal">
+            <h2>Detail Acara</h2>
+            <div class="grid-2">
+                <div class="glass-card event-card text-center">
+                    <div class="icon">💍</div>
+                    <h3>Akad Nikah</h3>
+                    <p class="event-time">08:00 WIB - 10:00 WIB</p>
+                    <p class="event-date">Minggu, 23 Agustus 2026</p>
+                    <p class="event-location">Masjid Agung Al-Kautsar<br>Jl. Kenangan Indah No. 1, Jakarta</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Lihat Peta</a>
+                </div>
+                <div class="glass-card event-card text-center">
+                    <div class="icon">🥂</div>
+                    <h3>Resepsi</h3>
+                    <p class="event-time">11:00 WIB - Selesai</p>
+                    <p class="event-date">Minggu, 23 Agustus 2026</p>
+                    <p class="event-location">Grand Ballroom Hotel Bintang Lima<br>Jl. Cinta Damai No. 99, Jakarta</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Lihat Peta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section-bg image-bg2">
+        <div class="container text-center reveal">
+            <h2>Galeri Cinta</h2>
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 1" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 2" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 3" class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80"
+                    alt="Gallery 4" class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="rsvp" class="section-dark">
+        <div class="container reveal">
+            <div class="glass-card">
+                <h2 class="text-center">Konfirmasi Kehadiran</h2>
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">Kehadiran</label>
+                        <select id="attendance" required>
+                            <option value="Hadir">Ya, saya hadir</option>
+                            <option value="Tidak Hadir">Sistem, tidak hadir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ucapan</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-block">Kirim RSVP</button>
+                </form>
+            </div>
+
+            <div class="glass-card mt-30" id="wishes-section" style="display: none;">
+                <h3 class="text-center" style="color: var(--gold); margin-bottom: 20px;">Ucapan & Doa</h3>
+                <div id="wishes-container" class="wishes-container">
+                    <!-- Messages will be injected here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>The Wedding of Robbi & Lugas</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
