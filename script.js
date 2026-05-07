@@ -7,7 +7,7 @@ openBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     // Auto-play music (requires user gesture — this click satisfies it)
-    bgm.play().catch(() => {});
+    bgm.play().catch(() => { });
 
     // Hide cover, reveal main content with smooth transition
     document.getElementById('cover').classList.add('cover-exit');
@@ -55,26 +55,49 @@ const updateCountdown = () => {
     const distance = targetDate - now;
 
     if (distance < 0) {
-        ['days','hours','minutes','seconds'].forEach(id =>
+        ['days', 'hours', 'minutes', 'seconds'].forEach(id =>
             document.getElementById(id).innerText = '00'
         );
         return;
     }
 
-    document.getElementById('days').innerText    = Math.floor(distance / 86400000).toString().padStart(2,'0');
-    document.getElementById('hours').innerText   = Math.floor((distance % 86400000) / 3600000).toString().padStart(2,'0');
-    document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2,'0');
-    document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2,'0');
+    document.getElementById('days').innerText = Math.floor(distance / 86400000).toString().padStart(2, '0');
+    document.getElementById('hours').innerText = Math.floor((distance % 86400000) / 3600000).toString().padStart(2, '0');
+    document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2, '0');
+    document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2, '0');
 };
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
+// ── Event Carousel ───────────────────────────────────────────
+(function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots   = document.querySelectorAll('.dot');
+    const prev   = document.getElementById('evt-prev');
+    const next   = document.getElementById('evt-next');
+    let current  = 0;
+
+    if (!slides.length) return;
+
+    const goTo = (idx) => {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (idx + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    };
+
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.idx)));
+})();
+
 // ── RSVP ─────────────────────────────────────────────────────
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTNMU9dRzZ-L9UUGjHScRDtGUorEqvTUQD54n_-1Mkg-uuGYmKQg/exec';
 
 const wishesContainer = document.getElementById('wishes-container');
-const wishesSection   = document.getElementById('wishes-section');
+const wishesSection = document.getElementById('wishes-section');
 
 const loadWishes = async () => {
     if (!SCRIPT_URL) return;
@@ -100,7 +123,7 @@ const loadWishes = async () => {
                             hour: '2-digit', minute: '2-digit'
                         });
                     }
-                } catch (e) {}
+                } catch (e) { }
 
                 const attendanceLabel = wish.Attendance === 'Hadir' ? 'Attending' : 'Not Attending';
                 wishEl.innerHTML = `
@@ -127,9 +150,9 @@ if (rsvpForm) {
         const btn = e.target.querySelector('button');
         const originalText = btn.innerText;
 
-        const name       = document.getElementById('name').value;
+        const name = document.getElementById('name').value;
         const attendance = document.getElementById('attendance').value;
-        const message    = document.getElementById('message').value;
+        const message = document.getElementById('message').value;
 
         if (!message.trim()) {
             alert('Please write your wishes & prayer first.');
@@ -137,7 +160,7 @@ if (rsvpForm) {
         }
 
         btn.innerText = 'Sending…';
-        btn.disabled  = true;
+        btn.disabled = true;
 
         const formData = new FormData();
         formData.append('Name', name);

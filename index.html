@@ -69,28 +69,41 @@
             </div>
         </section>
 
-        <!-- Events -->
+        <!-- Events Carousel -->
         <section id="events" class="section-dark">
             <div class="container reveal">
                 <h2>Event Details</h2>
-                <div class="grid-2">
-                    <div class="glass-card event-card text-center">
-                        <div class="icon">💍</div>
-                        <h3>Wedding Ceremony</h3>
-                        <p class="event-time">08:00 – 10:00 WIB</p>
-                        <p class="event-date">Sunday, August 23, 2026</p>
-                        <p class="event-location">Masjid Agung Al-Kautsar<br>Jl. Kenangan Indah No. 1, Jakarta</p>
-                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View Map</a>
+                <div class="event-carousel">
+                    <button class="carousel-arrow" id="evt-prev" aria-label="Previous">&#8592;</button>
+
+                    <div class="carousel-track">
+                        <!-- Card 1 -->
+                        <div class="glass-card event-card text-center carousel-slide active">
+                            <div class="icon">💍</div>
+                            <h3>Wedding Ceremony</h3>
+                            <p class="event-time">08:00 – 10:00 WIB</p>
+                            <p class="event-date">Sunday, August 23, 2026</p>
+                            <p class="event-location">Masjid Agung Al-Kautsar<br>Jl. Kenangan Indah No. 1, Jakarta</p>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View Map</a>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="glass-card event-card text-center carousel-slide">
+                            <div class="icon">🥂</div>
+                            <h3>Wedding Reception</h3>
+                            <p class="event-time">11:00 WIB – Finish</p>
+                            <p class="event-date">Sunday, August 23, 2026</p>
+                            <p class="event-location">Grand Ballroom Hotel Bintang Lima<br>Jl. Cinta Damai No. 99,
+                                Jakarta</p>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View Map</a>
+                        </div>
                     </div>
-                    <div class="glass-card event-card text-center">
-                        <div class="icon">🥂</div>
-                        <h3>Wedding Reception</h3>
-                        <p class="event-time">11:00 WIB – Finish</p>
-                        <p class="event-date">Sunday, August 23, 2026</p>
-                        <p class="event-location">Grand Ballroom Hotel Bintang Lima<br>Jl. Cinta Damai No. 99, Jakarta
-                        </p>
-                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View Map</a>
-                    </div>
+
+                    <button class="carousel-arrow" id="evt-next" aria-label="Next">&#8594;</button>
+                </div>
+                <!-- Dots -->
+                <div class="carousel-dots">
+                    <span class="dot active" data-idx="0"></span>
+                    <span class="dot" data-idx="1"></span>
                 </div>
             </div>
         </section>
