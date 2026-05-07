@@ -1,25 +1,53 @@
-// Intersection Observer for scroll animations
+// ── Open Invitation Gate ──────────────────────────────────────
+const openBtn = document.getElementById('open-invitation-btn');
+const mainContent = document.getElementById('main-content');
+const bgm = document.getElementById('bgm');
+
+openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    // Auto-play music (requires user gesture — this click satisfies it)
+    bgm.play().catch(() => {});
+
+    // Hide cover, reveal main content with smooth transition
+    document.getElementById('cover').classList.add('cover-exit');
+    setTimeout(() => {
+        document.getElementById('cover').style.display = 'none';
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('content-enter');
+
+        // Re-run scroll observer for newly visible elements
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Scroll to top of content
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 500);
+});
+
+// ── Intersection Observer for scroll animations ───────────────
 const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.15
+    threshold: 0.12
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.reveal').forEach((element) => {
-    observer.observe(element);
+// Observe only hero reveal on initial load
+document.querySelectorAll('#cover .reveal').forEach((el) => {
+    observer.observe(el);
 });
 
-// Countdown Timer Logic
-// Set target date to 23 Aug 2026
+// ── Countdown Timer ───────────────────────────────────────────
 const targetDate = new Date("Aug 23, 2026 08:00:00").getTime();
 
 const updateCountdown = () => {
@@ -27,58 +55,29 @@ const updateCountdown = () => {
     const distance = targetDate - now;
 
     if (distance < 0) {
-        document.getElementById("days").innerText = "00";
-        document.getElementById("hours").innerText = "00";
-        document.getElementById("minutes").innerText = "00";
-        document.getElementById("seconds").innerText = "00";
+        ['days','hours','minutes','seconds'].forEach(id =>
+            document.getElementById(id).innerText = '00'
+        );
         return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = days.toString().padStart(2, '0');
-    document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-    document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-    document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+    document.getElementById('days').innerText    = Math.floor(distance / 86400000).toString().padStart(2,'0');
+    document.getElementById('hours').innerText   = Math.floor((distance % 86400000) / 3600000).toString().padStart(2,'0');
+    document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2,'0');
+    document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2,'0');
 };
 
 setInterval(updateCountdown, 1000);
-updateCountdown(); // initial call
+updateCountdown();
 
-// Music Control
-const bgm = document.getElementById('bgm');
-const musicBtn = document.getElementById('music-btn');
-let isPlaying = false;
-
-musicBtn.addEventListener('click', () => {
-    if (isPlaying) {
-        bgm.pause();
-        musicBtn.innerHTML = '🎵 Putar Musik';
-    } else {
-        bgm.play();
-        musicBtn.innerHTML = '⏸ Jeda Musik';
-    }
-    isPlaying = !isPlaying;
-});
-
-// Handle RSVP Form Submission
-const rsvpForm = document.getElementById('rsvp-form');
-const wishesContainer = document.getElementById('wishes-container');
-const wishesSection = document.getElementById('wishes-section');
-
-// TODO: Masukkan URL Web App Google Apps Script Anda di dalam tanda kutip di bawah ini
+// ── RSVP ─────────────────────────────────────────────────────
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTNMU9dRzZ-L9UUGjHScRDtGUorEqvTUQD54n_-1Mkg-uuGYmKQg/exec';
 
-// Load existing wishes from Google Sheets
-const loadWishes = async () => {
-    if (!SCRIPT_URL) {
-        console.warn("URL Google Apps Script belum ditambahkan.");
-        return;
-    }
+const wishesContainer = document.getElementById('wishes-container');
+const wishesSection   = document.getElementById('wishes-section');
 
+const loadWishes = async () => {
+    if (!SCRIPT_URL) return;
     try {
         const response = await fetch(SCRIPT_URL);
         const data = await response.json();
@@ -87,23 +86,25 @@ const loadWishes = async () => {
             wishesSection.style.display = 'block';
             wishesContainer.innerHTML = '';
 
-            // Balik urutan agar ucapan terbaru berada di atas
             data.reverse().forEach(wish => {
                 const badgeClass = wish.Attendance === 'Hadir' ? 'hadir' : 'tidak-hadir';
                 const wishEl = document.createElement('div');
                 wishEl.className = 'wish-item';
 
-                // Format tanggal menjadi tulisan yang mudah dibaca
                 let displayDate = wish.Timestamp;
                 try {
                     const d = new Date(wish.Timestamp);
                     if (!isNaN(d)) {
-                        displayDate = d.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                        displayDate = d.toLocaleDateString('en-GB', {
+                            year: 'numeric', month: 'long', day: 'numeric',
+                            hour: '2-digit', minute: '2-digit'
+                        });
                     }
-                } catch (e) { }
+                } catch (e) {}
 
+                const attendanceLabel = wish.Attendance === 'Hadir' ? 'Attending' : 'Not Attending';
                 wishEl.innerHTML = `
-                    <h4>${wish.Name} <span class="badge ${badgeClass}">${wish.Attendance}</span></h4>
+                    <h4>${wish.Name} <span class="badge ${badgeClass}">${attendanceLabel}</span></h4>
                     <span class="date">${displayDate}</span>
                     <p>${wish.Message}</p>
                 `;
@@ -111,81 +112,67 @@ const loadWishes = async () => {
             });
         }
     } catch (error) {
-        console.error('Ada masalah saat memuat ucapan:', error);
+        console.error('Could not load wishes:', error);
     }
 };
 
-// Initialize wishes
-if (wishesContainer && wishesSection) {
-    loadWishes();
-}
+if (wishesContainer && wishesSection) loadWishes();
+
+const rsvpForm = document.getElementById('rsvp-form');
 
 if (rsvpForm) {
     rsvpForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        if (!SCRIPT_URL) {
-            alert("Sistem belum siap: URL Google Apps Script belum diatur pada script.js");
-            return;
-        }
-
         const btn = e.target.querySelector('button');
         const originalText = btn.innerText;
 
-        const name = document.getElementById('name').value;
+        const name       = document.getElementById('name').value;
         const attendance = document.getElementById('attendance').value;
-        const message = document.getElementById('message').value;
+        const message    = document.getElementById('message').value;
 
         if (!message.trim()) {
-            alert("Silakan isi ucapan & doa terlebih dahulu.");
+            alert('Please write your wishes & prayer first.');
             return;
         }
 
-        btn.innerText = "Mengirim...";
-        btn.disabled = true;
+        btn.innerText = 'Sending…';
+        btn.disabled  = true;
 
-        // Persiapkan data yang akan dikirim ke Spreadsheet
         const formData = new FormData();
         formData.append('Name', name);
         formData.append('Attendance', attendance);
         formData.append('Message', message);
 
         try {
-            // Kirim data ke Google Apps Script
-            const response = await fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: formData
-            });
+            const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
 
             if (response.ok) {
-                btn.innerText = "RSVP Terkirim! 🎉";
-                btn.style.background = "#4CAF50";
-                btn.style.color = "#fff";
+                btn.innerText = 'RSVP Sent! 🎉';
+                btn.style.background = '#4CAF50';
+                btn.style.color = '#fff';
                 e.target.reset();
-
-                // Muat ulang daftar ucapan dari server
                 loadWishes();
 
-                // Kembalikan tombol ke bentuk semula setelah 3 detik
                 setTimeout(() => {
                     btn.innerText = originalText;
-                    btn.style.background = "";
-                    btn.style.color = "";
+                    btn.style.background = '';
+                    btn.style.color = '';
                     btn.disabled = false;
                 }, 3000);
             } else {
-                throw new Error("Respon server tidak valid.");
+                throw new Error('Server error');
             }
         } catch (error) {
             console.error('Error:', error);
-            btn.innerText = "Gagal Mengirim";
-            btn.style.background = "#f44336";
-            btn.style.color = "#fff";
+            btn.innerText = 'Failed to Send';
+            btn.style.background = '#f44336';
+            btn.style.color = '#fff';
 
             setTimeout(() => {
                 btn.innerText = originalText;
-                btn.style.background = "";
-                btn.style.color = "";
+                btn.style.background = '';
+                btn.style.color = '';
                 btn.disabled = false;
             }, 3000);
         }
