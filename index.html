@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Robbi & Lugas</title>
+    <title>The Wedding of Robbi &amp; Lugas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -17,129 +17,186 @@
     <audio id="bgm" loop>
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
-    <button id="music-btn" class="floating-btn">🎵 Putar Musik</button>
 
-    <header class="hero">
+    <!-- ══════════════ COVER (always visible) ══════════════ -->
+    <header class="hero" id="cover">
         <div class="hero-content reveal">
             <p class="subtitle">THE WEDDING OF</p>
-            <h1>Robbi & Lugas</h1>
-            <p class="date">23 Agustus 2026</p>
-            <a href="#couple" class="scroll-down">Buka Undangan ⬇</a>
+            <h1>Robbi &amp; Lugas</h1>
+            <p class="date">August 23, 2026</p>
+            <a href="#" id="open-invitation-btn" class="btn btn-gold open-btn">Open Invitation ✉</a>
         </div>
     </header>
 
-    <section id="couple" class="section-dark">
-        <div class="container reveal">
-            <h2>Sang Mempelai</h2>
-            <div class="couple-grid">
-                <div class="glass-card profile-card">
-                    <img src="https://images.unsplash.com/photo-1549416878-b9ca95e26903?auto=format&fit=crop&w=400&q=80"
-                        alt="Groom" class="avatar">
-                    <h3>Romeo Montague</h3>
-                    <p>Putra dari Keluarga Bpk. Montague & Ibu Montague</p>
-                    <a href="#" class="ig-link">@romeo_m</a>
-                </div>
-                <div class="glass-card profile-card">
-                    <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400&q=80"
-                        alt="Bride" class="avatar">
-                    <h3>Juliet Capulet</h3>
-                    <p>Putri dari Keluarga Bpk. Capulet & Ibu Capulet</p>
-                    <a href="#" class="ig-link">@juliet_c</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ══════════════ MAIN CONTENT (hidden until button clicked) ══════════════ -->
+    <main id="main-content" class="hidden">
 
-    <section id="countdown" class="section-bg image-bg">
-        <div class="container glass-card text-center reveal">
-            <h2>Menuju Hari Bahagia</h2>
-            <p>Kami sangat menantikan kehadiran Bapak/Ibu/Saudara/i untuk melengkapi kebahagiaan kami.</p>
-            <div class="timer-wrap">
-                <div class="time-box"><span id="days">00</span>Hari</div>
-                <div class="time-box"><span id="hours">00</span>Jam</div>
-                <div class="time-box"><span id="minutes">00</span>Menit</div>
-                <div class="time-box"><span id="seconds">00</span>Detik</div>
-            </div>
-            <a href="#events" class="btn btn-gold">Lihat Detail Acara</a>
-        </div>
-    </section>
-
-    <section id="events" class="section-dark">
-        <div class="container reveal">
-            <h2>Detail Acara</h2>
-            <div class="grid-2">
-                <div class="glass-card event-card text-center">
-                    <div class="icon">💍</div>
-                    <h3>Akad Nikah</h3>
-                    <p class="event-time">08:00 WIB - 10:00 WIB</p>
-                    <p class="event-date">Minggu, 23 Agustus 2026</p>
-                    <p class="event-location">Masjid Agung Al-Kautsar<br>Jl. Kenangan Indah No. 1, Jakarta</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Lihat Peta</a>
-                </div>
-                <div class="glass-card event-card text-center">
-                    <div class="icon">🥂</div>
-                    <h3>Resepsi</h3>
-                    <p class="event-time">11:00 WIB - Selesai</p>
-                    <p class="event-date">Minggu, 23 Agustus 2026</p>
-                    <p class="event-location">Grand Ballroom Hotel Bintang Lima<br>Jl. Cinta Damai No. 99, Jakarta</p>
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Lihat Peta</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="section-bg image-bg2">
-        <div class="container text-center reveal">
-            <h2>Galeri Cinta</h2>
-            <div class="gallery-grid">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80"
-                    alt="Gallery 1" class="gallery-img">
-                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80"
-                    alt="Gallery 2" class="gallery-img">
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80"
-                    alt="Gallery 3" class="gallery-img">
-                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80"
-                    alt="Gallery 4" class="gallery-img">
-            </div>
-        </div>
-    </section>
-
-    <section id="rsvp" class="section-dark">
-        <div class="container reveal">
-            <div class="glass-card">
-                <h2 class="text-center">Konfirmasi Kehadiran</h2>
-                <form id="rsvp-form" class="rsvp-form">
-                    <div class="form-group">
-                        <label for="name">Nama Lengkap</label>
-                        <input type="text" id="name" required>
+        <!-- The Couple -->
+        <section id="couple" class="section-dark">
+            <div class="container reveal">
+                <h2>The Couple</h2>
+                <div class="couple-grid">
+                    <div class="glass-card profile-card">
+                        <img src="https://images.unsplash.com/photo-1549416878-b9ca95e26903?auto=format&fit=crop&w=400&q=80"
+                            alt="Groom" class="avatar">
+                        <h3>Romeo Montague</h3>
+                        <p>Son of Mr. &amp; Mrs. Montague</p>
+                        <a href="#" class="ig-link">@romeo_m</a>
                     </div>
-                    <div class="form-group">
-                        <label for="attendance">Kehadiran</label>
-                        <select id="attendance" required>
-                            <option value="Hadir">Ya, saya hadir</option>
-                            <option value="Tidak Hadir">Sistem, tidak hadir</option>
-                        </select>
+                    <div class="glass-card profile-card">
+                        <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=400&q=80"
+                            alt="Bride" class="avatar">
+                        <h3>Juliet Capulet</h3>
+                        <p>Daughter of Mr. &amp; Mrs. Capulet</p>
+                        <a href="#" class="ig-link">@juliet_c</a>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Ucapan</label>
-                        <textarea id="message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-gold btn-block">Kirim RSVP</button>
-                </form>
-            </div>
-
-            <div class="glass-card mt-30" id="wishes-section" style="display: none;">
-                <h3 class="text-center" style="color: var(--gold); margin-bottom: 20px;">Ucapan & Doa</h3>
-                <div id="wishes-container" class="wishes-container">
-                    <!-- Messages will be injected here -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>The Wedding of Robbi & Lugas</p>
-    </footer>
+        <!-- Countdown -->
+        <section id="countdown" class="section-alt">
+            <div class="container glass-card text-center reveal">
+                <h2>Counting Down to Our Day</h2>
+                <p class="section-lead">We warmly look forward to your presence to complete our joy.</p>
+                <div class="timer-wrap">
+                    <div class="time-box"><span id="days">00</span>Days</div>
+                    <div class="time-box"><span id="hours">00</span>Hours</div>
+                    <div class="time-box"><span id="minutes">00</span>Minutes</div>
+                    <div class="time-box"><span id="seconds">00</span>Seconds</div>
+                </div>
+                <a href="#events" class="btn btn-gold">View Event Details</a>
+            </div>
+        </section>
+
+        <!-- Events Carousel -->
+        <section id="events" class="section-dark">
+            <div class="container reveal">
+                <h2>Event Details</h2>
+                <div class="event-carousel">
+                    <button class="carousel-arrow" id="evt-prev" aria-label="Previous">&#8592;</button>
+
+                    <div class="carousel-track">
+                        <!-- Card 1 -->
+                        <div class="glass-card event-card text-center carousel-slide active">
+                            <div class="icon">💍</div>
+                            <h3>Wedding Ceremony</h3>
+                            <p class="event-time">08:00 – 10:00 WIB</p>
+                            <p class="event-date">Sunday, August 23, 2026</p>
+                            <p class="event-location">Masjid Agung Al-Kautsar<br>Jl. Kenangan Indah No. 1, Jakarta</p>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View Map</a>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="glass-card event-card text-center carousel-slide">
+                            <div class="icon">🥂</div>
+                            <h3>Wedding Reception</h3>
+                            <p class="event-time">11:00 WIB – Finish</p>
+                            <p class="event-date">Sunday, August 23, 2026</p>
+                            <p class="event-location">Grand Ballroom Hotel Bintang Lima<br>Jl. Cinta Damai No. 99,
+                                Jakarta</p>
+                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline">View Map</a>
+                        </div>
+                    </div>
+
+                    <button class="carousel-arrow" id="evt-next" aria-label="Next">&#8594;</button>
+                </div>
+                <!-- Dots -->
+                <div class="carousel-dots">
+                    <span class="dot active" data-idx="0"></span>
+                    <span class="dot" data-idx="1"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery" class="section-alt">
+            <div class="container text-center reveal">
+                <h2>Love Gallery</h2>
+                <div class="gallery-grid">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 1" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 2" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 3" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 4" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 5" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 6" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 7" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 8" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 9" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 10" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1550005809-91ad75fb315f?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 11" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=400&q=80"
+                        alt="Gallery 12" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram -->
+        <!---<section id="instagram" class="section-dark">
+            <div class="container text-center reveal">
+                <h2>Our Moment</h2>
+                <p class="section-lead">Follow our journey on Instagram</p>
+                <div class="ig-embed-wrap">
+                    <blockquote class="instagram-media"
+                        data-instgrm-permalink="https://www.instagram.com/reel/DYApIASJMp4/?igsh=MXIzaHd5ejd5cnpwaQ=="
+                        data-instgrm-version="14" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);border-radius:16px;
+                               max-width:100%;min-width:280px;width:100%;padding:0;margin:0 auto;">
+                    </blockquote>
+                    <iframe src="https://www.instagram.com/reel/DYApIASJMp4/?igsh=MXIzaHd5ejd5cnpwaQ=="></iframe>
+                    <script async defer src="https://www.instagram.com/embed.js"></script>
+                </div>
+            </div>
+        </section>--->
+
+        <!-- RSVP -->
+        <section id="rsvp" class="section-dark">
+            <div class="container reveal">
+                <div class="glass-card">
+                    <h2 class="text-center">RSVP</h2>
+                    <form id="rsvp-form" class="rsvp-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="attendance">Attendance</label>
+                            <select id="attendance" required>
+                                <option value="Hadir">Yes, I will attend</option>
+                                <option value="Tidak Hadir">Sorry, I cannot attend</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Wishes &amp; Prayer</label>
+                            <textarea id="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold btn-block">Send RSVP</button>
+                    </form>
+                </div>
+
+                <div class="glass-card mt-30" id="wishes-section" style="display: none;">
+                    <h3 class="text-center" style="color: var(--gold); margin-bottom: 20px;">Wishes &amp; Prayers</h3>
+                    <div id="wishes-container" class="wishes-container">
+                        <!-- Messages will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>The Wedding of Robbi &amp; Lugas</p>
+        </footer>
+
+    </main><!-- /#main-content -->
 
     <script src="script.js"></script>
 </body>
