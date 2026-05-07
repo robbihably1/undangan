@@ -21,6 +21,24 @@ openBtn.addEventListener('click', (e) => {
             observer.observe(el);
         });
 
+        // Trigger Instagram embed processing with retry mechanism
+        const processEmbeds = () => {
+            if (window.instgrm && window.instgrm.Embeds) {
+                window.instgrm.Embeds.process();
+            } else {
+                // If script not loaded yet, retry a few times
+                let retries = 0;
+                const interval = setInterval(() => {
+                    if (window.instgrm && window.instgrm.Embeds) {
+                        window.instgrm.Embeds.process();
+                        clearInterval(interval);
+                    }
+                    if (++retries > 10) clearInterval(interval);
+                }, 500);
+            }
+        };
+        processEmbeds();
+
         // Scroll to top of content
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 500);

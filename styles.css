@@ -5,8 +5,8 @@
 }
 
 :root {
-    --gold: #c9a84c;
-    --gold-light: #e0c97a;
+    --gold: #c0c0c0;
+    --gold-light: #e0e0e0;
     --dark: #000000;
     --dark-alt: #0d0d0d;
     --card-bg: rgba(255, 255, 255, 0.06);
@@ -98,7 +98,7 @@ h3,
     font-size: 4rem;
     color: var(--text);
     margin-bottom: 12px;
-    text-shadow: 0 4px 20px rgba(201, 168, 76, 0.35);
+    text-shadow: 0 4px 20px rgba(192, 192, 192, 0.35);
 }
 
 .date {
@@ -113,7 +113,7 @@ h3,
     font-size: 1rem;
     padding: 14px 36px;
     letter-spacing: 1px;
-    box-shadow: 0 0 25px rgba(201, 168, 76, 0.3);
+    box-shadow: 0 0 25px rgba(192, 192, 192, 0.3);
     animation: glowPulse 2.5s ease-in-out infinite;
 }
 
@@ -121,11 +121,11 @@ h3,
 
     0%,
     100% {
-        box-shadow: 0 0 18px rgba(201, 168, 76, 0.25);
+        box-shadow: 0 0 18px rgba(192, 192, 192, 0.25);
     }
 
     50% {
-        box-shadow: 0 0 35px rgba(201, 168, 76, 0.55);
+        box-shadow: 0 0 35px rgba(192, 192, 192, 0.55);
     }
 }
 
@@ -318,7 +318,7 @@ h2 {
 
 .btn-gold:hover {
     background: var(--gold-light);
-    box-shadow: 0 0 18px rgba(201, 168, 76, 0.5);
+    box-shadow: 0 0 18px rgba(192, 192, 192, 0.5);
 }
 
 .btn-outline {
@@ -388,7 +388,7 @@ h2 {
 .carousel-arrow:hover {
     background: var(--gold);
     color: #000;
-    box-shadow: 0 0 12px rgba(201,168,76,0.4);
+    box-shadow: 0 0 12px rgba(192,192,192,0.4);
 }
 
 .carousel-dots {
@@ -444,23 +444,39 @@ h2 {
    ═════════════════════════════════════════════ */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
     margin-top: 8px;
 }
 
 .gallery-img {
     width: 100%;
-    height: 155px;
+    height: 110px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
 }
 
 .gallery-img:hover {
     transform: scale(1.04);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* ══════════════════════════════════════════════
+   INSTAGRAM EMBED
+   ═════════════════════════════════════════════ */
+.ig-embed-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+/* Override Instagram's iframe border/background */
+.ig-embed-wrap iframe {
+    border-radius: 16px !important;
+    background: #1a1a1a !important;
 }
 
 /* ══════════════════════════════════════════════
