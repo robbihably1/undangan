@@ -8,7 +8,8 @@
 .video-section {
     position: relative;
     width: 100%;
-    aspect-ratio: 9 / 16; /* Strictly maintains phone proportion */
+    aspect-ratio: 9 / 16;
+    /* Strictly maintains phone proportion */
     background-color: #000;
     overflow: hidden;
     display: flex;
@@ -19,15 +20,17 @@
 
 @supports not (aspect-ratio: 9 / 16) {
     .video-section {
-        height: 764px; /* Fallback for 430px width */
+        height: 764px;
+        /* Fallback for 430px width */
     }
 }
 
 .tiktok-video {
     width: 100%;
-    height: 100%;
+    height: 85%;
     object-fit: cover;
     cursor: pointer;
+    aspect-ratio: 9 / 16;
 }
 
 .play-icon {
@@ -47,13 +50,27 @@
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
-    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    to { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
 }
 
 /* UI Overlay */
@@ -63,15 +80,16 @@
     left: 0;
     width: 100%;
     height: auto;
-    pointer-events: none; 
+    pointer-events: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     padding: 20px 15px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     z-index: 5;
-    padding-bottom: 80px; /* Leave space for potential bottom navigation */
+    padding-bottom: 80px;
+    /* Leave space for potential bottom navigation */
 }
 
 /* Bottom Info */
@@ -80,7 +98,8 @@
     color: white;
     padding-right: 20px;
     pointer-events: auto;
-    min-width: 0; /* Prevents flex child from overflowing */
+    min-width: 0;
+    /* Prevents flex child from overflowing */
 }
 
 .video-info .username {
@@ -89,14 +108,14 @@
     margin-bottom: 6px;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .video-info .description {
     font-size: 0.8rem;
     margin-bottom: 10px;
     line-height: 1.4;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .music-info {
@@ -118,7 +137,7 @@
 
 .music-title {
     width: 70%;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Right Action Buttons */
@@ -127,7 +146,7 @@
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    pointer-events: auto; 
+    pointer-events: auto;
     padding-bottom: 10px;
     flex-shrink: 0;
     width: 50px;
@@ -157,7 +176,7 @@
     font-size: 0.75rem;
     font-weight: 600;
     margin-top: 2px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Profile */
@@ -179,7 +198,7 @@
     bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #ff2b55; 
+    background-color: #ff2b55;
     color: white;
     width: 18px;
     height: 18px;
@@ -188,7 +207,7 @@
     justify-content: center;
     align-items: center;
     font-size: 0.65rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Audio disc */
@@ -201,14 +220,15 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
-    border: 8px solid #2e2e2e; 
+    border: 8px solid #2e2e2e;
     animation: spin 5s linear infinite;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     /* Anti-wobble fixes */
     transform-origin: center;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transform: translateZ(0); /* Hardware acceleration */
+    transform: translateZ(0);
+    /* Hardware acceleration */
 }
 
 .video-section.paused .audio-disc img,
@@ -217,8 +237,13 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg) translateZ(0); }
-    100% { transform: rotate(360deg) translateZ(0); }
+    0% {
+        transform: rotate(0deg) translateZ(0);
+    }
+
+    100% {
+        transform: rotate(360deg) translateZ(0);
+    }
 }
 
 /* Active states */
@@ -233,9 +258,17 @@
 }
 
 @keyframes pop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.4); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Heart Animation Overlay (double click) */
@@ -247,15 +280,34 @@
     transform: translate(-50%, -50%) scale(0);
     animation: heartPop 0.8s ease-out forwards;
     z-index: 20;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes heartPop {
-    0% { transform: translate(-50%, -50%) scale(0) rotate(-15deg); opacity: 1; }
-    20% { transform: translate(-50%, -50%) scale(1.2) rotate(10deg); opacity: 1; }
-    40% { transform: translate(-50%, -50%) scale(1) rotate(-5deg); opacity: 1; }
-    80% { transform: translate(-50%, -80%) scale(1) rotate(0deg); opacity: 0.8; }
-    100% { transform: translate(-50%, -100%) scale(1.5) rotate(5deg); opacity: 0; }
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(-15deg);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(1) rotate(-5deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(-50%, -80%) scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -100%) scale(1.5) rotate(5deg);
+        opacity: 0;
+    }
 }
 
 /* Comments Popup */
@@ -308,7 +360,8 @@
     flex: 1;
     overflow-y: auto;
     padding: 15px 20px;
-    padding-bottom: 80px; /* Space for input */
+    padding-bottom: 80px;
+    /* Space for input */
 }
 
 .comment-item {
@@ -375,7 +428,8 @@
 
 .comment-like.active i {
     color: #ff2b55;
-    font-weight: 900; /* Solid heart */
+    font-weight: 900;
+    /* Solid heart */
 }
 
 /* Add Comment Input */
