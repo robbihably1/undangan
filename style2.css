@@ -84,17 +84,17 @@
 }
 
 .video-info .username {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 .video-info .description {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
     line-height: 1.4;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
@@ -102,12 +102,18 @@
 .music-info {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .music-info i {
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
     animation: spin 4s linear infinite;
+    transform-origin: center;
 }
 
 .music-title {
@@ -198,6 +204,11 @@
     border: 8px solid #2e2e2e; 
     animation: spin 5s linear infinite;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    /* Anti-wobble fixes */
+    transform-origin: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0); /* Hardware acceleration */
 }
 
 .video-section.paused .audio-disc img,
@@ -206,7 +217,8 @@
 }
 
 @keyframes spin {
-    100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg) translateZ(0); }
+    100% { transform: rotate(360deg) translateZ(0); }
 }
 
 /* Active states */
