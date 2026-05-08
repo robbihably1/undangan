@@ -125,9 +125,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Comment button click (dummy)
+    const commentsPopup = videoSection.querySelector('.comments-popup');
+    const closeCommentsBtn = videoSection.querySelector('.close-comments-btn');
+
+    // Comment button click
     commentBtn.addEventListener('click', () => {
-        alert('Comment section opening...');
+        commentsPopup.classList.add('show');
+    });
+
+    // Close comments popup
+    closeCommentsBtn.addEventListener('click', () => {
+        commentsPopup.classList.remove('show');
+    });
+
+    // Comment likes toggle
+    const commentLikes = videoSection.querySelectorAll('.comment-like');
+    commentLikes.forEach(like => {
+        like.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            const countSpan = this.querySelector('span');
+            let countStr = countSpan.innerText;
+            
+            // Parse K to actual number for calculation
+            let multiplier = 1;
+            if (countStr.includes('K')) {
+                multiplier = 1000;
+                countStr = countStr.replace('K', '');
+            }
+            let count = parseFloat(countStr) * multiplier;
+
+            this.classList.toggle('active');
+            if (this.classList.contains('active')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                count++;
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                count--;
+            }
+            countSpan.innerText = formatNumber(count);
+        });
     });
 
     // Follow button click
