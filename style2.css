@@ -1,0 +1,399 @@
+/* style2.css - TikTok Layout Styles */
+
+#tiktok {
+    padding: 0;
+    width: 100%;
+}
+
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Make it full viewport height or match phone screen */
+    max-height: 850px;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tiktok-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: 10;
+    animation: fadeOut 0.5s forwards;
+}
+
+.play-icon.show {
+    animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    to { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+/* UI Overlay */
+.video-ui {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    z-index: 5;
+    padding-bottom: 80px; /* Leave space for potential bottom navigation */
+}
+
+/* Bottom Info */
+.video-info {
+    flex: 1;
+    color: white;
+    padding-right: 20px;
+    pointer-events: auto;
+}
+
+.video-info .username {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.video-info .description {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+.music-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.music-info i {
+    margin-right: 10px;
+    animation: spin 4s linear infinite;
+}
+
+.music-title {
+    width: 70%;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Right Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    pointer-events: auto; 
+    padding-bottom: 10px;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-item:hover {
+    transform: scale(1.1);
+}
+
+.action-item .icon {
+    font-size: 2.2rem;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+    transition: color 0.3s;
+}
+
+.action-item .count {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 4px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Profile */
+.action-item.profile {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.action-item.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.follow-btn {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff2b55; 
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Audio disc */
+.action-item.audio-disc {
+    margin-top: 15px;
+}
+
+.action-item.audio-disc img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 10px solid #2e2e2e; 
+    animation: spin 5s linear infinite;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.video-section.paused .audio-disc img,
+.video-section.paused .music-info i {
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Active states */
+.action-item.like-btn.active .icon {
+    color: #ff2b55;
+    animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-item.fav-btn.active .icon {
+    color: #fce83a;
+    animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+    100% { transform: scale(1); }
+}
+
+/* Heart Animation Overlay (double click) */
+.heart-animation {
+    position: absolute;
+    color: #ff2b55;
+    font-size: 6rem;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0);
+    animation: heartPop 0.8s ease-out forwards;
+    z-index: 20;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+@keyframes heartPop {
+    0% { transform: translate(-50%, -50%) scale(0) rotate(-15deg); opacity: 1; }
+    20% { transform: translate(-50%, -50%) scale(1.2) rotate(10deg); opacity: 1; }
+    40% { transform: translate(-50%, -50%) scale(1) rotate(-5deg); opacity: 1; }
+    80% { transform: translate(-50%, -80%) scale(1) rotate(0deg); opacity: 0.8; }
+    100% { transform: translate(-50%, -100%) scale(1.5) rotate(5deg); opacity: 0; }
+}
+
+/* Comments Popup */
+.comments-popup {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1);
+    z-index: 50;
+    pointer-events: auto;
+}
+
+.comments-popup.show {
+    transform: translateY(0);
+}
+
+.comments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.comments-header h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+}
+
+.close-comments-btn {
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.comments-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 20px;
+    padding-bottom: 80px; /* Space for input */
+}
+
+.comment-item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.comment-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+.comment-content {
+    flex: 1;
+    color: #333;
+}
+
+.comment-user {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.comment-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 6px;
+}
+
+.comment-actions {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.comment-time {
+    margin-right: 12px;
+}
+
+.comment-reply {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.comment-like {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.comment-like span {
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+.comment-like.active i {
+    color: #ff2b55;
+    font-weight: 900; /* Solid heart */
+}
+
+/* Add Comment Input */
+.add-comment {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.my-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-input {
+    flex: 1;
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.send-comment-btn {
+    background: none;
+    border: none;
+    color: #ff2b55;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
