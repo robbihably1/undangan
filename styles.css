@@ -182,7 +182,7 @@ h3,
 }
 
 h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: var(--gold);
     margin-bottom: 28px;
     text-align: center;
@@ -234,27 +234,30 @@ h2 {
     color: var(--gold);
     margin-bottom: 40px;
     text-transform: uppercase;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .holy-quote {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.65rem;
     font-style: italic;
-    font-weight: 600; /* Makes it bolder */
+    font-weight: 600;
+    /* Makes it bolder */
     color: #ffffff;
     line-height: 1.7;
     margin: 0 auto;
     position: relative;
     max-width: 90%;
-    text-shadow: 0 2px 8px rgba(255,255,255,0.15); /* Subtle glow for thickness */
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+    /* Subtle glow for thickness */
 }
 
 /* Aesthetic large quotation marks */
 .holy-quote::before,
 .holy-quote::after {
     font-family: 'Cormorant Garamond', serif;
-    color: rgba(192, 192, 192, 0.2); /* Faded gold/silver */
+    color: rgba(192, 192, 192, 0.2);
+    /* Faded gold/silver */
     font-size: 4.5rem;
     position: absolute;
     line-height: 1;
@@ -277,7 +280,7 @@ h2 {
     height: 2px;
     background: var(--gold);
     margin: 45px auto 35px;
-    box-shadow: 0 0 10px rgba(192,192,192,0.4);
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.4);
 }
 
 .quote-blessing {
@@ -296,7 +299,8 @@ h2 {
    ═════════════════════════════════════════════ */
 .couple-grid {
     display: flex;
-    flex-direction: column; /* Stack as 2 precise sections */
+    flex-direction: column;
+    /* Stack as 2 precise sections */
     gap: 24px;
     justify-content: center;
     position: relative;
@@ -308,7 +312,8 @@ h2 {
     content: '&';
     position: absolute;
     top: 50%;
-    left: 80%; /* Placed on the right side */
+    left: 80%;
+    /* Placed on the right side */
     transform: translate(-50%, -50%);
     font-family: 'Cormorant Garamond', serif;
     font-size: 8rem;
@@ -328,7 +333,7 @@ h2 {
     overflow: hidden;
     background: transparent !important;
     border: none !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease;
     z-index: 2;
 }
@@ -340,12 +345,13 @@ h2 {
 
 .profile-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
 }
 
 .avatar {
     width: 100%;
-    height: 450px; /* Made much taller/elongated downwards */
+    height: 450px;
+    /* Made much taller/elongated downwards */
     object-fit: cover;
     display: block;
     border-radius: 16px;
@@ -366,7 +372,7 @@ h2 {
     left: 0;
     width: 100%;
     height: 70%;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     border-radius: 0 0 16px 16px;
     z-index: 1;
@@ -388,7 +394,7 @@ h2 {
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .profile-card p {
@@ -398,7 +404,7 @@ h2 {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .profile-card .ig-link {
@@ -406,7 +412,7 @@ h2 {
     font-size: 0.75rem;
     color: #fff;
     padding: 6px 16px;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     text-decoration: none;
     backdrop-filter: blur(5px);
@@ -419,7 +425,7 @@ h2 {
     background: var(--gold);
     color: #000;
     border-color: var(--gold);
-    box-shadow: 0 0 10px rgba(192,192,192,0.3);
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
 }
 
 /* ══════════════════════════════════════════════
@@ -430,7 +436,8 @@ h2 {
     gap: 16px;
     justify-content: center;
     margin: 32px 0 40px;
-    flex-wrap: nowrap; /* Keep them in line if possible */
+    flex-wrap: nowrap;
+    /* Keep them in line if possible */
 }
 
 .time-box {
@@ -545,6 +552,7 @@ h2 {
         opacity: 0;
         transform: scale(0.95) translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -609,6 +617,7 @@ h2 {
     font-size: 2.5rem;
     color: var(--gold);
     margin-bottom: 15px;
+    margin-top: -15px;
     filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.3));
 }
 
@@ -626,14 +635,16 @@ h2 {
     opacity: 0.6;
 }
 
-.event-date, .event-time {
+.event-date,
+.event-time {
     font-size: 0.95rem;
     color: #fff;
     margin-bottom: 10px;
     font-weight: 500;
 }
 
-.event-date i, .event-time i {
+.event-date i,
+.event-time i {
     color: var(--gold);
     margin-right: 8px;
     width: 16px;
@@ -889,8 +900,13 @@ footer p {
 }
 
 @keyframes fadeInModal {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .modal-content {
@@ -913,8 +929,15 @@ footer p {
 }
 
 @keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .close-modal {
