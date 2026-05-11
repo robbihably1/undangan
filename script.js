@@ -220,3 +220,48 @@ if (rsvpForm) {
         }
     });
 }
+
+// ── Gallery Modal (Lightbox) ─────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryModal = document.getElementById('gallery-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    const closeModalBtn = document.querySelector('.close-modal');
+    const galleryImages = document.querySelectorAll('.gallery-img');
+
+    if (galleryModal && modalImg && closeModalBtn) {
+        // Open modal on image click
+        galleryImages.forEach(img => {
+            img.addEventListener('click', function() {
+                galleryModal.style.display = 'flex';
+                modalImg.src = this.src;
+                // Use the alt text as the caption
+                modalCaption.innerText = this.alt;
+                // Prevent scrolling on body when modal is open
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close modal on close button click
+        closeModalBtn.addEventListener('click', function() {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside the image
+        galleryModal.addEventListener('click', function(e) {
+            if (e.target === galleryModal) {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && galleryModal.style.display === 'flex') {
+                galleryModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});
