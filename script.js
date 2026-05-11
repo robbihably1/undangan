@@ -73,16 +73,17 @@ const updateCountdown = () => {
     const distance = targetDate - now;
 
     if (distance < 0) {
-        ['days', 'hours', 'minutes', 'seconds'].forEach(id =>
-            document.getElementById(id).innerText = '00'
-        );
+        ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.innerText = '00';
+        });
         return;
     }
 
-    document.getElementById('days').innerText = Math.floor(distance / 86400000).toString().padStart(2, '0');
-    document.getElementById('hours').innerText = Math.floor((distance % 86400000) / 3600000).toString().padStart(2, '0');
-    document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2, '0');
-    document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2, '0');
+    if (document.getElementById('days')) document.getElementById('days').innerText = Math.floor(distance / 86400000).toString().padStart(2, '0');
+    if (document.getElementById('hours')) document.getElementById('hours').innerText = Math.floor((distance % 86400000) / 3600000).toString().padStart(2, '0');
+    if (document.getElementById('minutes')) document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2, '0');
+    if (document.getElementById('seconds')) document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2, '0');
 };
 
 setInterval(updateCountdown, 1000);
