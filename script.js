@@ -2,6 +2,19 @@
 const openBtn = document.getElementById('open-invitation-btn');
 const mainContent = document.getElementById('main-content');
 const bgm = document.getElementById('bgm');
+const heroGreeting = document.querySelector('.hero-greeting');
+
+const setHeroGreeting = () => {
+    const params = new URLSearchParams(window.location.search);
+    const guestName = params.get('to');
+
+    if (guestName && heroGreeting) {
+        heroGreeting.textContent = `Dear ${decodeURIComponent(guestName.replace(/\+/g, ' '))}`;
+        heroGreeting.style.display = 'block';
+    }
+};
+
+setHeroGreeting();
 
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
