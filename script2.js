@@ -115,8 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return params.get(key) || '';
     };
 
+    const normalizeUrlPath = (urlObj) => {
+        // Keep file:// URLs unchanged, because local file paths do not reliably resolve
+        // folder URLs to index.html in all browsers.
+        if (urlObj.protocol === 'file:') {
+            return urlObj;
+        }
+
+        if (urlObj.pathname.endsWith('/index.html')) {
+            urlObj.pathname = urlObj.pathname.slice(0, -'index.html'.length);
+        }
+        return urlObj;
+    };
+
     const buildShareUrl = (guestName = '') => {
-        const shareUrl = new URL(window.location.href);
+        const shareUrl = normalizeUrlPath(new URL(window.location.href));
         if (guestName) {
             shareUrl.searchParams.set('to', guestName);
         } else {

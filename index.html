@@ -328,12 +328,18 @@
                             <label for="name">Full Name</label>
                             <input type="text" id="name" required>
                         </div>
-                        <div class="form-group">
-                            <label for="attendance">Attendance</label>
-                            <select id="attendance" required>
-                                <option value="Hadir">Yes, I will attend</option>
-                                <option value="Tidak Hadir">Sorry, I cannot attend</option>
-                            </select>
+                        <div class="form-group attendance-group">
+                            <span class="attendance-label">Attendance</span>
+                            <div class="attendance-options">
+                                <div class="attendance-option">
+                                    <input type="radio" id="attendance-hadir" name="attendance" value="Hadir" checked>
+                                    <label for="attendance-hadir">Yes, I will attend</label>
+                                </div>
+                                <div class="attendance-option">
+                                    <input type="radio" id="attendance-tidak" name="attendance" value="Tidak Hadir">
+                                    <label for="attendance-tidak">Sorry, I cannot attend</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="message">Wishes &amp; Prayer</label>
@@ -362,7 +368,9 @@
     <div id="gallery-modal" class="modal">
         <span class="close-modal">&times;</span>
         <div class="modal-content">
+            <button class="modal-nav modal-prev" aria-label="Previous photo"><i class="fas fa-chevron-left"></i></button>
             <img id="modal-img" src="" alt="Gallery Image">
+            <button class="modal-nav modal-next" aria-label="Next photo"><i class="fas fa-chevron-right"></i></button>
             <div id="modal-caption" class="modal-caption"></div>
         </div>
     </div>

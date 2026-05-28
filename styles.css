@@ -755,7 +755,6 @@ h2 {
 }
 
 .rsvp-form input,
-.rsvp-form select,
 .rsvp-form textarea {
     width: 100%;
     padding: 10px 14px;
@@ -768,13 +767,59 @@ h2 {
     transition: border-color 0.3s, background 0.3s;
 }
 
-.rsvp-form select option {
-    background: #1a1a1a;
+.attendance-group .attendance-label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.attendance-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.attendance-option {
+    flex: 0 1 auto;
+    min-width: 120px;
+}
+
+.attendance-option input[type="radio"] {
+    display: none;
+}
+
+.attendance-option label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-height: 34px;
+    padding: 6px 10px;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
     color: var(--text);
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.attendance-option input[type="radio"]:checked + label {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: var(--gold);
+    color: #fff;
+    box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.12);
 }
 
 .rsvp-form input:focus,
-.rsvp-form select:focus,
 .rsvp-form textarea:focus {
     outline: none;
     border-color: var(--gold);
@@ -922,6 +967,7 @@ footer p {
 
 .modal-content {
     margin: auto;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -929,6 +975,36 @@ footer p {
     width: 100%;
     height: 100%;
     padding: 20px;
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2002;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.modal-nav:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.modal-prev {
+    left: 14px;
+}
+
+.modal-next {
+    right: 14px;
 }
 
 #modal-img {
