@@ -162,6 +162,13 @@ if (wishesContainer && wishesSection) loadWishes();
 
 const rsvpForm = document.getElementById('rsvp-form');
 
+const urlParams = new URLSearchParams(window.location.search);
+const guestNameFromUrl = urlParams.get('to');
+if (guestNameFromUrl) {
+    const nameInput = document.getElementById('name');
+    if (nameInput) nameInput.value = decodeURIComponent(guestNameFromUrl.replace(/\+/g, ' '));
+}
+
 if (rsvpForm) {
     rsvpForm.addEventListener('submit', async (e) => {
         e.preventDefault();
