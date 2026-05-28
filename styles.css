@@ -211,6 +211,13 @@ h3,
     box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.04);
 }
 
+#couple,
+#countdown,
+#events,
+#gallery {
+    padding: 42px 20px;
+}
+
 .section-dark {
     background: var(--dark);
 }
@@ -850,8 +857,8 @@ h2 {
 }
 
 .attendance-option {
-    flex: 0 1 auto;
-    min-width: 120px;
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .attendance-option input[type="radio"] {
@@ -862,20 +869,33 @@ h2 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: auto;
+    width: 100%;
     min-height: 34px;
-    padding: 6px 10px;
+    padding: 5px 6px;
     border: 1px solid var(--card-border);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     color: var(--text);
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.68rem;
-    line-height: 1.2;
+    font-size: 0.48rem;
+    line-height: 1.1;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
     transition: all 0.25s ease;
+}
+
+@media (max-width: 420px) {
+    .attendance-options {
+        gap: 6px;
+    }
+
+    .attendance-option label {
+        font-size: 0.46rem;
+        padding: 5px 6px;
+    }
 }
 
 .attendance-option input[type="radio"]:checked + label {
@@ -890,6 +910,30 @@ h2 {
     outline: none;
     border-color: var(--gold);
     background: rgba(255, 255, 255, 0.09);
+}
+
+@media (max-width: 420px) {
+    .attendance-options {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .attendance-option {
+        flex: 1 1 calc(50% - 8px);
+        min-width: 0;
+    }
+
+    .attendance-option label {
+        font-size: 0.62rem;
+        padding: 8px 10px;
+        line-height: 1.25;
+        white-space: normal;
+    }
+
+    .attendance-group .attendance-label {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
 }
 
 /* ══════════════════════════════════════════════
