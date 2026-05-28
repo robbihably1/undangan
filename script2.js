@@ -110,19 +110,44 @@ document.addEventListener('DOMContentLoaded', () => {
         favCount.textContent = formatNumber(favs);
     });
 
+    const getUrlParam = (key) => {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(key) || '';
+    };
+
+    const normalizeUrlPath = (urlObj) => {
+        // Keep file:// URLs unchanged, because local file paths do not reliably resolve
+        // folder URLs to index.html in all browsers.
+        if (urlObj.protocol === 'file:') {
+            return urlObj;
+        }
+
+        if (urlObj.pathname.endsWith('/index.html')) {
+            urlObj.pathname = urlObj.pathname.slice(0, -'index.html'.length);
+        }
+        return urlObj;
+    };
+
+    const buildShareUrl = (guestName = '') => {
+        const shareUrl = normalizeUrlPath(new URL(window.location.href));
+        if (guestName) {
+            shareUrl.searchParams.set('to', guestName);
+        } else {
+            shareUrl.searchParams.delete('to');
+        }
+        return shareUrl.toString();
+    };
+
+    const shareToWhatsapp = (guestName = '') => {
+        const url = buildShareUrl(guestName);
+        const text = `Undangan Pernikahan Robbi & Lugas\n\nBuka link undangan berikut:\n${url}`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    };
+
     // Share button click
     shareBtn.addEventListener('click', () => {
-        if (navigator.share) {
-            navigator.share({
-                title: 'The Wedding of Robbi & Lugas',
-                text: 'Check out this awesome invitation video!',
-                url: window.location.href,
-            }).catch(console.error);
-        } else {
-            // Fallback for browsers that don't support Web Share API
-            alert('Share link copied to clipboard!');
-            navigator.clipboard.writeText(window.location.href).catch(console.error);
-        }
+        const guestName = document.getElementById('name')?.value.trim() || getUrlParam('to');
+        shareToWhatsapp(guestName);
     });
 
     const commentsPopup = videoSection.querySelector('.comments-popup');

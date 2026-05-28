@@ -2,6 +2,19 @@
 const openBtn = document.getElementById('open-invitation-btn');
 const mainContent = document.getElementById('main-content');
 const bgm = document.getElementById('bgm');
+const heroGreeting = document.querySelector('.hero-greeting');
+
+const setHeroGreeting = () => {
+    const params = new URLSearchParams(window.location.search);
+    const guestName = params.get('to');
+
+    if (guestName && heroGreeting) {
+        heroGreeting.textContent = `Dear ${decodeURIComponent(guestName.replace(/\+/g, ' '))}`;
+        heroGreeting.style.display = 'block';
+    }
+};
+
+setHeroGreeting();
 
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -162,6 +175,13 @@ if (wishesContainer && wishesSection) loadWishes();
 
 const rsvpForm = document.getElementById('rsvp-form');
 
+const urlParams = new URLSearchParams(window.location.search);
+const guestNameFromUrl = urlParams.get('to');
+if (guestNameFromUrl) {
+    const nameInput = document.getElementById('name');
+    if (nameInput) nameInput.value = decodeURIComponent(guestNameFromUrl.replace(/\+/g, ' '));
+}
+
 if (rsvpForm) {
     rsvpForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -170,7 +190,7 @@ if (rsvpForm) {
         const originalText = btn.innerText;
 
         const name = document.getElementById('name').value;
-        const attendance = document.getElementById('attendance').value;
+        const attendance = document.querySelector('input[name="attendance"]:checked')?.value || 'Hadir';
         const message = document.getElementById('message').value;
 
         if (!message.trim()) {
@@ -230,9 +250,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryImages = document.querySelectorAll('.gallery-img');
 
     if (galleryModal && modalImg && closeModalBtn) {
+        const galleryItems = Array.from(galleryImages);
+    let activeGalleryIndex = 0;
+
         // Open modal on image click
-        galleryImages.forEach(img => {
+        galleryItems.forEach((img, idx) => {
             img.addEventListener('click', function() {
+                activeGalleryIndex = idx;
                 galleryModal.style.display = 'flex';
                 modalImg.src = this.src;
                 // Use the alt text as the caption
@@ -241,6 +265,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.overflow = 'hidden';
             });
         });
+
+        const showGalleryImage = (idx) => {
+            activeGalleryIndex = (idx + galleryItems.length) % galleryItems.length;
+            const image = galleryItems[activeGalleryIndex];
+            modalImg.src = image.src;
+            modalCaption.innerText = image.alt;
+        };
+
+        const prevGalleryBtn = document.querySelector('.modal-prev');
+        const nextGalleryBtn = document.querySelector('.modal-next');
+
+        if (prevGalleryBtn) {
+            prevGalleryBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showGalleryImage(activeGalleryIndex - 1);
+            });
+        }
+
+        if (nextGalleryBtn) {
+            nextGalleryBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showGalleryImage(activeGalleryIndex + 1);
+            });
+        }
 
         // Close modal on close button click
         closeModalBtn.addEventListener('click', function() {
