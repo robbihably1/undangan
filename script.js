@@ -34,6 +34,31 @@ openBtn.addEventListener('click', (e) => {
             observer.observe(el);
         });
 
+        // Make sections full-screen snap points and attach animations
+        const mainEl = document.getElementById('main-content');
+        if (mainEl) {
+            const sections = mainEl.querySelectorAll('section');
+            sections.forEach(sec => {
+                // Add baseline animation class used by CSS
+                sec.classList.add('section-anim');
+
+                // Add type hints for nicer per-section motion
+                switch (sec.id) {
+                    case 'quote': sec.classList.add('anim-fade'); break;
+                    case 'couple': sec.classList.add('anim-slide-up'); break;
+                    case 'countdown': sec.classList.add('anim-count'); break;
+                    case 'events': sec.classList.add('anim-zoom'); break;
+                    case 'gallery': sec.classList.add('anim-gallery'); break;
+                    case 'tiktok': sec.classList.add('anim-video'); break;
+                    case 'rsvp': sec.classList.add('anim-form'); break;
+                    default: sec.classList.add('anim-fade');
+                }
+
+                // Observe each section for entering/leaving viewport inside main-content
+                sectionObserver.observe(sec);
+            });
+        }
+
         // Trigger Instagram embed processing with retry mechanism
         const processEmbeds = () => {
             if (window.instgrm && window.instgrm.Embeds) {
@@ -77,6 +102,25 @@ const observer = new IntersectionObserver((entries, obs) => {
 document.querySelectorAll('#cover .reveal').forEach((el) => {
     observer.observe(el);
 });
+
+// ── Section snap + entrance observer (for full-screen mobile sections) ──
+const sectionObserverOptions = {
+    root: document.getElementById('main-content') || null,
+    rootMargin: '0px',
+    threshold: 0.6
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            entry.target.classList.add('section-in');
+        } else {
+            entry.target.classList.remove('in-view');
+            entry.target.classList.remove('section-in');
+        }
+    });
+}, sectionObserverOptions);
 
 // ── Countdown Timer ───────────────────────────────────────────
 const targetDate = new Date("Aug 23, 2026 08:00:00").getTime();

@@ -215,7 +215,15 @@ h3,
 #countdown,
 #events,
 #gallery {
-    padding: 42px 20px;
+    padding: 24px 20px;
+}
+
+#tiktok {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    max-width: none !important;
+    height: 100vh;
 }
 
 .section-dark {
@@ -377,10 +385,10 @@ h2 {
     display: flex;
     flex-direction: column;
     /* Stack as 2 precise sections */
-    gap: 24px;
+    gap: 16px;
     justify-content: center;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
 }
 
 /* Big elegant background ampersand between the stacked sections */
@@ -426,8 +434,8 @@ h2 {
 
 .avatar {
     width: 100%;
-    height: 450px;
-    /* Made much taller/elongated downwards */
+    height: 340px;
+    /* Balanced size for full-screen mobile section */
     object-fit: cover;
     display: block;
     border-radius: 16px;
@@ -465,8 +473,8 @@ h2 {
 }
 
 .profile-card h3 {
-    bottom: 70px;
-    font-size: 1.5rem;
+    bottom: 60px;
+    font-size: 1.4rem;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -474,8 +482,8 @@ h2 {
 }
 
 .profile-card p {
-    bottom: 48px;
-    font-size: 0.85rem;
+    bottom: 38px;
+    font-size: 0.8rem;
     color: var(--gold);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -798,6 +806,85 @@ h2 {
     display: flex;
     justify-content: center;
     margin-top: 16px;
+}
+
+/* Mobile: full-screen sections + scroll-snap and entrance animations */
+@media (max-width: 600px) {
+    html, body { height: 100%; }
+
+    /* Make main content the scroll container and snap by section */
+    #main-content {
+        height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: y mandatory;
+    }
+
+    /* Each direct section becomes a full-screen snap point */
+    #main-content > section {
+        min-height: 100vh;
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 28px 18px;
+        box-sizing: border-box;
+    }
+
+    /* TikTok section override: no padding */
+    #main-content > section#tiktok {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Ensure inner containers use full width inside the snap sections */
+    #main-content .container {
+        width: 100%;
+    }
+
+    /* Base animation state applied to sections */
+    .section-anim {
+        opacity: 0;
+        transform: translateY(18px) scale(0.995);
+        transition: opacity 700ms cubic-bezier(.2,.9,.2,1), transform 700ms cubic-bezier(.2,.9,.2,1);
+        will-change: opacity, transform;
+    }
+
+    .section-in.section-anim {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    /* Type-specific tweaks */
+    .anim-slide-up { transform: translateY(28px); }
+    .section-in.anim-slide-up { transform: translateY(0); transition-duration: 700ms; }
+
+    .anim-zoom { transform: scale(.97); }
+    .section-in.anim-zoom { transform: scale(1); transition-duration: 700ms; }
+
+    .anim-fade { opacity: 0; transform: none; }
+    .section-in.anim-fade { opacity: 1; transform: none; transition-duration: 600ms; }
+
+    /* Countdown pop animation for digits */
+    .anim-count .time-box span {
+        transform: translateY(18px) scale(.96);
+        opacity: 0;
+        transition: transform 450ms cubic-bezier(.2,.9,.2,1), opacity 450ms;
+    }
+    .section-in.anim-count .time-box span { transform: none; opacity: 1; }
+
+    /* Gallery: images gently scale in */
+    .anim-gallery .gallery-img { transform: scale(.98); opacity: 0; transition: transform 500ms ease, opacity 500ms ease; }
+    .section-in.anim-gallery .gallery-img { transform: scale(1); opacity: 1; }
+
+    /* TikTok video section: lift and reveal */
+    .anim-video .video-section { transform: translateY(8px); opacity: 0; transition: transform 650ms cubic-bezier(.2,.9,.2,1), opacity 650ms; }
+    .section-in.anim-video .video-section { transform: translateY(0); opacity: 1; }
+
+    /* RSVP: form slide-up */
+    .anim-form .glass-card { transform: translateY(18px); opacity: 0; transition: transform 600ms ease, opacity 600ms ease; }
+    .section-in.anim-form .glass-card { transform: translateY(0); opacity: 1; }
 }
 
 /* Override Instagram's iframe border/background */
