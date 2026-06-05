@@ -849,48 +849,78 @@ h2 {
         width: 100%;
     }
 
-    /* Base animation state applied to sections */
+    /* Base animation state applied to sections - fade only (no transform to avoid jump) */
     .section-anim {
         opacity: 0;
-        transform: translateY(18px) scale(0.995);
-        transition: opacity 700ms cubic-bezier(.2,.9,.2,1), transform 700ms cubic-bezier(.2,.9,.2,1);
-        will-change: opacity, transform;
+        transform: none;
+        transition: opacity 650ms cubic-bezier(.2,.9,.2,1);
+        will-change: opacity;
     }
 
     .section-in.section-anim {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: none;
     }
 
-    /* Type-specific tweaks */
-    .anim-slide-up { transform: translateY(28px); }
-    .section-in.anim-slide-up { transform: translateY(0); transition-duration: 700ms; }
-
-    .anim-zoom { transform: scale(.97); }
-    .section-in.anim-zoom { transform: scale(1); transition-duration: 700ms; }
-
-    .anim-fade { opacity: 0; transform: none; }
-    .section-in.anim-fade { opacity: 1; transform: none; transition-duration: 600ms; }
-
-    /* Countdown pop animation for digits */
-    .anim-count .time-box span {
-        transform: translateY(18px) scale(.96);
+    /* All animation types now use opacity-only smooth fade */
+    .anim-slide-up,
+    .anim-zoom,
+    .anim-fade,
+    .anim-count,
+    .anim-gallery,
+    .anim-video,
+    .anim-form {
         opacity: 0;
-        transition: transform 450ms cubic-bezier(.2,.9,.2,1), opacity 450ms;
+        transform: none;
     }
-    .section-in.anim-count .time-box span { transform: none; opacity: 1; }
 
-    /* Gallery: images gently scale in */
-    .anim-gallery .gallery-img { transform: scale(.98); opacity: 0; transition: transform 500ms ease, opacity 500ms ease; }
-    .section-in.anim-gallery .gallery-img { transform: scale(1); opacity: 1; }
+    .section-in.anim-slide-up,
+    .section-in.anim-zoom,
+    .section-in.anim-fade,
+    .section-in.anim-count,
+    .section-in.anim-gallery,
+    .section-in.anim-video,
+    .section-in.anim-form {
+        opacity: 1;
+        transform: none;
+        transition-duration: 650ms;
+    }
 
-    /* TikTok video section: lift and reveal */
-    .anim-video .video-section { transform: translateY(8px); opacity: 0; transition: transform 650ms cubic-bezier(.2,.9,.2,1), opacity 650ms; }
-    .section-in.anim-video .video-section { transform: translateY(0); opacity: 1; }
+    /* Countdown: smooth fade for digits (no jump) */
+    .anim-count .time-box span {
+        opacity: 0;
+        transition: opacity 500ms cubic-bezier(.2,.9,.2,1);
+    }
+    .section-in.anim-count .time-box span { 
+        opacity: 1; 
+    }
 
-    /* RSVP: form slide-up */
-    .anim-form .glass-card { transform: translateY(18px); opacity: 0; transition: transform 600ms ease, opacity 600ms ease; }
-    .section-in.anim-form .glass-card { transform: translateY(0); opacity: 1; }
+    /* Gallery: images fade in smoothly */
+    .anim-gallery .gallery-img { 
+        opacity: 0; 
+        transition: opacity 550ms ease; 
+    }
+    .section-in.anim-gallery .gallery-img { 
+        opacity: 1; 
+    }
+
+    /* TikTok video section: smooth fade */
+    .anim-video .video-section { 
+        opacity: 0; 
+        transition: opacity 650ms cubic-bezier(.2,.9,.2,1); 
+    }
+    .section-in.anim-video .video-section { 
+        opacity: 1; 
+    }
+
+    /* RSVP: form fade in */
+    .anim-form .glass-card { 
+        opacity: 0; 
+        transition: opacity 600ms ease; 
+    }
+    .section-in.anim-form .glass-card { 
+        opacity: 1; 
+    }
 }
 
 /* Override Instagram's iframe border/background */
@@ -1118,16 +1148,14 @@ h2 {
     margin: 0;
 }
 
-/* Animation for closing section */
+/* Animation for closing section - smooth fade */
 #closing .closing-content {
     opacity: 0;
-    transform: translateY(20px) scale(0.98);
-    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #closing.in-view .closing-content {
     opacity: 1;
-    transform: translateY(0) scale(1);
 }
 
 /* ══════════════════════════════════════════════
