@@ -218,6 +218,11 @@ h3,
     padding: 24px 20px;
 }
 
+#rsvp,
+#wishes {
+    padding: 24px 18px;
+}
+
 #tiktok {
     padding: 0 !important;
     margin: 0 !important;
@@ -896,20 +901,24 @@ h2 {
 /* ══════════════════════════════════════════════
    RSVP FORM
    ═════════════════════════════════════════════ */
+.rsvp-card-compact {
+    padding: 24px !important;
+}
+
 .rsvp-form {
     text-align: left;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 
 .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     color: var(--text-muted);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -917,21 +926,21 @@ h2 {
 .rsvp-form input,
 .rsvp-form textarea {
     width: 100%;
-    padding: 10px 14px;
+    padding: 9px 12px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     color: var(--text);
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: border-color 0.3s, background 0.3s;
 }
 
 .attendance-group .attendance-label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: var(--text-muted);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -957,32 +966,21 @@ h2 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 34px;
-    padding: 5px 6px;
+    min-height: 28px;
+    padding: 4px 5px;
     border: 1px solid var(--card-border);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     color: var(--text);
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.48rem;
-    line-height: 1.1;
+    font-size: 0.65rem;
+    line-height: 1.0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
     transition: all 0.25s ease;
-}
-
-@media (max-width: 420px) {
-    .attendance-options {
-        gap: 6px;
-    }
-
-    .attendance-option label {
-        font-size: 0.46rem;
-        padding: 5px 6px;
-    }
 }
 
 .attendance-option input[type="radio"]:checked + label {
@@ -999,28 +997,50 @@ h2 {
     background: rgba(255, 255, 255, 0.09);
 }
 
-@media (max-width: 420px) {
-    .attendance-options {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
+.btn-block {
+    width: 100%;
+    margin-top: 14px;
+    text-align: center;
+    padding: 10px 18px;
+    font-size: 0.88rem;
+}
 
-    .attendance-option {
-        flex: 1 1 calc(50% - 8px);
-        min-width: 0;
-    }
+/* ══════════════════════════════════════════════
+   WISHES LIST
+   ═════════════════════════════════════════════ */
+.wishes-card-compact {
+    padding: 18px !important;
+    height: auto;
+    max-height: 65vh;
+    overflow: visible;
+}
 
-    .attendance-option label {
-        font-size: 0.48rem;
-        padding: 8px 10px;
-        line-height: 1.25;
-        white-space: normal;
-    }
+.wishes-container-compact {
+    max-height: 55vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+    -webkit-overflow-scrolling: touch;
+}
 
-    .attendance-group .attendance-label {
-        font-size: 0.75rem;
-        margin-bottom: 8px;
-    }
+.wishes-container-compact::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wishes-container-compact::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.wishes-container-compact::-webkit-scrollbar-thumb {
+    background: var(--gold-light);
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+.wishes-container-compact::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
 }
 
 /* ══════════════════════════════════════════════

@@ -51,6 +51,7 @@ openBtn.addEventListener('click', (e) => {
                     case 'gallery': sec.classList.add('anim-gallery'); break;
                     case 'tiktok': sec.classList.add('anim-video'); break;
                     case 'rsvp': sec.classList.add('anim-form'); break;
+                    case 'wishes': sec.classList.add('anim-fade'); break;
                     default: sec.classList.add('anim-fade');
                 }
 
@@ -173,7 +174,6 @@ updateCountdown();
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTNMU9dRzZ-L9UUGjHScRDtGUorEqvTUQD54n_-1Mkg-uuGYmKQg/exec';
 
 const wishesContainer = document.getElementById('wishes-container');
-const wishesSection = document.getElementById('wishes-section');
 
 const loadWishes = async () => {
     if (!SCRIPT_URL) return;
@@ -182,7 +182,6 @@ const loadWishes = async () => {
         const data = await response.json();
 
         if (data && data.length > 0) {
-            wishesSection.style.display = 'block';
             wishesContainer.innerHTML = '';
 
             data.reverse().forEach(wish => {
@@ -215,7 +214,7 @@ const loadWishes = async () => {
     }
 };
 
-if (wishesContainer && wishesSection) loadWishes();
+if (wishesContainer) loadWishes();
 
 const rsvpForm = document.getElementById('rsvp-form');
 
