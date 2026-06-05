@@ -219,7 +219,8 @@ h3,
 }
 
 #rsvp,
-#wishes {
+#wishes,
+#closing {
     padding: 24px 18px;
 }
 
@@ -1041,6 +1042,92 @@ h2 {
 
 .wishes-container-compact::-webkit-scrollbar-thumb:hover {
     background: var(--gold);
+}
+
+/* ══════════════════════════════════════════════
+   CLOSING GRATITUDE
+   ═════════════════════════════════════════════ */
+.closing-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+}
+
+.closing-content {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.closing-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(245, 245, 255, 0.7);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.closing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+    line-height: 1;
+    text-shadow: 0 2px 16px rgba(192, 192, 192, 0.2);
+}
+
+.closing-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(235, 240, 255, 0.85);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.08);
+}
+
+.closing-divider {
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+    margin: 28px auto;
+    opacity: 0.8;
+    box-shadow: 0 0 12px rgba(192, 192, 192, 0.3);
+}
+
+.closing-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: 32px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px rgba(192, 192, 192, 0.2);
+}
+
+.closing-names p {
+    margin: 0;
+}
+
+/* Animation for closing section */
+#closing .closing-content {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#closing.in-view .closing-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 /* ══════════════════════════════════════════════

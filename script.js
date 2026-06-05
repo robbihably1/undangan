@@ -52,6 +52,7 @@ openBtn.addEventListener('click', (e) => {
                     case 'tiktok': sec.classList.add('anim-video'); break;
                     case 'rsvp': sec.classList.add('anim-form'); break;
                     case 'wishes': sec.classList.add('anim-fade'); break;
+                    case 'closing': sec.classList.add('anim-fade'); break;
                     default: sec.classList.add('anim-fade');
                 }
 
