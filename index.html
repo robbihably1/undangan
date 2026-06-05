@@ -322,8 +322,8 @@
         <!-- RSVP -->
         <section id="rsvp" class="section-dark">
             <div class="container reveal">
-                <div class="glass-card">
-                    <h2 class="text-center">RSVP</h2>
+                <div class="glass-card rsvp-card-compact">
+                    <h2 class="text-center" style="margin-bottom: 20px; font-size: 1.6rem;">RSVP</h2>
                     <form id="rsvp-form" class="rsvp-form">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -344,16 +344,40 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Wishes &amp; Prayer</label>
-                            <textarea id="message" rows="4"></textarea>
+                            <textarea id="message" rows="3" placeholder="Share your wishes..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-gold btn-block">Send RSVP</button>
                     </form>
                 </div>
+            </div>
+        </section>
 
-                <div class="glass-card mt-30" id="wishes-section" style="display: none;">
-                    <h3 class="text-center" style="color: var(--gold); margin-bottom: 20px;">Wishes &amp; Prayers</h3>
-                    <div id="wishes-container" class="wishes-container">
+        <!-- Wishes & Prayers -->
+        <section id="wishes" class="section-alt">
+            <div class="container reveal">
+                <h2 class="text-center" style="margin-bottom: 20px;">Wishes &amp; Prayers</h2>
+                <div class="glass-card wishes-card-compact">
+                    <div id="wishes-container" class="wishes-container-compact">
                         <!-- Messages will be injected here -->
+                        <p style="text-align: center; color: var(--text-muted); padding: 40px 20px;">Be the first to share your wishes!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing Gratitude -->
+        <section id="closing" class="section-black closing-section">
+            <div class="container text-center reveal">
+                <div class="closing-content">
+                    <p class="closing-subtitle">WITH GRATITUDE</p>
+                    <h2 class="closing-title">Thank You</h2>
+                    <p class="closing-message">
+                        We deeply appreciate your presence and warm wishes as we embark on this beautiful journey together.<br><br>
+                        Your love and support mean the world to us.<br>
+                        We hope this day will be as memorable for you as it is for us.
+                    </p>
+                    <div class="closing-names">
+                        <p>Robbi &amp; Lugas</p>
                     </div>
                 </div>
             </div>

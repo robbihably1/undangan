@@ -215,7 +215,21 @@ h3,
 #countdown,
 #events,
 #gallery {
-    padding: 42px 20px;
+    padding: 24px 20px;
+}
+
+#rsvp,
+#wishes,
+#closing {
+    padding: 24px 18px;
+}
+
+#tiktok {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    max-width: none !important;
+    height: 100vh;
 }
 
 .section-dark {
@@ -377,10 +391,10 @@ h2 {
     display: flex;
     flex-direction: column;
     /* Stack as 2 precise sections */
-    gap: 24px;
+    gap: 16px;
     justify-content: center;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
 }
 
 /* Big elegant background ampersand between the stacked sections */
@@ -426,8 +440,8 @@ h2 {
 
 .avatar {
     width: 100%;
-    height: 450px;
-    /* Made much taller/elongated downwards */
+    height: 340px;
+    /* Balanced size for full-screen mobile section */
     object-fit: cover;
     display: block;
     border-radius: 16px;
@@ -465,8 +479,8 @@ h2 {
 }
 
 .profile-card h3 {
-    bottom: 70px;
-    font-size: 1.5rem;
+    bottom: 60px;
+    font-size: 1.4rem;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -474,8 +488,8 @@ h2 {
 }
 
 .profile-card p {
-    bottom: 48px;
-    font-size: 0.85rem;
+    bottom: 38px;
+    font-size: 0.8rem;
     color: var(--gold);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -800,6 +814,85 @@ h2 {
     margin-top: 16px;
 }
 
+/* Mobile: full-screen sections + scroll-snap and entrance animations */
+@media (max-width: 600px) {
+    html, body { height: 100%; }
+
+    /* Make main content the scroll container and snap by section */
+    #main-content {
+        height: 100vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: y mandatory;
+    }
+
+    /* Each direct section becomes a full-screen snap point */
+    #main-content > section {
+        min-height: 100vh;
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 28px 18px;
+        box-sizing: border-box;
+    }
+
+    /* TikTok section override: no padding */
+    #main-content > section#tiktok {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Ensure inner containers use full width inside the snap sections */
+    #main-content .container {
+        width: 100%;
+    }
+
+    /* Base animation state applied to sections */
+    .section-anim {
+        opacity: 0;
+        transform: translateY(18px) scale(0.995);
+        transition: opacity 700ms cubic-bezier(.2,.9,.2,1), transform 700ms cubic-bezier(.2,.9,.2,1);
+        will-change: opacity, transform;
+    }
+
+    .section-in.section-anim {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    /* Type-specific tweaks */
+    .anim-slide-up { transform: translateY(28px); }
+    .section-in.anim-slide-up { transform: translateY(0); transition-duration: 700ms; }
+
+    .anim-zoom { transform: scale(.97); }
+    .section-in.anim-zoom { transform: scale(1); transition-duration: 700ms; }
+
+    .anim-fade { opacity: 0; transform: none; }
+    .section-in.anim-fade { opacity: 1; transform: none; transition-duration: 600ms; }
+
+    /* Countdown pop animation for digits */
+    .anim-count .time-box span {
+        transform: translateY(18px) scale(.96);
+        opacity: 0;
+        transition: transform 450ms cubic-bezier(.2,.9,.2,1), opacity 450ms;
+    }
+    .section-in.anim-count .time-box span { transform: none; opacity: 1; }
+
+    /* Gallery: images gently scale in */
+    .anim-gallery .gallery-img { transform: scale(.98); opacity: 0; transition: transform 500ms ease, opacity 500ms ease; }
+    .section-in.anim-gallery .gallery-img { transform: scale(1); opacity: 1; }
+
+    /* TikTok video section: lift and reveal */
+    .anim-video .video-section { transform: translateY(8px); opacity: 0; transition: transform 650ms cubic-bezier(.2,.9,.2,1), opacity 650ms; }
+    .section-in.anim-video .video-section { transform: translateY(0); opacity: 1; }
+
+    /* RSVP: form slide-up */
+    .anim-form .glass-card { transform: translateY(18px); opacity: 0; transition: transform 600ms ease, opacity 600ms ease; }
+    .section-in.anim-form .glass-card { transform: translateY(0); opacity: 1; }
+}
+
 /* Override Instagram's iframe border/background */
 .ig-embed-wrap iframe {
     border-radius: 16px !important;
@@ -809,20 +902,24 @@ h2 {
 /* ══════════════════════════════════════════════
    RSVP FORM
    ═════════════════════════════════════════════ */
+.rsvp-card-compact {
+    padding: 24px !important;
+}
+
 .rsvp-form {
     text-align: left;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 
 .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     color: var(--text-muted);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -830,21 +927,21 @@ h2 {
 .rsvp-form input,
 .rsvp-form textarea {
     width: 100%;
-    padding: 10px 14px;
+    padding: 9px 12px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     color: var(--text);
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: border-color 0.3s, background 0.3s;
 }
 
 .attendance-group .attendance-label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: var(--text-muted);
-    font-size: 0.82rem;
+    font-size: 0.75rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
@@ -870,32 +967,21 @@ h2 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 34px;
-    padding: 5px 6px;
+    min-height: 28px;
+    padding: 4px 5px;
     border: 1px solid var(--card-border);
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.06);
     color: var(--text);
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.48rem;
-    line-height: 1.1;
+    font-size: 0.65rem;
+    line-height: 1.0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
     transition: all 0.25s ease;
-}
-
-@media (max-width: 420px) {
-    .attendance-options {
-        gap: 6px;
-    }
-
-    .attendance-option label {
-        font-size: 0.46rem;
-        padding: 5px 6px;
-    }
 }
 
 .attendance-option input[type="radio"]:checked + label {
@@ -912,28 +998,136 @@ h2 {
     background: rgba(255, 255, 255, 0.09);
 }
 
-@media (max-width: 420px) {
-    .attendance-options {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
+.btn-block {
+    width: 100%;
+    margin-top: 14px;
+    text-align: center;
+    padding: 10px 18px;
+    font-size: 0.88rem;
+}
 
-    .attendance-option {
-        flex: 1 1 calc(50% - 8px);
-        min-width: 0;
-    }
+/* ══════════════════════════════════════════════
+   WISHES LIST
+   ═════════════════════════════════════════════ */
+.wishes-card-compact {
+    padding: 18px !important;
+    height: auto;
+    max-height: 65vh;
+    overflow: visible;
+}
 
-    .attendance-option label {
-        font-size: 0.48rem;
-        padding: 8px 10px;
-        line-height: 1.25;
-        white-space: normal;
-    }
+.wishes-container-compact {
+    max-height: 55vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+    -webkit-overflow-scrolling: touch;
+}
 
-    .attendance-group .attendance-label {
-        font-size: 0.75rem;
-        margin-bottom: 8px;
-    }
+.wishes-container-compact::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wishes-container-compact::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.wishes-container-compact::-webkit-scrollbar-thumb {
+    background: var(--gold-light);
+    border-radius: 4px;
+    min-height: 40px;
+}
+
+.wishes-container-compact::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* ══════════════════════════════════════════════
+   CLOSING GRATITUDE
+   ═════════════════════════════════════════════ */
+.closing-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+}
+
+.closing-content {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.closing-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(245, 245, 255, 0.7);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.closing-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+    line-height: 1;
+    text-shadow: 0 2px 16px rgba(192, 192, 192, 0.2);
+}
+
+.closing-message {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: rgba(235, 240, 255, 0.85);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.08);
+}
+
+.closing-divider {
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+    margin: 28px auto;
+    opacity: 0.8;
+    box-shadow: 0 0 12px rgba(192, 192, 192, 0.3);
+}
+
+.closing-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-top: 32px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px rgba(192, 192, 192, 0.2);
+}
+
+.closing-names p {
+    margin: 0;
+}
+
+/* Animation for closing section */
+#closing .closing-content {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#closing.in-view .closing-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 /* ══════════════════════════════════════════════
