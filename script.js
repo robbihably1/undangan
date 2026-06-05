@@ -148,28 +148,7 @@ const updateCountdown = () => {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// ── Event Carousel ───────────────────────────────────────────
-(function () {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dots   = document.querySelectorAll('.dot');
-    const prev   = document.getElementById('evt-prev');
-    const next   = document.getElementById('evt-next');
-    let current  = 0;
-
-    if (!slides.length) return;
-
-    const goTo = (idx) => {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (idx + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-    };
-
-    prev.addEventListener('click', () => goTo(current - 1));
-    next.addEventListener('click', () => goTo(current + 1));
-    dots.forEach(dot => dot.addEventListener('click', () => goTo(+dot.dataset.idx)));
-})();
+// ── Event Grid Layout (no carousel) ──────────────────────────
 
 // ── RSVP ─────────────────────────────────────────────────────
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTNMU9dRzZ-L9UUGjHScRDtGUorEqvTUQD54n_-1Mkg-uuGYmKQg/exec';

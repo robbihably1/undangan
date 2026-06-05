@@ -94,43 +94,35 @@
         <section id="events" class="section-dark">
             <div class="container reveal">
                 <h2>Event Details</h2>
-                <div class="event-carousel">
-                    <button class="carousel-arrow" id="evt-prev" aria-label="Previous">&#8592;</button>
-
-                    <div class="carousel-track">
-                        <!-- Card 1 -->
-                        <div class="glass-card event-card text-center carousel-slide active">
-                            <div class="event-icon"><i class="fas fa-ring"></i></div>
-                            <h3>Wedding <br /> Ceremony</h3>
-
-                            <div class="event-divider"></div>
-                            <p class="event-date"><i class="far fa-calendar-alt"></i> Sunday, August 23, 2026</p>
-                            <p class="event-time"><i class="far fa-clock"></i> 08:00 – 10:00 WIB</p>
-
-                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline btn-sm">
-                                <i class="fas fa-map-marker-alt"></i> View Map
-                            </a>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="glass-card event-card text-center carousel-slide">
-                            <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
-                            <h3>Wedding <br /> Reception</h3>
-                            <div class="event-divider"></div>
-                            <p class="event-date"><i class="far fa-calendar-alt"></i> Sunday, August 23, 2026</p>
-                            <p class="event-time"><i class="far fa-clock"></i> 11:00 WIB – Finish</p>
-
-                            <a href="https://maps.google.com" target="_blank" class="btn btn-outline btn-sm">
-                                <i class="fas fa-map-marker-alt"></i> View Map
-                            </a>
-                        </div>
+                
+                <!-- Event Cards Grid -->
+                <div class="event-grid">
+                    <!-- Card 1: Wedding Ceremony -->
+                    <div class="glass-card event-card text-center">
+                        <h3>Wedding Ceremony</h3>
+                        <p class="event-date"><i class="far fa-calendar-alt"></i> Aug 23, 2026</p>
+                        <p class="event-time"><i class="far fa-clock"></i> 08:00 – 10:00 WIB</p>
                     </div>
 
-                    <button class="carousel-arrow" id="evt-next" aria-label="Next">&#8594;</button>
+                    <!-- Card 2: Wedding Reception -->
+                    <div class="glass-card event-card text-center">
+                        <h3>Wedding Reception</h3>
+                        <p class="event-date"><i class="far fa-calendar-alt"></i> Aug 23, 2026</p>
+                        <p class="event-time"><i class="far fa-clock"></i> 11:00 WIB – Finish</p>
+                    </div>
                 </div>
-                <!-- Dots -->
-                <div class="carousel-dots">
-                    <span class="dot active" data-idx="0"></span>
-                    <span class="dot" data-idx="1"></span>
+
+                <!-- Single Map Location -->
+                <div class="glass-card event-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="padding: 14px;">
+                        <h3 style="text-align: center; color: var(--gold); margin: 0; font-size: 1rem;"><i class="fas fa-map-pin" style="color: var(--gold); margin-right: 6px;"></i>
+                            Ds. Nguri Rt.02 Rw.04 Kec. Lembeyan Kab. Magetan</h3>
+                    </div>
+                    <div class="map-container" style="margin: 0; border-radius: 0;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.431889861343!2d111.4240352!3d-7.743929800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7999004e02cafb%3A0x73797b1f213d78e5!2sToko%20Lugas!5e0!3m2!1sid!2sid!4v1780641604894!5m2!1sid!2sid" 
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
                 </div>
             </div>
         </section>
