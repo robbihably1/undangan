@@ -1829,7 +1829,7 @@ footer p {
 .atm-card {
     position: relative;
     width: 100%;
-    max-width: 290px;
+    max-width: 280px;
     aspect-ratio: 1.8 / 1;
     border-radius: 14px;
     /* Reduced from 16px */
