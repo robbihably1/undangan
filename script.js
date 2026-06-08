@@ -47,7 +47,7 @@ openBtn.addEventListener('click', (e) => {
                     case 'quote': sec.classList.add('anim-fade'); break;
                     case 'couple': sec.classList.add('anim-slide-up'); break;
                     case 'countdown': sec.classList.add('anim-count'); break;
-                    case 'events': sec.classList.add('anim-zoom'); break;
+                    case 'location': sec.classList.add('anim-zoom'); break;
                     case 'gallery': sec.classList.add('anim-gallery'); break;
                     case 'tiktok': sec.classList.add('anim-video'); break;
                     case 'rsvp': sec.classList.add('anim-form'); break;
