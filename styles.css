@@ -603,7 +603,8 @@ h2 {
     letter-spacing: 4px;
     color: rgba(255, 255, 255, 0.55);
     margin-bottom: 2px;
-    margin-left: 4px; /* offset tracking */
+    margin-left: 4px;
+    /* offset tracking */
     text-transform: uppercase;
     text-align: center;
 }
@@ -845,6 +846,98 @@ h2 {
 }
 
 /* ══════════════════════════════════════════════
+   DATE SHOWCASE (Our Day section)
+   ═════════════════════════════════════════════ */
+.date-showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0 26px;
+    gap: 0;
+    position: relative;
+}
+
+.ds-month {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: rgba(192, 192, 192, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.ds-day-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ds-day-wrap::before,
+.ds-day-wrap::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15));
+    margin: 0 12px;
+}
+
+.ds-day-wrap::after {
+    background: linear-gradient(to left, transparent, rgba(255, 255, 255, 0.15));
+}
+
+.ds-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 0.9;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.12), 0 2px 8px rgba(0, 0, 0, 0.4);
+    letter-spacing: -2px;
+}
+
+.ds-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+    margin: 8px 0 6px;
+    box-shadow: 0 0 8px rgba(192, 192, 192, 0.3);
+}
+
+.ds-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ds-weekday {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.ds-dot {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.2);
+    line-height: 1;
+}
+
+.ds-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: rgba(192, 192, 192, 0.45);
+    text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════
    EVENTS GRID LAYOUT
    ═════════════════════════════════════════════ */
 .event-grid {
@@ -917,10 +1010,121 @@ h2 {
     line-height: 1.6;
 }
 
+/* ══════════════════════════════════════════════
+   DATE INLINE ROW (Our Day section)
+   ═════════════════════════════════════════════ */
+.date-inline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 4px 0 22px;
+    flex-wrap: nowrap;
+}
+
+.dir-month,
+.dir-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(192, 192, 192, 0.65);
+    text-transform: uppercase;
+}
+
+.dir-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+}
+
+.dir-dayname {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+}
+
+.dir-sep {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.dir-divider {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.15);
+    margin: 0 2px;
+}
+
+/* ══════════════════════════════════════════════
+   LOCATION FULL BLEED MAP
+   ═════════════════════════════════════════════ */
+.location-fullbleed {
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    min-height: 100vh;
+}
+
+.location-header {
+    min-height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px 20px;
+    text-align: center;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.location-header h2 {
+    margin-bottom: 10px;
+}
+
+.location-address {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.70em;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.location-address i {
+    color: var(--gold);
+    font-size: 0.85rem;
+}
+
+.map-container-fullbleed {
+    flex: 1;
+    width: 100%;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.map-container-fullbleed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    min-height: 300px;
+}
+
 /* Map Container */
 .map-container {
     width: 100%;
-    height: 320px;
+    height: 60vh;
+    min-height: 400px;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -932,6 +1136,32 @@ h2 {
     height: 100%;
     border: none;
     display: block;
+}
+
+/* Location section: map fills remaining space */
+#location {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#location .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#location .glass-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#location .map-container {
+    flex: 1;
+    height: auto;
+    min-height: 300px;
+    border-radius: 0;
 }
 
 /* ══════════════════════════════════════════════
@@ -970,7 +1200,11 @@ h2 {
 
 /* Mobile: full-screen sections + scroll-snap and entrance animations */
 @media (max-width: 600px) {
-    html, body { height: 100%; }
+
+    html,
+    body {
+        height: 100%;
+    }
 
     /* Make main content the scroll container and snap by section */
     #main-content {
@@ -981,7 +1215,7 @@ h2 {
     }
 
     /* Each direct section becomes a full-screen snap point */
-    #main-content > section {
+    #main-content>section {
         min-height: 100vh;
         height: 100vh;
         scroll-snap-align: start;
@@ -993,9 +1227,30 @@ h2 {
     }
 
     /* TikTok section override: no padding */
-    #main-content > section#tiktok {
+    #main-content>section#tiktok {
         padding: 0 !important;
         margin: 0 !important;
+    }
+
+    /* Location section: fullbleed map, no padding */
+    #main-content>section#location {
+        justify-content: flex-start;
+        padding: 0 !important;
+    }
+
+    #main-content>section#location .location-header {
+        padding: 28px 20px 14px;
+        flex-shrink: 0;
+    }
+
+    #main-content>section#location .map-container-fullbleed {
+        flex: 1;
+        min-height: 0;
+    }
+
+    #main-content>section#location .map-container-fullbleed iframe {
+        height: 100%;
+        min-height: 0;
     }
 
     /* Ensure inner containers use full width inside the snap sections */
@@ -1007,7 +1262,7 @@ h2 {
     .section-anim {
         opacity: 0;
         transform: none;
-        transition: opacity 650ms cubic-bezier(.2,.9,.2,1);
+        transition: opacity 650ms cubic-bezier(.2, .9, .2, 1);
         will-change: opacity;
     }
 
@@ -1043,37 +1298,41 @@ h2 {
     /* Countdown: smooth fade for digits (no jump) */
     .anim-count .time-box span {
         opacity: 0;
-        transition: opacity 500ms cubic-bezier(.2,.9,.2,1);
+        transition: opacity 500ms cubic-bezier(.2, .9, .2, 1);
     }
-    .section-in.anim-count .time-box span { 
-        opacity: 1; 
+
+    .section-in.anim-count .time-box span {
+        opacity: 1;
     }
 
     /* Gallery: images fade in smoothly */
-    .anim-gallery .gallery-img { 
-        opacity: 0; 
-        transition: opacity 550ms ease; 
+    .anim-gallery .gallery-img {
+        opacity: 0;
+        transition: opacity 550ms ease;
     }
-    .section-in.anim-gallery .gallery-img { 
-        opacity: 1; 
+
+    .section-in.anim-gallery .gallery-img {
+        opacity: 1;
     }
 
     /* TikTok video section: smooth fade */
-    .anim-video .video-section { 
-        opacity: 0; 
-        transition: opacity 650ms cubic-bezier(.2,.9,.2,1); 
+    .anim-video .video-section {
+        opacity: 0;
+        transition: opacity 650ms cubic-bezier(.2, .9, .2, 1);
     }
-    .section-in.anim-video .video-section { 
-        opacity: 1; 
+
+    .section-in.anim-video .video-section {
+        opacity: 1;
     }
 
     /* RSVP: form fade in */
-    .anim-form .glass-card { 
-        opacity: 0; 
-        transition: opacity 600ms ease; 
+    .anim-form .glass-card {
+        opacity: 0;
+        transition: opacity 600ms ease;
     }
-    .section-in.anim-form .glass-card { 
-        opacity: 1; 
+
+    .section-in.anim-form .glass-card {
+        opacity: 1;
     }
 }
 
@@ -1168,7 +1427,7 @@ h2 {
     transition: all 0.25s ease;
 }
 
-.attendance-option input[type="radio"]:checked + label {
+.attendance-option input[type="radio"]:checked+label {
     background: rgba(255, 255, 255, 0.18);
     border-color: var(--gold);
     color: #fff;
