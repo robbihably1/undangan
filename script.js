@@ -336,3 +336,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ── Copy to Clipboard ─────────────────────────────────────────
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (btn) {
+        const targetId = btn.getAttribute('data-target');
+        const textEl = document.getElementById(targetId);
+        if (textEl) {
+            const textToCopy = textEl.innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btn.innerHTML;
+                if (btn.classList.contains('copy-btn-atm')) {
+                    btn.innerHTML = '<i class="fas fa-check"></i>';
+                    btn.style.background = '#4CAF50';
+                    btn.style.borderColor = '#4CAF50';
+                    btn.style.color = '#fff';
+                } else {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    btn.style.background = '#4CAF50';
+                    btn.style.color = '#fff';
+                }
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.style.borderColor = '';
+                    btn.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    }
+});
