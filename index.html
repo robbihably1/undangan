@@ -50,7 +50,7 @@
                 </h1>
                 <div class="cover-date-pill">
                     <i class="far fa-calendar-alt"></i>
-                    <span>Sunday, 23 August 2026</span>
+                    <span>Sunday, 20 December 2026</span>
                 </div>
             </div>
 
@@ -140,9 +140,9 @@
 
                     <!-- Date Showcase -->
                     <div class="date-showcase">
-                        <span class="ds-month">August</span>
+                        <span class="ds-month">December</span>
                         <div class="ds-day-wrap">
-                            <span class="ds-day">23</span>
+                            <span class="ds-day">20</span>
                         </div>
                         <div class="ds-rule"></div>
                         <div class="ds-bottom">
@@ -405,80 +405,62 @@
         <!-- RSVP -->
         <section id="rsvp" class="section-dark rsvp-modern-section">
             <div class="container reveal">
-                <div class="rsvp-modern-card">
-                    <!-- Ambient Glow -->
-                    <div class="rsvp-ambient-glow"></div>
-
+                <div class="glass-card rsvp-modern-card">
                     <!-- Header -->
                     <div class="rsvp-header text-center">
                         <span class="rsvp-eyebrow">RESERVATION</span>
                         <h2 class="rsvp-title">Konfirmasi Kehadiran</h2>
-                        <p class="rsvp-subtitle">Mohon konfirmasi kehadiran Anda untuk membantu kami mempersiapkan acara dengan sebaik-baiknya.</p>
-                        <div class="rsvp-header-line"></div>
+                        <p class="rsvp-subtitle">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i</p>
                     </div>
 
                     <form id="rsvp-form" class="rsvp-form-modern">
-                        <!-- Guest Name Field -->
+                        <!-- Name Field -->
                         <div class="rsvp-field">
                             <label for="name" class="rsvp-label">
                                 <i class="far fa-user"></i>
-                                <span>Nama Lengkap</span>
+                                <span>Nama Tamu</span>
                             </label>
-                            <div class="input-wrap">
-                                <input type="text" id="name" placeholder="Tuliskan nama Anda" required autocomplete="name">
-                            </div>
+                            <input type="text" id="name" placeholder="Nama Lengkap" required autocomplete="name">
                         </div>
 
                         <!-- Attendance Options -->
                         <div class="rsvp-field">
                             <label class="rsvp-label">
                                 <i class="far fa-calendar-check"></i>
-                                <span>Konfirmasi Kehadiran</span>
+                                <span>Kehadiran</span>
                             </label>
                             <div class="rsvp-attendance-grid">
                                 <label class="attendance-card" for="attendance-hadir">
                                     <input type="radio" id="attendance-hadir" name="attendance" value="Hadir" checked>
                                     <div class="card-inner">
-                                        <div class="status-indicator">
-                                            <i class="fas fa-check"></i>
-                                        </div>
-                                        <div class="attendance-info">
-                                            <span class="status-title">Hadir</span>
-                                            <span class="status-desc">Akan Datang</span>
-                                        </div>
+                                        <i class="fas fa-check"></i>
+                                        <span>Hadir</span>
                                     </div>
                                 </label>
 
                                 <label class="attendance-card" for="attendance-tidak">
                                     <input type="radio" id="attendance-tidak" name="attendance" value="Tidak Hadir">
                                     <div class="card-inner">
-                                        <div class="status-indicator">
-                                            <i class="fas fa-times"></i>
-                                        </div>
-                                        <div class="attendance-info">
-                                            <span class="status-title">Berhalangan</span>
-                                            <span class="status-desc">Doa dari Jauh</span>
-                                        </div>
+                                        <i class="fas fa-times"></i>
+                                        <span>Berhalangan</span>
                                     </div>
                                 </label>
                             </div>
                         </div>
 
-                        <!-- Wishes & Prayers -->
+                        <!-- Message Field -->
                         <div class="rsvp-field">
                             <label for="message" class="rsvp-label">
                                 <i class="far fa-comment-dots"></i>
                                 <span>Ucapan &amp; Doa Restu</span>
                             </label>
-                            <div class="input-wrap">
-                                <textarea id="message" rows="3" placeholder="Tuliskan doa &amp; ucapan selamat untuk kedua mempelai..." required></textarea>
-                            </div>
+                            <textarea id="message" rows="2" placeholder="Tuliskan ucapan selamat &amp; doa..." required></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <button type="submit" class="rsvp-submit-btn">
                             <i class="fas fa-paper-plane"></i>
-                            <span>Kirim RSVP</span>
+                            <span>Kirim Konfirmasi</span>
                         </button>
                     </form>
                 </div>

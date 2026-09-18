@@ -134,7 +134,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, sectionObserverOptions);
 
 // ── Countdown Timer ───────────────────────────────────────────
-const targetDate = new Date("Aug 23, 2026 08:00:00").getTime();
+const targetDate = new Date("Dec 20, 2026 08:00:00").getTime();
 
 const updateCountdown = () => {
     const now = new Date().getTime();
