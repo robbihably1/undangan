@@ -78,6 +78,7 @@ openBtn.addEventListener('click', (e) => {
             }
         };
         processEmbeds();
+        setTimeout(refreshLeafletMap, 300);
 
         // Scroll to top of content
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -117,6 +118,9 @@ const sectionObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
             entry.target.classList.add('section-in');
+            if (entry.target.id === 'location') {
+                refreshLeafletMap();
+            }
         } else {
             entry.target.classList.remove('in-view');
             entry.target.classList.remove('section-in');
@@ -156,7 +160,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTN
 const wishesContainer = document.getElementById('wishes-container');
 
 const loadWishes = async () => {
-    if (!SCRIPT_URL) return;
+    if (!SCRIPT_URL || !wishesContainer) return;
     try {
         const response = await fetch(SCRIPT_URL);
         const data = await response.json();
@@ -368,4 +372,84 @@ document.addEventListener('click', (e) => {
             });
         }
     }
+});
+
+// ── Leaflet Map Setup ─────────────────────────────────────────
+let leafletMap = null;
+
+const initLeafletMap = () => {
+    const mapEl = document.getElementById('map');
+    if (!mapEl || typeof L === 'undefined' || leafletMap) return;
+
+    // Venue Coordinates: Toko Lugas, Nguri, Lembeyan, Magetan
+    const lat = -7.7439298;
+    const lng = 111.4240352;
+
+    leafletMap = L.map('map', {
+        center: [lat, lng],
+        zoom: 16,
+        zoomControl: true,
+        scrollWheelZoom: false
+    });
+
+    // Native Esri Dark Gray Base
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri',
+        className: 'esri-dark-base',
+        maxNativeZoom: 16,
+        maxZoom: 18
+    }).addTo(leafletMap);
+
+    // Labels & Street Names (bright and crisp)
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '',
+        className: 'esri-dark-labels',
+        maxNativeZoom: 16,
+        maxZoom: 18
+    }).addTo(leafletMap);
+
+    // Custom Glowing Pin Marker
+    const customIcon = L.divIcon({
+        className: 'custom-map-pin-wrap',
+        html: `
+            <div class="custom-map-pin">
+                <div class="pin-pulse"></div>
+                <div class="pin-icon"><i class="fas fa-map-marker-alt"></i></div>
+            </div>
+        `,
+        iconSize: [40, 40],
+        iconAnchor: [20, 36],
+        popupAnchor: [0, -36]
+    });
+
+    const popupContent = `
+        <div class="map-popup-card">
+            <h4>Toko Lugas</h4>
+            <p>Ds. Nguri Rt.02 Rw.04 Kec. Lembeyan Kab. Magetan</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" target="_blank" rel="noopener noreferrer" class="btn btn-gold map-nav-btn">
+                <i class="fas fa-location-arrow"></i> Petunjuk Arah
+            </a>
+        </div>
+    `;
+
+    const marker = L.marker([lat, lng], { icon: customIcon }).addTo(leafletMap);
+    marker.bindPopup(popupContent);
+
+    setTimeout(() => {
+        leafletMap.invalidateSize();
+    }, 400);
+};
+
+const refreshLeafletMap = () => {
+    if (!leafletMap) {
+        initLeafletMap();
+    } else {
+        setTimeout(() => {
+            leafletMap.invalidateSize();
+        }, 150);
+    }
+};
+
+window.addEventListener('resize', () => {
+    if (leafletMap) leafletMap.invalidateSize();
 });
