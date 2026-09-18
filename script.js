@@ -7,10 +7,15 @@ const heroGreeting = document.querySelector('.hero-greeting');
 const setHeroGreeting = () => {
     const params = new URLSearchParams(window.location.search);
     const guestName = params.get('to');
+    const guestDisplay = document.getElementById('guest-name-display');
 
-    if (guestName && heroGreeting) {
-        heroGreeting.textContent = `Dear ${decodeURIComponent(guestName.replace(/\+/g, ' '))}`;
-        heroGreeting.style.display = 'block';
+    if (guestName) {
+        const decoded = decodeURIComponent(guestName.replace(/\+/g, ' '));
+        if (guestDisplay) guestDisplay.textContent = decoded;
+        if (heroGreeting) {
+            heroGreeting.textContent = `Dear ${decoded}`;
+            heroGreeting.style.display = 'block';
+        }
     }
 };
 
@@ -78,6 +83,7 @@ openBtn.addEventListener('click', (e) => {
             }
         };
         processEmbeds();
+        setTimeout(refreshLeafletMap, 300);
 
         // Scroll to top of content
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -117,6 +123,9 @@ const sectionObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('in-view');
             entry.target.classList.add('section-in');
+            if (entry.target.id === 'location') {
+                refreshLeafletMap();
+            }
         } else {
             entry.target.classList.remove('in-view');
             entry.target.classList.remove('section-in');
@@ -125,7 +134,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, sectionObserverOptions);
 
 // ── Countdown Timer ───────────────────────────────────────────
-const targetDate = new Date("Aug 23, 2026 08:00:00").getTime();
+const targetDate = new Date("Dec 20, 2026 08:00:00").getTime();
 
 const updateCountdown = () => {
     const now = new Date().getTime();
@@ -156,7 +165,7 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySMaALvwvbb3vwYtFTN
 const wishesContainer = document.getElementById('wishes-container');
 
 const loadWishes = async () => {
-    if (!SCRIPT_URL) return;
+    if (!SCRIPT_URL || !wishesContainer) return;
     try {
         const response = await fetch(SCRIPT_URL);
         const data = await response.json();
@@ -210,18 +219,18 @@ if (rsvpForm) {
         e.preventDefault();
 
         const btn = e.target.querySelector('button');
-        const originalText = btn.innerText;
+        const originalHtml = btn.innerHTML;
 
         const name = document.getElementById('name').value;
         const attendance = document.querySelector('input[name="attendance"]:checked')?.value || 'Hadir';
         const message = document.getElementById('message').value;
 
         if (!message.trim()) {
-            alert('Please write your wishes & prayer first.');
+            alert('Mohon tuliskan ucapan & doa restu terlebih dahulu.');
             return;
         }
 
-        btn.innerText = 'Sending…';
+        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> <span>Mengirim...</span>';
         btn.disabled = true;
 
         const formData = new FormData();
@@ -233,14 +242,18 @@ if (rsvpForm) {
             const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
 
             if (response.ok) {
-                btn.innerText = 'RSVP Sent! 🎉';
-                btn.style.background = '#4CAF50';
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Terkirim! Terima kasih</span>';
+                btn.style.background = '#2e7d32';
                 btn.style.color = '#fff';
                 e.target.reset();
+                if (guestNameFromUrl) {
+                    const nameInput = document.getElementById('name');
+                    if (nameInput) nameInput.value = decodeURIComponent(guestNameFromUrl.replace(/\+/g, ' '));
+                }
                 loadWishes();
 
                 setTimeout(() => {
-                    btn.innerText = originalText;
+                    btn.innerHTML = originalHtml;
                     btn.style.background = '';
                     btn.style.color = '';
                     btn.disabled = false;
@@ -250,12 +263,12 @@ if (rsvpForm) {
             }
         } catch (error) {
             console.error('Error:', error);
-            btn.innerText = 'Failed to Send';
-            btn.style.background = '#f44336';
+            btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> <span>Gagal Mengirim</span>';
+            btn.style.background = '#c62828';
             btn.style.color = '#fff';
 
             setTimeout(() => {
-                btn.innerText = originalText;
+                btn.innerHTML = originalHtml;
                 btn.style.background = '';
                 btn.style.color = '';
                 btn.disabled = false;
@@ -368,4 +381,84 @@ document.addEventListener('click', (e) => {
             });
         }
     }
+});
+
+// ── Leaflet Map Setup ─────────────────────────────────────────
+let leafletMap = null;
+
+const initLeafletMap = () => {
+    const mapEl = document.getElementById('map');
+    if (!mapEl || typeof L === 'undefined' || leafletMap) return;
+
+    // Venue Coordinates: Toko Lugas, Nguri, Lembeyan, Magetan
+    const lat = -7.7439298;
+    const lng = 111.4240352;
+
+    leafletMap = L.map('map', {
+        center: [lat, lng],
+        zoom: 16,
+        zoomControl: true,
+        scrollWheelZoom: false
+    });
+
+    // Native Esri Dark Gray Base
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri',
+        className: 'esri-dark-base',
+        maxNativeZoom: 16,
+        maxZoom: 18
+    }).addTo(leafletMap);
+
+    // Labels & Street Names (bright and crisp)
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '',
+        className: 'esri-dark-labels',
+        maxNativeZoom: 16,
+        maxZoom: 18
+    }).addTo(leafletMap);
+
+    // Custom Glowing Pin Marker
+    const customIcon = L.divIcon({
+        className: 'custom-map-pin-wrap',
+        html: `
+            <div class="custom-map-pin">
+                <div class="pin-pulse"></div>
+                <div class="pin-icon"><i class="fas fa-map-marker-alt"></i></div>
+            </div>
+        `,
+        iconSize: [40, 40],
+        iconAnchor: [20, 36],
+        popupAnchor: [0, -36]
+    });
+
+    const popupContent = `
+        <div class="map-popup-card">
+            <h4>Toko Lugas</h4>
+            <p>Ds. Nguri Rt.02 Rw.04 Kec. Lembeyan Kab. Magetan</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" target="_blank" rel="noopener noreferrer" class="btn btn-gold map-nav-btn">
+                <i class="fas fa-location-arrow"></i> Petunjuk Arah
+            </a>
+        </div>
+    `;
+
+    const marker = L.marker([lat, lng], { icon: customIcon }).addTo(leafletMap);
+    marker.bindPopup(popupContent);
+
+    setTimeout(() => {
+        leafletMap.invalidateSize();
+    }, 400);
+};
+
+const refreshLeafletMap = () => {
+    if (!leafletMap) {
+        initLeafletMap();
+    } else {
+        setTimeout(() => {
+            leafletMap.invalidateSize();
+        }, 150);
+    }
+};
+
+window.addEventListener('resize', () => {
+    if (leafletMap) leafletMap.invalidateSize();
 });
