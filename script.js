@@ -219,18 +219,18 @@ if (rsvpForm) {
         e.preventDefault();
 
         const btn = e.target.querySelector('button');
-        const originalText = btn.innerText;
+        const originalHtml = btn.innerHTML;
 
         const name = document.getElementById('name').value;
         const attendance = document.querySelector('input[name="attendance"]:checked')?.value || 'Hadir';
         const message = document.getElementById('message').value;
 
         if (!message.trim()) {
-            alert('Please write your wishes & prayer first.');
+            alert('Mohon tuliskan ucapan & doa restu terlebih dahulu.');
             return;
         }
 
-        btn.innerText = 'Sending…';
+        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> <span>Mengirim...</span>';
         btn.disabled = true;
 
         const formData = new FormData();
@@ -242,14 +242,18 @@ if (rsvpForm) {
             const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
 
             if (response.ok) {
-                btn.innerText = 'RSVP Sent! 🎉';
-                btn.style.background = '#4CAF50';
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Terkirim! Terima kasih</span>';
+                btn.style.background = '#2e7d32';
                 btn.style.color = '#fff';
                 e.target.reset();
+                if (guestNameFromUrl) {
+                    const nameInput = document.getElementById('name');
+                    if (nameInput) nameInput.value = decodeURIComponent(guestNameFromUrl.replace(/\+/g, ' '));
+                }
                 loadWishes();
 
                 setTimeout(() => {
-                    btn.innerText = originalText;
+                    btn.innerHTML = originalHtml;
                     btn.style.background = '';
                     btn.style.color = '';
                     btn.disabled = false;
@@ -259,12 +263,12 @@ if (rsvpForm) {
             }
         } catch (error) {
             console.error('Error:', error);
-            btn.innerText = 'Failed to Send';
-            btn.style.background = '#f44336';
+            btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> <span>Gagal Mengirim</span>';
+            btn.style.background = '#c62828';
             btn.style.color = '#fff';
 
             setTimeout(() => {
-                btn.innerText = originalText;
+                btn.innerHTML = originalHtml;
                 btn.style.background = '';
                 btn.style.color = '';
                 btn.disabled = false;

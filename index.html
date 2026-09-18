@@ -91,21 +91,40 @@
         </section>
 
         <!-- The Couple -->
-        <section id="couple" class="section-dark">
+        <section id="couple" class="section-dark couple-section-modern">
             <div class="container reveal">
-                <!-- <h2>The Couple</h2> -->
-                <div class="couple-grid">
-                    <div class="glass-card profile-card">
-                        <img src="images/foto1.jpg" alt="Groom" class="avatar">
-                        <h3>Robbi Hably Minassholihyn</h3>
-                        <p>Son of Mr. Deni Ramdani &amp; Mrs. Nurlaela</p>
-                        <!-- <a href="#" class="ig-link">@romeo_m</a> -->
+                <!-- Minimalist Header -->
+                <div class="couple-minimal-header">
+                    <span class="couple-minimal-tag">GROOM &amp; BRIDE</span>
+                    <h2 class="couple-minimal-title">The Couple</h2>
+                </div>
+
+                <!-- Editorial Duo Cards -->
+                <div class="couple-editorial-grid">
+                    <!-- Groom Card -->
+                    <div class="couple-editorial-card">
+                        <div class="editorial-photo-wrap">
+                            <img src="images/foto_groom.jpg" alt="Robbi Hably Minassholihyn">
+                        </div>
+                        <span class="editorial-role">The Groom</span>
+                        <h3 class="editorial-name">Robbi Hably<br>Minassholihyn</h3>
+                        <p class="editorial-parents">
+                            Putra dari<br>
+                            <strong>Bpk. Deni Ramdani</strong><br>&amp; <strong>Ibu Nurlaela</strong>
+                        </p>
                     </div>
-                    <div class="glass-card profile-card">
-                        <img src="images/foto2.jpg" alt="Bride" class="avatar">
-                        <h3>Lugas Munayasika</h3>
-                        <p>Daughter of Mr. Sukardi &amp; Mrs. Mujiati</p>
-                        <!-- <a href="#" class="ig-link">@juliet_c</a> -->
+
+                    <!-- Bride Card -->
+                    <div class="couple-editorial-card">
+                        <div class="editorial-photo-wrap">
+                            <img src="images/foto_bride.jpg" alt="Lugas Munayasika">
+                        </div>
+                        <span class="editorial-role">The Bride</span>
+                        <h3 class="editorial-name">Lugas<br>Munayasika</h3>
+                        <p class="editorial-parents">
+                            Putri dari<br>
+                            <strong>Bpk. Sukardi</strong><br>&amp; <strong>Ibu Mujiati</strong>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -384,33 +403,83 @@
         </section>--->
 
         <!-- RSVP -->
-        <section id="rsvp" class="section-dark">
+        <section id="rsvp" class="section-dark rsvp-modern-section">
             <div class="container reveal">
-                <div class="glass-card rsvp-card-compact">
-                    <h2 class="text-center" style="margin-bottom: 20px; font-size: 1.6rem;">RSVP</h2>
-                    <form id="rsvp-form" class="rsvp-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group attendance-group">
-                            <span class="attendance-label">Attendance</span>
-                            <div class="attendance-options">
-                                <div class="attendance-option">
-                                    <input type="radio" id="attendance-hadir" name="attendance" value="Hadir" checked>
-                                    <label for="attendance-hadir">Yes, I will attend</label>
-                                </div>
-                                <div class="attendance-option">
-                                    <input type="radio" id="attendance-tidak" name="attendance" value="Tidak Hadir">
-                                    <label for="attendance-tidak">Sorry, I can't attend</label>
-                                </div>
+                <div class="rsvp-modern-card">
+                    <!-- Ambient Glow -->
+                    <div class="rsvp-ambient-glow"></div>
+
+                    <!-- Header -->
+                    <div class="rsvp-header text-center">
+                        <span class="rsvp-eyebrow">RESERVATION</span>
+                        <h2 class="rsvp-title">Konfirmasi Kehadiran</h2>
+                        <p class="rsvp-subtitle">Mohon konfirmasi kehadiran Anda untuk membantu kami mempersiapkan acara dengan sebaik-baiknya.</p>
+                        <div class="rsvp-header-line"></div>
+                    </div>
+
+                    <form id="rsvp-form" class="rsvp-form-modern">
+                        <!-- Guest Name Field -->
+                        <div class="rsvp-field">
+                            <label for="name" class="rsvp-label">
+                                <i class="far fa-user"></i>
+                                <span>Nama Lengkap</span>
+                            </label>
+                            <div class="input-wrap">
+                                <input type="text" id="name" placeholder="Tuliskan nama Anda" required autocomplete="name">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Wishes &amp; Prayer</label>
-                            <textarea id="message" rows="3" placeholder="Share your wishes..."></textarea>
+
+                        <!-- Attendance Options -->
+                        <div class="rsvp-field">
+                            <label class="rsvp-label">
+                                <i class="far fa-calendar-check"></i>
+                                <span>Konfirmasi Kehadiran</span>
+                            </label>
+                            <div class="rsvp-attendance-grid">
+                                <label class="attendance-card" for="attendance-hadir">
+                                    <input type="radio" id="attendance-hadir" name="attendance" value="Hadir" checked>
+                                    <div class="card-inner">
+                                        <div class="status-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="attendance-info">
+                                            <span class="status-title">Hadir</span>
+                                            <span class="status-desc">Akan Datang</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="attendance-card" for="attendance-tidak">
+                                    <input type="radio" id="attendance-tidak" name="attendance" value="Tidak Hadir">
+                                    <div class="card-inner">
+                                        <div class="status-indicator">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                        <div class="attendance-info">
+                                            <span class="status-title">Berhalangan</span>
+                                            <span class="status-desc">Doa dari Jauh</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-gold btn-block">Send RSVP</button>
+
+                        <!-- Wishes & Prayers -->
+                        <div class="rsvp-field">
+                            <label for="message" class="rsvp-label">
+                                <i class="far fa-comment-dots"></i>
+                                <span>Ucapan &amp; Doa Restu</span>
+                            </label>
+                            <div class="input-wrap">
+                                <textarea id="message" rows="3" placeholder="Tuliskan doa &amp; ucapan selamat untuk kedua mempelai..." required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="rsvp-submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Kirim RSVP</span>
+                        </button>
                     </form>
                 </div>
             </div>

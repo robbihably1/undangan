@@ -572,137 +572,158 @@ h2 {
 }
 
 /* ══════════════════════════════════════════════
-   THE COUPLE
+   THE COUPLE — Ultra-Minimalist Editorial Dark
    ═════════════════════════════════════════════ */
-.couple-grid {
+.couple-section-modern {
+    padding: 20px 16px !important;
+    position: relative;
+    background: #000000;
     display: flex;
     flex-direction: column;
-    /* Stack as 2 precise sections */
-    gap: 16px;
     justify-content: center;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-/* Big elegant background ampersand between the stacked sections */
-.couple-grid::after {
-    content: '&';
-    position: absolute;
-    top: 50%;
-    left: 80%;
-    /* Placed on the right side */
-    transform: translate(-50%, -50%);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 8rem;
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(192, 192, 192, 0.12);
-    z-index: 0;
-    pointer-events: none;
-}
-
-.profile-card {
-    width: 100%;
-    position: relative;
-    text-align: left;
-    padding: 0 !important;
-    border-radius: 16px !important;
+    align-items: center;
+    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
     overflow: hidden;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease;
-    z-index: 2;
 }
 
-/* Ensure no staggering */
-.profile-card:nth-child(2) {
-    margin-top: 0;
-}
-
-.profile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-}
-
-.avatar {
+.couple-section-modern .container {
+    max-width: 410px;
     width: 100%;
-    height: 270px;
-    /* Balanced size for full-screen mobile section */
-    object-fit: cover;
-    display: block;
-    border-radius: 16px;
-    margin-bottom: 0;
-    filter: grayscale(15%) contrast(1.1);
-    transition: transform 0.8s ease;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.profile-card:hover .avatar {
-    transform: scale(1.05);
+/* Minimalist Editorial Header */
+.couple-minimal-header {
+    text-align: center;
+    margin-bottom: 14px;
 }
 
-/* Gradient overlay to make text readable */
-.profile-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0) 100%);
-    pointer-events: none;
-    border-radius: 0 0 16px 16px;
-    z-index: 1;
+.couple-minimal-tag {
+    display: inline-block;
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    color: rgba(220, 225, 235, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 3px;
 }
 
-/* Ensure text stays above overlay */
-.profile-card h3,
-.profile-card p,
-.profile-card .ig-link {
-    position: absolute;
-    left: 20px;
-    z-index: 2;
-    margin: 0;
-}
-
-.profile-card h3 {
-    bottom: 50px;
-    font-size: 1.2rem;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-}
-
-.profile-card p {
-    bottom: 28px;
-    font-size: 0.76rem;
-    color: var(--gold);
+.couple-minimal-title {
     font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.couple-minimal-title em {
     font-style: italic;
-    letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    color: rgba(220, 225, 235, 0.7);
+    font-weight: 300;
+    margin: 0 4px;
 }
 
-.profile-card .ig-link {
-    bottom: 15px;
-    font-size: 0.75rem;
-    color: #fff;
-    padding: 6px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-    text-decoration: none;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
-    text-shadow: none;
+/* Modern Editorial Side-by-Side Cards */
+.couple-editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 390px;
 }
 
-.profile-card .ig-link:hover {
-    background: var(--gold);
-    color: #000;
-    border-color: var(--gold);
-    box-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+.couple-editorial-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+    padding: 10px 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.couple-editorial-card:hover {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(255, 255, 255, 0.14);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Clean Pristine Photo Frame */
+.editorial-photo-wrap {
+    width: 100%;
+    height: clamp(170px, 24vh, 215px);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background: #0d111a;
+    margin-bottom: 10px;
+}
+
+.editorial-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    filter: brightness(0.96) contrast(1.04);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.couple-editorial-card:hover .editorial-photo-wrap img {
+    transform: scale(1.04);
+}
+
+/* Minimalist Role Tag */
+.editorial-role {
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(220, 225, 235, 0.55);
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* Balanced Editorial Name */
+.editorial-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+    min-height: 2.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Understated Family Line */
+.editorial-parents {
+    font-size: 0.66rem;
+    color: rgba(210, 215, 225, 0.55);
+    line-height: 1.35;
+    margin: 0;
+    font-weight: 300;
+}
+
+.editorial-parents strong {
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
 }
 
 
@@ -1686,8 +1707,294 @@ body {
 }
 
 /* ══════════════════════════════════════════════
-   RSVP FORM
+   MODERN MINIMALIST DARK RSVP
    ═════════════════════════════════════════════ */
+.anim-form .rsvp-modern-card {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-in.anim-form .rsvp-modern-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rsvp-modern-section {
+    padding: 55px 16px;
+    position: relative;
+    background: #000000;
+}
+
+.rsvp-modern-card {
+    position: relative;
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.045) 0%, rgba(13, 17, 26, 0.96) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 28px;
+    padding: 34px 22px 28px;
+    box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    overflow: hidden;
+    max-width: 410px;
+    margin: 0 auto;
+}
+
+.rsvp-ambient-glow {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 120px;
+    background: radial-gradient(ellipse, rgba(220, 225, 235, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.rsvp-header {
+    margin-bottom: 22px;
+}
+
+.rsvp-eyebrow {
+    display: inline-block;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    color: rgba(220, 225, 235, 0.65);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.rsvp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px;
+    line-height: 1.2;
+}
+
+.rsvp-subtitle {
+    font-size: 0.76rem;
+    color: rgba(210, 215, 225, 0.65);
+    line-height: 1.55;
+    margin: 0 auto 16px;
+    max-width: 320px;
+    font-weight: 300;
+}
+
+.rsvp-header-line {
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    margin: 0 auto;
+}
+
+.rsvp-form-modern {
+    text-align: left;
+}
+
+.rsvp-field {
+    margin-bottom: 18px;
+}
+
+.rsvp-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    letter-spacing: 0.8px;
+    color: rgba(220, 225, 235, 0.75);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.rsvp-label i {
+    color: rgba(220, 225, 235, 0.5);
+    font-size: 0.75rem;
+}
+
+.rsvp-field .input-wrap {
+    position: relative;
+}
+
+.rsvp-form-modern input[type="text"],
+.rsvp-form-modern textarea {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 14px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.rsvp-form-modern input[type="text"]::placeholder,
+.rsvp-form-modern textarea::placeholder {
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.rsvp-form-modern input[type="text"]:focus,
+.rsvp-form-modern textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+.rsvp-form-modern textarea {
+    resize: vertical;
+    min-height: 84px;
+    line-height: 1.5;
+}
+
+/* Modern Attendance Radio Cards */
+.rsvp-attendance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.attendance-card {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    display: block;
+    user-select: none;
+}
+
+.attendance-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.attendance-card .card-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attendance-card .status-indicator {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    color: rgba(255, 255, 255, 0.35);
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.attendance-card .attendance-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.attendance-card .status-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    transition: color 0.25s ease;
+}
+
+.attendance-card .status-desc {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.42);
+    margin-top: 2px;
+    transition: color 0.25s ease;
+}
+
+.attendance-card:hover .card-inner {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.attendance-card input[type="radio"]:checked + .card-inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+.attendance-card input[type="radio"]:checked + .card-inner .status-indicator {
+    background: #ffffff;
+    color: #0b0f19;
+    border-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.4);
+}
+
+.attendance-card input[type="radio"]:checked + .card-inner .status-title {
+    color: #ffffff;
+}
+
+.attendance-card input[type="radio"]:checked + .card-inner .status-desc {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Submit Button */
+.rsvp-submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 13px 24px;
+    background: #ffffff;
+    color: #0a0e17;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+}
+
+.rsvp-submit-btn:hover {
+    background: #f0f2f5;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.25);
+}
+
+.rsvp-submit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.rsvp-submit-btn i {
+    font-size: 0.82rem;
+    transition: transform 0.25s ease;
+}
+
+.rsvp-submit-btn:hover i {
+    transform: translateX(2px) translateY(-1px);
+}
+
+/* Backward compatibility fallbacks */
 .rsvp-card-compact {
     padding: 24px !important;
 }
@@ -1695,101 +2002,6 @@ body {
 .rsvp-form {
     text-align: left;
     margin-top: 12px;
-}
-
-.form-group {
-    margin-bottom: 12px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.rsvp-form input,
-.rsvp-form textarea {
-    width: 100%;
-    padding: 9px 12px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--card-border);
-    border-radius: 8px;
-    color: var(--text);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    transition: border-color 0.3s, background 0.3s;
-}
-
-.attendance-group .attendance-label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.attendance-options {
-    display: flex;
-    gap: 8px;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-
-.attendance-option {
-    flex: 1 1 0;
-    min-width: 0;
-}
-
-.attendance-option input[type="radio"] {
-    display: none;
-}
-
-.attendance-option label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 28px;
-    padding: 4px 5px;
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--text);
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    line-height: 1.0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-    transition: all 0.25s ease;
-}
-
-.attendance-option input[type="radio"]:checked+label {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: var(--gold);
-    color: #fff;
-    box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.12);
-}
-
-.rsvp-form input:focus,
-.rsvp-form textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-    background: rgba(255, 255, 255, 0.09);
-}
-
-.btn-block {
-    width: 100%;
-    margin-top: 14px;
-    text-align: center;
-    padding: 10px 18px;
-    font-size: 0.88rem;
 }
 
 /* ══════════════════════════════════════════════
