@@ -28,13 +28,46 @@
     </audio>
 
     <!-- ══════════════ COVER (always visible) ══════════════ -->
-    <header class="hero" id="cover">
-        <div class="hero-content reveal">
-            <p class="subtitle">THE WEDDING OF</p>
-            <h1>Robbi <br /> &amp; <br /> Lugas</h1>
-            <p class="date">August 23, 2026</p>
-            <p class="hero-greeting" style="display:none;"></p>
-            <a href="#" id="open-invitation-btn" class="btn btn-gold open-btn">Open Invitation ✉</a>
+    <header class="hero cover-modern" id="cover">
+        <!-- Ambient Background with Prewedding Photo -->
+        <div class="cover-bg" style="background-image: url('images/foto3.jpg');"></div>
+        <div class="cover-overlay"></div>
+        <div class="cover-glow"></div>
+
+        <!-- Cover Content Container -->
+        <div class="cover-container">
+            <!-- Top Section: Wedding Info -->
+            <div class="cover-header">
+                <div class="cover-badge">
+                    <span class="line"></span>
+                    <span class="badge-text">THE WEDDING OF</span>
+                    <span class="line"></span>
+                </div>
+                <h1 class="cover-names">
+                    <span class="name">Robbi</span>
+                    <span class="ampersand">&amp;</span>
+                    <span class="name">Lugas</span>
+                </h1>
+                <div class="cover-date-pill">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Sunday, 23 August 2026</span>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Guest & Open Button -->
+            <div class="cover-footer">
+                <div class="cover-guest">
+                    <p class="guest-to">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+                    <h3 class="guest-name" id="guest-name-display">Tamu Undangan</h3>
+                    <p class="guest-place">di Tempat</p>
+                </div>
+
+                <a href="#" id="open-invitation-btn" class="open-invitation-btn">
+                    <span class="btn-glow"></span>
+                    <i class="fas fa-envelope-open-text"></i>
+                    <span>Buka Undangan</span>
+                </a>
+            </div>
         </div>
     </header>
 

@@ -7,10 +7,15 @@ const heroGreeting = document.querySelector('.hero-greeting');
 const setHeroGreeting = () => {
     const params = new URLSearchParams(window.location.search);
     const guestName = params.get('to');
+    const guestDisplay = document.getElementById('guest-name-display');
 
-    if (guestName && heroGreeting) {
-        heroGreeting.textContent = `Dear ${decodeURIComponent(guestName.replace(/\+/g, ' '))}`;
-        heroGreeting.style.display = 'block';
+    if (guestName) {
+        const decoded = decodeURIComponent(guestName.replace(/\+/g, ' '));
+        if (guestDisplay) guestDisplay.textContent = decoded;
+        if (heroGreeting) {
+            heroGreeting.textContent = `Dear ${decoded}`;
+            heroGreeting.style.display = 'block';
+        }
     }
 };
 
