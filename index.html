@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style2.css">
@@ -95,7 +95,6 @@
             <div class="container reveal">
                 <!-- Minimalist Header -->
                 <div class="couple-minimal-header">
-                    <span class="couple-minimal-tag">GROOM &amp; BRIDE</span>
                     <h2 class="couple-minimal-title">The Couple</h2>
                 </div>
 
@@ -134,66 +133,66 @@
         <section id="countdown" class="section-dark">
             <div class="container reveal">
                 <div class="glass-card our-day-card">
-                    <!-- Title -->
-                    <!-- <p class="our-day-subtitle">SAVE THE DATE</p> -->
-                    <h2 class="our-day-title">Our Day</h2>
+                    <!-- Section Title -->
+                    <div class="our-day-header">
+                        <h2 class="our-day-title">Our Wedding Day</h2>
+                    </div>
 
-                    <!-- Date Showcase -->
-                    <div class="date-showcase">
-                        <span class="ds-month">December</span>
-                        <div class="ds-day-wrap">
-                            <span class="ds-day">20</span>
+                    <!-- Pure Romantic Editorial Date Showcase -->
+                    <div class="our-day-date-hero">
+                        <div class="odd-dayname">Sunday</div>
+                        <div class="odd-center-row">
+                            <span class="odd-hairline left"></span>
+                            <span class="odd-number">20</span>
+                            <span class="odd-hairline right"></span>
                         </div>
-                        <div class="ds-rule"></div>
-                        <div class="ds-bottom">
-                            <span class="ds-weekday">Sunday</span>
-                            <span class="ds-dot">—</span>
-                            <span class="ds-year">2026</span>
+                        <div class="odd-monthyear">December 2026</div>
+                    </div>
+
+                    <!-- Countdown Timer -->
+                    <div class="our-day-countdown">
+                        <div class="timer-box">
+                            <span class="timer-num" id="days">00</span>
+                            <span class="timer-label">Days</span>
+                        </div>
+                        <div class="timer-divider">:</div>
+                        <div class="timer-box">
+                            <span class="timer-num" id="hours">00</span>
+                            <span class="timer-label">Hours</span>
+                        </div>
+                        <div class="timer-divider">:</div>
+                        <div class="timer-box">
+                            <span class="timer-num" id="minutes">00</span>
+                            <span class="timer-label">Mins</span>
+                        </div>
+                        <div class="timer-divider">:</div>
+                        <div class="timer-box">
+                            <span class="timer-num" id="seconds">00</span>
+                            <span class="timer-label">Secs</span>
                         </div>
                     </div>
 
-                    <!-- Countdown Card -->
-                    <div class="countdown-card-modern">
-                        <div class="mc-item">
-                            <span class="mc-num" id="days">00</span>
-                            <span class="mc-label">Days</span>
-                        </div>
-                        <div class="mc-divider">:</div>
-                        <div class="mc-item">
-                            <span class="mc-num" id="hours">00</span>
-                            <span class="mc-label">Hours</span>
-                        </div>
-                        <div class="mc-divider">:</div>
-                        <div class="mc-item">
-                            <span class="mc-num" id="minutes">00</span>
-                            <span class="mc-label">Minutes</span>
-                        </div>
-                        <div class="mc-divider">:</div>
-                        <div class="mc-item">
-                            <span class="mc-num" id="seconds">00</span>
-                            <span class="mc-label">Seconds</span>
-                        </div>
-                    </div>
-
-                    <!-- Event Info -->
-                    <div class="events-details">
-                        <div class="event-item-modern">
-                            <div class="event-icon">
+                    <!-- Events Grid: Akad & Resepsi (Symmetrical 2-column cards, matching The Couple) -->
+                    <div class="our-day-events">
+                        <div class="event-card-sleek">
+                            <div class="ecs-icon">
                                 <i class="fas fa-ring"></i>
                             </div>
-                            <div class="event-text-modern">
-                                <h3>Akad Nikah</h3>
-                                <p class="event-time">08.00 – 10.00 WIB</p>
+                            <div class="ecs-content">
+                                <span class="ecs-eyebrow">ACARA</span>
+                                <h4 class="ecs-title">Akad Nikah</h4>
+                                <p class="ecs-time"><i class="far fa-clock"></i> 08.00 – 10.00 WIB</p>
                             </div>
                         </div>
 
-                        <div class="event-item-modern">
-                            <div class="event-icon">
+                        <div class="event-card-sleek">
+                            <div class="ecs-icon">
                                 <i class="fas fa-champagne-glasses"></i>
                             </div>
-                            <div class="event-text-modern">
-                                <h3>Resepsi Pernikahan</h3>
-                                <p class="event-time">11.00 WIB – Selesai</p>
+                            <div class="ecs-content">
+                                <span class="ecs-eyebrow">ACARA</span>
+                                <h4 class="ecs-title">Resepsi</h4>
+                                <p class="ecs-time"><i class="far fa-clock"></i> 11.00 WIB – Selesai</p>
                             </div>
                         </div>
                     </div>
@@ -408,7 +407,6 @@
                 <div class="glass-card rsvp-modern-card">
                     <!-- Header -->
                     <div class="rsvp-header text-center">
-                        <span class="rsvp-eyebrow">RESERVATION</span>
                         <h2 class="rsvp-title">Konfirmasi Kehadiran</h2>
                         <p class="rsvp-subtitle">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i</p>
                     </div>
@@ -484,7 +482,7 @@
         <!-- Wedding Gift Section -->
         <section id="gift" class="section-dark">
             <div class="container text-center reveal">
-                <h2 style="margin-bottom: 8px;">Wedding Gift</h2>
+                <h2>Wedding Gift</h2>
                 <!-- <p class="section-lead" style="font-size: 0.78rem; margin-bottom: 16px; color: var(--text-muted);">Your presence and blessings are the greatest gifts. However, if you wish to send a gift, you can do so through the details below:</p> -->
                 <div class="gift-grid">
                     <!-- BCA Card -->
@@ -564,7 +562,6 @@
         <section id="closing" class="section-black closing-section">
             <div class="container text-center reveal">
                 <div class="closing-content">
-                    <p class="closing-subtitle">WITH GRATITUDE</p>
                     <h2 class="closing-title">Thank You</h2>
                     <p class="closing-message">
                         We deeply appreciate your presence and warm wishes as we embark on this beautiful journey
