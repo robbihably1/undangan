@@ -410,8 +410,20 @@ const initLeafletMap = () => {
         center: [VENUE_LAT, VENUE_LNG],
         zoom: FAR_ZOOM,
         zoomControl: true,
-        scrollWheelZoom: false
+        scrollWheelZoom: false,
+        dragging: false,
+        touchZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        keyboard: false,
+        tap: false
     });
+
+    if (leafletMap.dragging) leafletMap.dragging.disable();
+    if (leafletMap.touchZoom) leafletMap.touchZoom.disable();
+    if (leafletMap.doubleClickZoom) leafletMap.doubleClickZoom.disable();
+    if (leafletMap.boxZoom) leafletMap.boxZoom.disable();
+    if (leafletMap.keyboard) leafletMap.keyboard.disable();
 
     // Native Esri Dark Gray Base
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
