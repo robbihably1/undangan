@@ -130,74 +130,80 @@
         </section>
 
         <!-- Our Day -->
-        <section id="countdown" class="section-dark">
+        <section id="countdown" class="section-dark our-day-section-v2">
             <div class="container reveal">
-                <div class="glass-card our-day-card">
-                    <!-- Section Title -->
-                    <div class="our-day-header">
-                        <h2 class="our-day-title">Our Wedding Day</h2>
+                <!-- Section Header -->
+                <div class="wedding-day-header">
+                    <h2 class="wedding-day-title">Our Wedding Day</h2>
+                    <div class="wedding-date-tag">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>Sunday, 20 December 2026</span>
                     </div>
+                </div>
 
-                    <!-- Pure Romantic Editorial Date Showcase -->
-                    <div class="our-day-date-hero">
-                        <div class="odd-dayname">Sunday</div>
-                        <div class="odd-center-row">
-                            <span class="odd-hairline left"></span>
-                            <span class="odd-number">20</span>
-                            <span class="odd-hairline right"></span>
-                        </div>
-                        <div class="odd-monthyear">December 2026</div>
+                <!-- Slim Floating Countdown Capsule -->
+                <div class="countdown-capsule">
+                    <div class="capsule-unit">
+                        <span class="capsule-val" id="days">00</span>
+                        <span class="capsule-lbl">Hari</span>
                     </div>
-
-                    <!-- Countdown Timer -->
-                    <div class="our-day-countdown">
-                        <div class="timer-box">
-                            <span class="timer-num" id="days">00</span>
-                            <span class="timer-label">Days</span>
-                        </div>
-                        <div class="timer-divider">:</div>
-                        <div class="timer-box">
-                            <span class="timer-num" id="hours">00</span>
-                            <span class="timer-label">Hours</span>
-                        </div>
-                        <div class="timer-divider">:</div>
-                        <div class="timer-box">
-                            <span class="timer-num" id="minutes">00</span>
-                            <span class="timer-label">Mins</span>
-                        </div>
-                        <div class="timer-divider">:</div>
-                        <div class="timer-box">
-                            <span class="timer-num" id="seconds">00</span>
-                            <span class="timer-label">Secs</span>
-                        </div>
+                    <span class="capsule-dot">•</span>
+                    <div class="capsule-unit">
+                        <span class="capsule-val" id="hours">00</span>
+                        <span class="capsule-lbl">Jam</span>
                     </div>
+                    <span class="capsule-dot">•</span>
+                    <div class="capsule-unit">
+                        <span class="capsule-val" id="minutes">00</span>
+                        <span class="capsule-lbl">Menit</span>
+                    </div>
+                    <span class="capsule-dot">•</span>
+                    <div class="capsule-unit">
+                        <span class="capsule-val" id="seconds">00</span>
+                        <span class="capsule-lbl">Detik</span>
+                    </div>
+                </div>
 
-                    <!-- Events Grid: Akad & Resepsi (Symmetrical 2-column cards, matching The Couple) -->
-                    <div class="our-day-events">
-                        <div class="event-card-sleek">
-                            <div class="ecs-icon">
-                                <i class="fas fa-ring"></i>
-                            </div>
-                            <div class="ecs-content">
-                                <span class="ecs-eyebrow">ACARA</span>
-                                <h4 class="ecs-title">Akad Nikah</h4>
-                                <p class="ecs-time"><i class="far fa-clock"></i> 08.00 – 10.00 WIB</p>
-                            </div>
+                <!-- Ceremony Focus: 2 Exclusive Cards (Akad & Resepsi) -->
+                <div class="ceremony-cards-wrap">
+                    <!-- Akad Nikah Card -->
+                    <div class="ceremony-card">
+                        <div class="ceremony-icon-badge">
+                            <i class="fas fa-ring"></i>
                         </div>
-
-                        <div class="event-card-sleek">
-                            <div class="ecs-icon">
-                                <i class="fas fa-champagne-glasses"></i>
+                        <div class="ceremony-main">
+                            <div class="ceremony-top-row">
+                                <span class="ceremony-badge">AKAD NIKAH</span>
+                                <span class="ceremony-time"><i class="far fa-clock"></i> 08.00 – 10.00 WIB</span>
                             </div>
-                            <div class="ecs-content">
-                                <span class="ecs-eyebrow">ACARA</span>
-                                <h4 class="ecs-title">Resepsi</h4>
-                                <p class="ecs-time"><i class="far fa-clock"></i> 11.00 WIB – Selesai</p>
-                            </div>
+                            <h3 class="ceremony-title">Akad Nikah</h3>
+                            <p class="ceremony-venue"><i class="fas fa-location-dot"></i> Kediaman Mempelai Wanita</p>
                         </div>
                     </div>
 
-                    <p class="our-day-footer">We warmly look forward to your presence.</p>
+                    <!-- Resepsi Card -->
+                    <div class="ceremony-card">
+                        <div class="ceremony-icon-badge">
+                            <i class="fas fa-champagne-glasses"></i>
+                        </div>
+                        <div class="ceremony-main">
+                            <div class="ceremony-top-row">
+                                <span class="ceremony-badge">RESEPSI</span>
+                                <span class="ceremony-time"><i class="far fa-clock"></i> 11.00 WIB – Selesai</span>
+                            </div>
+                            <h3 class="ceremony-title">Resepsi Pernikahan</h3>
+                            <p class="ceremony-venue"><i class="fas fa-location-dot"></i> Ds. Nguri, Lembeyan, Magetan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add to Calendar Action Button -->
+                <div class="calendar-action-wrap">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Wedding+of+Robbi+%26+Lugas&dates=20261220T010000Z/20261220T070000Z&details=Undangan+Pernikahan+Robbi+%26+Lugas.+Ds.+Nguri+Rt.02+Rw.04+Kec.+Lembeyan+Kab.+Magetan&location=Toko+Lugas,+Ds.+Nguri+Rt.02+Rw.04+Kec.+Lembeyan+Kab.+Magetan" 
+                       target="_blank" rel="noopener noreferrer" class="save-calendar-btn">
+                        <i class="far fa-bell"></i>
+                        <span>Ingatkan di Google Calendar</span>
+                    </a>
                 </div>
             </div>
         </section>
