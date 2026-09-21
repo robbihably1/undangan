@@ -553,7 +553,20 @@ h2,
 }
 
 .quote-title {
-    margin-bottom: 22px;
+    margin-bottom: 12px;
+}
+
+.bismillah {
+    font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif;
+    font-size: 1.38rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 auto 16px;
+    direction: rtl;
+    text-align: center;
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.18);
+    letter-spacing: 0.5px;
 }
 
 .holy-quote {
@@ -793,13 +806,13 @@ h2,
 
 .wedding-day-title {
     font-family: var(--font-serif);
-    font-size: 2.15rem;
-    font-weight: 500;
+    font-size: 1.95rem;
+    font-weight: 400;
     color: #ffffff;
-    letter-spacing: 0.5px;
-    line-height: 1.1;
+    letter-spacing: 1px;
+    line-height: 1.2;
     margin: 0 0 6px;
-    text-shadow: 0 2px 14px rgba(255, 255, 255, 0.12);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
 .wedding-date-tag {
@@ -811,7 +824,7 @@ h2,
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: var(--font-sans);
-    font-size: 0.68rem;
+    font-size: 0.65rem;
     font-weight: 500;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -847,7 +860,7 @@ h2,
 
 .capsule-val {
     font-family: var(--font-serif);
-    font-size: 1.35rem;
+    font-size: 1.22rem;
     font-weight: 600;
     color: #ffffff;
     line-height: 1;
@@ -857,7 +870,7 @@ h2,
 
 .capsule-lbl {
     font-family: var(--font-sans);
-    font-size: 0.56rem;
+    font-size: 0.55rem;
     font-weight: 500;
     letter-spacing: 1px;
     color: rgba(255, 255, 255, 0.5);
@@ -866,7 +879,7 @@ h2,
 
 .capsule-dot {
     color: rgba(255, 255, 255, 0.22);
-    font-size: 0.6rem;
+    font-size: 0.55rem;
     user-select: none;
 }
 
@@ -976,19 +989,20 @@ h2,
 
 .ceremony-title {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.18rem;
+    font-weight: 500;
     color: #ffffff;
-    line-height: 1.15;
+    line-height: 1.2;
     margin: 0 0 3px;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.4px;
 }
 
 .ceremony-venue {
     font-family: var(--font-sans);
-    font-size: 0.68rem;
-    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.70rem;
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
+    line-height: 1.4;
     margin: 0;
     display: flex;
     align-items: center;
@@ -1020,7 +1034,7 @@ h2,
     border: 1px solid rgba(255, 255, 255, 0.14);
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 1px;
     text-decoration: none;
@@ -1405,6 +1419,7 @@ h2,
     overflow: hidden;
     display: flex;
     position: relative;
+    touch-action: pan-y !important;
 }
 
 #map {
@@ -1413,6 +1428,32 @@ h2,
     min-height: 380px;
     display: block;
     z-index: 1;
+    cursor: default;
+    touch-action: pan-y !important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#map .leaflet-container,
+#map .leaflet-pane,
+#map .leaflet-map-pane,
+#map .leaflet-tile-pane,
+#map .leaflet-layer,
+#map .leaflet-tile-container,
+#map .leaflet-tile {
+    touch-action: pan-y !important;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.custom-map-pin-wrap,
+.custom-map-pin,
+.map-popup-card,
+.leaflet-popup,
+.leaflet-control-container,
+.leaflet-bar {
+    cursor: pointer;
+    touch-action: auto !important;
 }
 
 .map-container-fullbleed iframe {
@@ -1748,10 +1789,16 @@ body {
     transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 
+.anim-fade .bismillah {
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
 .anim-fade .holy-quote {
     opacity: 0;
     transform: translateY(22px) scale(0.97);
-    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
 }
 
 .anim-fade .quote-divider {
@@ -1767,6 +1814,7 @@ body {
 }
 
 .section-in.anim-fade .quote-title,
+.section-in.anim-fade .bismillah,
 .section-in.anim-fade .quote-blessing {
     opacity: 1;
     transform: translateY(0);
