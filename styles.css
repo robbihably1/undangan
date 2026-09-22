@@ -138,6 +138,7 @@ h2,
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('images/foto3.jpg');
     background-size: cover;
     background-position: center 25%;
     filter: brightness(0.55) contrast(1.15);
@@ -1760,28 +1761,65 @@ body {
 }
 
 /* Section: The Couple */
+.anim-slide-up .reveal {
+    transform: none;
+}
+
+/* Card Cowo: dari atas ke bawah */
+.anim-slide-up .couple-editorial-card:first-child,
+.anim-slide-up .groom-card {
+    opacity: 0;
+    transform: translateY(-80px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+    will-change: opacity, transform;
+}
+
+/* Card Cewe: dari bawah ke atas */
+.anim-slide-up .couple-editorial-card:last-child,
+.anim-slide-up .bride-card {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+    will-change: opacity, transform;
+}
+
+/* Lalu tulisan The Couple muncul */
 .anim-slide-up .couple-minimal-header {
     opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-16px) scale(0.96);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s;
+    will-change: opacity, transform;
 }
 
-.anim-slide-up .couple-editorial-card:first-child {
+/* Dan icon & nya muncul */
+.anim-slide-up .couple-ampersand {
     opacity: 0;
-    transform: translateX(-35px) translateY(20px);
-    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: opacity 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s, transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s;
+    will-change: opacity, transform;
 }
 
-.anim-slide-up .couple-editorial-card:last-child {
-    opacity: 0;
-    transform: translateX(35px) translateY(20px);
-    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
-}
-
-.section-in.anim-slide-up .couple-minimal-header,
-.section-in.anim-slide-up .couple-editorial-card {
+/* Saat section masuk viewport */
+.section-in.anim-slide-up .couple-editorial-card:first-child,
+.section-in.anim-slide-up .groom-card,
+.section-in.anim-slide-up .couple-editorial-card:last-child,
+.section-in.anim-slide-up .bride-card {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translateY(0);
+}
+
+.section-in.anim-slide-up .couple-minimal-header {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.section-in.anim-slide-up .couple-ampersand {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.section-in.anim-slide-up .couple-editorial-card:hover {
+    transform: translateY(-3px);
 }
 
 /* Section: Our Day / Countdown */

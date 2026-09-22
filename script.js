@@ -237,11 +237,11 @@ if (rsvpForm) {
         const message = document.getElementById('message').value;
 
         if (!message.trim()) {
-            alert('Mohon tuliskan ucapan & doa restu terlebih dahulu.');
+            alert('Please write your wishes and blessings first.');
             return;
         }
 
-        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> <span>Mengirim...</span>';
+        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> <span>Sending...</span>';
         btn.disabled = true;
 
         const formData = new FormData();
@@ -253,7 +253,7 @@ if (rsvpForm) {
             const response = await fetch(SCRIPT_URL, { method: 'POST', body: formData });
 
             if (response.ok) {
-                btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Terkirim! Terima kasih</span>';
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> <span>Sent! Thank you</span>';
                 btn.style.background = '#2e7d32';
                 btn.style.color = '#fff';
                 e.target.reset();
@@ -274,7 +274,7 @@ if (rsvpForm) {
             }
         } catch (error) {
             console.error('Error:', error);
-            btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> <span>Gagal Mengirim</span>';
+            btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> <span>Failed to send</span>';
             btn.style.background = '#c62828';
             btn.style.color = '#fff';
 

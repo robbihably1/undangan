@@ -7,7 +7,7 @@
     <title>The Wedding of Robbi &amp; Lugas</title>
     <meta property="og:title" content="The Wedding of Robbi &amp; Lugas">
     <meta property="og:description"
-        content="Undangan pernikahan Robbi & Lugas. Buka link ini untuk RSVP dan sampaikan doa terbaikmu.">
+        content="The Wedding of Robbi &amp; Lugas. Open this invitation to RSVP and send your warmest wishes.">
     <meta property="og:image" content="https://robbihably1.github.io/undangan/images/foto3.jpg">
     <meta property="og:type" content="website">
     <meta property="twitter:card" content="summary_large_image">
@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 
 <body>
@@ -30,7 +31,7 @@
     <!-- ══════════════ COVER (always visible) ══════════════ -->
     <header class="hero cover-modern" id="cover">
         <!-- Ambient Background with Prewedding Photo -->
-        <div class="cover-bg" style="background-image: url('images/foto3.jpg');"></div>
+        <div class="cover-bg"></div>
         <div class="cover-overlay"></div>
         <div class="cover-glow"></div>
 
@@ -57,15 +58,15 @@
             <!-- Bottom Section: Guest & Open Button -->
             <div class="cover-footer">
                 <div class="cover-guest">
-                    <p class="guest-to">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                    <h3 class="guest-name" id="guest-name-display">Tamu Undangan</h3>
-                    <p class="guest-place">di Tempat</p>
+                    <p class="guest-to">Cordially Invited</p>
+                    <h3 class="guest-name" id="guest-name-display">Honored Guest</h3>
+                    <p class="guest-place">&amp; Family</p>
                 </div>
 
                 <a href="#" id="open-invitation-btn" class="open-invitation-btn">
                     <span class="btn-glow"></span>
                     <i class="fas fa-envelope-open-text"></i>
-                    <span>Buka Undangan</span>
+                    <span>Open Invitation</span>
                 </a>
             </div>
         </div>
@@ -102,15 +103,15 @@
                 <!-- Editorial Duo Cards -->
                 <div class="couple-editorial-grid">
                     <!-- Groom Card -->
-                    <div class="couple-editorial-card">
+                    <div class="couple-editorial-card groom-card">
                         <div class="editorial-photo-wrap">
                             <img src="images/foto_groom.jpg" alt="Robbi Hably Minassholihyn">
                         </div>
                         <span class="editorial-role">The Groom</span>
                         <h3 class="editorial-name">Robbi Hably<br>Minassholihyn</h3>
                         <p class="editorial-parents">
-                            Putra dari<br>
-                            <strong>Bpk. Deni Ramdani</strong><br>&amp; <strong>Ibu Nurlaela</strong>
+                            Son of<br>
+                            <strong>Mr. Deni Ramdani</strong><br>&amp; <strong>Mrs. Nurlaela</strong>
                         </p>
                     </div>
 
@@ -118,15 +119,15 @@
                     <div class="couple-ampersand">&amp;</div>
 
                     <!-- Bride Card -->
-                    <div class="couple-editorial-card">
+                    <div class="couple-editorial-card bride-card">
                         <div class="editorial-photo-wrap">
                             <img src="images/foto_bride.jpg" alt="Lugas Munayasika">
                         </div>
                         <span class="editorial-role">The Bride</span>
                         <h3 class="editorial-name">Lugas<br>Munayasika</h3>
                         <p class="editorial-parents">
-                            Putri dari<br>
-                            <strong>Bpk. Sukardi</strong><br>&amp; <strong>Ibu Mujiati</strong>
+                            Daughter of<br>
+                            <strong>Mr. Sukardi</strong><br>&amp; <strong>Mrs. Mujiati</strong>
                         </p>
                     </div>
                 </div>
@@ -140,29 +141,29 @@
                 <!-- Title -->
                 <div class="wedding-day-header" style="padding: 0 8px;">
                     <h2 class="wedding-day-title">Our Wedding Day</h2>
-                    <p class="wedding-day-date">Ahad, 20 Desember 2026</p>
+                    <p class="wedding-day-date">Sunday, 20 December 2026</p>
                 </div>
 
                 <!-- Countdown -->
                 <div class="countdown-capsule">
                     <div class="capsule-unit">
                         <span class="capsule-val" id="days">00</span>
-                        <span class="capsule-lbl">Hari</span>
+                        <span class="capsule-lbl">Days</span>
                     </div>
                     <span class="capsule-dot">·</span>
                     <div class="capsule-unit">
                         <span class="capsule-val" id="hours">00</span>
-                        <span class="capsule-lbl">Jam</span>
+                        <span class="capsule-lbl">Hours</span>
                     </div>
                     <span class="capsule-dot">·</span>
                     <div class="capsule-unit">
                         <span class="capsule-val" id="minutes">00</span>
-                        <span class="capsule-lbl">Menit</span>
+                        <span class="capsule-lbl">Mins</span>
                     </div>
                     <span class="capsule-dot">·</span>
                     <div class="capsule-unit">
                         <span class="capsule-val" id="seconds">00</span>
-                        <span class="capsule-lbl">Detik</span>
+                        <span class="capsule-lbl">Secs</span>
                     </div>
                 </div>
 
@@ -172,21 +173,21 @@
                 <!-- Ceremony List -->
                 <div class="wd-ceremony-list" style="padding: 0 8px;">
                     <div class="wd-ceremony-item">
-                        <span class="wd-ceremony-label">Akad Nikah</span>
+                        <span class="wd-ceremony-label">Marriage Ceremony</span>
                         <span class="wd-ceremony-sep"></span>
                         <span class="wd-ceremony-time">08.00 – 10.00 WIB</span>
                     </div>
                     <div class="wd-ceremony-venue">
                         <i class="fas fa-location-dot"></i>
-                        Kediaman Mempelai Wanita
+                        Bride's Residence
                     </div>
 
                     <div class="wd-ceremony-gap"></div>
 
                     <div class="wd-ceremony-item">
-                        <span class="wd-ceremony-label">Resepsi Pernikahan</span>
+                        <span class="wd-ceremony-label">Wedding Reception</span>
                         <span class="wd-ceremony-sep"></span>
-                        <span class="wd-ceremony-time">11.00 WIB – Selesai</span>
+                        <span class="wd-ceremony-time">11.00 WIB – Finish</span>
                     </div>
                     <div class="wd-ceremony-venue">
                         <i class="fas fa-location-dot"></i>
@@ -241,7 +242,7 @@
                 <video class="tiktok-video" src="images/video1.mp4" loop autoplay muted playsinline></video>
 
                 <!-- Play Icon Overlay -->
-                <div class="play-icon" style="display: none;">
+                <div class="play-icon">
                     <i class="fas fa-play"></i>
                 </div>
 
@@ -251,12 +252,11 @@
                     <!-- Bottom Info -->
                     <div class="video-info">
                         <h3 class="username">Robbi & Lugas</h3>
-                        <p class="description">Ini adalah deskripsi video layaknya di TikTok. Sangat keren bukan?
-                            #wedding
-                            #sah #weddinginvitation</p>
+                        <p class="description">Our journey towards forever begins here. So thrilled to share our joy
+                            with all of you! #wedding #weddinginvitation #happilyeverafter</p>
                         <div class="music-info">
                             <i class="fas fa-music"></i>
-                            <marquee class="music-title" scrollamount="4">Suara Asli - Forever and Ever and Always -
+                            <marquee class="music-title" scrollamount="4">Original Sound - Forever and Ever and Always -
                                 Ryan Mack
                             </marquee>
                         </div>
@@ -304,68 +304,54 @@
                         <div class="close-comments-btn"><i class="fas fa-times"></i></div>
                     </div>
                     <div class="comments-list">
-                        <!-- Dummy Comments in English -->
+                        <!-- Celebrity Comments -->
                         <div class="comment-item">
-                            <img src="https://i.pravatar.cc/100?img=1" alt="User" class="comment-avatar">
+                            <img src="images/avatar_zayn.jpg" alt="zayn malik" class="comment-avatar">
                             <div class="comment-content">
-                                <span class="comment-user">Sarah Jenkins</span>
-                                <p class="comment-text">Happy wedding guys! Wishing you both a lifetime of happiness and
-                                    love ❤️</p>
+                                <span class="comment-user">zayn malik <i class="fas fa-check-circle verified-badge"></i></span>
+                                <p class="comment-text">Congratulations bro! Wishing both of you pure happiness and love forever. Beautiful couple! ❤️✨</p>
                                 <div class="comment-actions">
                                     <span class="comment-time">2h</span>
                                     <span class="comment-reply">Reply</span>
                                 </div>
                             </div>
-                            <div class="comment-like"><i class="far fa-heart"></i><br><span>1.2K</span></div>
+                            <div class="comment-like"><i class="far fa-heart"></i><br><span>45.2K</span></div>
                         </div>
                         <div class="comment-item">
-                            <img src="https://i.pravatar.cc/100?img=2" alt="User" class="comment-avatar">
+                            <img src="images/avatar_justin.jpg" alt="justin bieber" class="comment-avatar">
                             <div class="comment-content">
-                                <span class="comment-user">Michael Chen</span>
-                                <p class="comment-text">Can't wait for the big day! The video looks amazing 🔥</p>
+                                <span class="comment-user">justin bieber <i class="fas fa-check-circle verified-badge"></i></span>
+                                <p class="comment-text">So happy for you two!! Welcome to the married club, it's the best journey ever 🙏❤️</p>
                                 <div class="comment-actions">
-                                    <span class="comment-time">5h</span>
+                                    <span class="comment-time">4h</span>
                                     <span class="comment-reply">Reply</span>
                                 </div>
                             </div>
-                            <div class="comment-like"><i class="far fa-heart"></i><br><span>856</span></div>
+                            <div class="comment-like"><i class="far fa-heart"></i><br><span>68.9K</span></div>
                         </div>
                         <div class="comment-item">
-                            <img src="https://i.pravatar.cc/100?img=3" alt="User" class="comment-avatar">
+                            <img src="images/avatar_cristiano.jpg" alt="cristiano" class="comment-avatar">
                             <div class="comment-content">
-                                <span class="comment-user">Emily Davis</span>
-                                <p class="comment-text">Congratulations!! You guys are the perfect match 🥺✨</p>
+                                <span class="comment-user">cristiano <i class="fas fa-check-circle verified-badge"></i></span>
+                                <p class="comment-text">Congratulations to the lovely couple! Wishing you endless blessings on this special journey. SIUUU! 💍👏</p>
+                                <div class="comment-actions">
+                                    <span class="comment-time">6h</span>
+                                    <span class="comment-reply">Reply</span>
+                                </div>
+                            </div>
+                            <div class="comment-like"><i class="far fa-heart"></i><br><span>128K</span></div>
+                        </div>
+                        <div class="comment-item">
+                            <img src="images/avatar_neymar.jpg" alt="neymar" class="comment-avatar">
+                            <div class="comment-content">
+                                <span class="comment-user">neymar <i class="fas fa-check-circle verified-badge"></i></span>
+                                <p class="comment-text">Parabéns meu amigo!! Wishing you all the love and happiness in the world! 🤙🎉🥂</p>
                                 <div class="comment-actions">
                                     <span class="comment-time">1d</span>
                                     <span class="comment-reply">Reply</span>
                                 </div>
                             </div>
-                            <div class="comment-like"><i class="far fa-heart"></i><br><span>432</span></div>
-                        </div>
-                        <div class="comment-item">
-                            <img src="https://i.pravatar.cc/100?img=4" alt="User" class="comment-avatar">
-                            <div class="comment-content">
-                                <span class="comment-user">David Wilson</span>
-                                <p class="comment-text">So beautiful! May your marriage be blessed always 🙏</p>
-                                <div class="comment-actions">
-                                    <span class="comment-time">1d</span>
-                                    <span class="comment-reply">Reply</span>
-                                </div>
-                            </div>
-                            <div class="comment-like"><i class="far fa-heart"></i><br><span>210</span></div>
-                        </div>
-                        <div class="comment-item">
-                            <img src="https://i.pravatar.cc/100?img=5" alt="User" class="comment-avatar">
-                            <div class="comment-content">
-                                <span class="comment-user">Jessica Lee</span>
-                                <p class="comment-text">This is the cutest invitation I've ever seen! See you there!
-                                    🎉🥂</p>
-                                <div class="comment-actions">
-                                    <span class="comment-time">2d</span>
-                                    <span class="comment-reply">Reply</span>
-                                </div>
-                            </div>
-                            <div class="comment-like"><i class="far fa-heart"></i><br><span>189</span></div>
+                            <div class="comment-like"><i class="far fa-heart"></i><br><span>54.1K</span></div>
                         </div>
                     </div>
                     <div class="add-comment">
@@ -402,8 +388,8 @@
                 <div class="glass-card rsvp-modern-card">
                     <!-- Header -->
                     <div class="rsvp-header text-center">
-                        <h2 class="rsvp-title">Konfirmasi Kehadiran</h2>
-                        <p class="rsvp-subtitle">Mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i</p>
+                        <h2 class="rsvp-title">RSVP</h2>
+                        <p class="rsvp-subtitle">Please kindly confirm your attendance</p>
                     </div>
 
                     <form id="rsvp-form" class="rsvp-form-modern">
@@ -411,23 +397,23 @@
                         <div class="rsvp-field">
                             <label for="name" class="rsvp-label">
                                 <i class="far fa-user"></i>
-                                <span>Nama Tamu</span>
+                                <span>Guest Name</span>
                             </label>
-                            <input type="text" id="name" placeholder="Nama Lengkap" required autocomplete="name">
+                            <input type="text" id="name" placeholder="Your Full Name" required autocomplete="name">
                         </div>
 
                         <!-- Attendance Options -->
                         <div class="rsvp-field">
                             <label class="rsvp-label">
                                 <i class="far fa-calendar-check"></i>
-                                <span>Kehadiran</span>
+                                <span>Attendance</span>
                             </label>
                             <div class="rsvp-attendance-grid">
                                 <label class="attendance-card" for="attendance-hadir">
                                     <input type="radio" id="attendance-hadir" name="attendance" value="Hadir" checked>
                                     <div class="card-inner">
                                         <i class="fas fa-check"></i>
-                                        <span>Hadir</span>
+                                        <span>Attending</span>
                                     </div>
                                 </label>
 
@@ -435,7 +421,7 @@
                                     <input type="radio" id="attendance-tidak" name="attendance" value="Tidak Hadir">
                                     <div class="card-inner">
                                         <i class="fas fa-times"></i>
-                                        <span>Berhalangan</span>
+                                        <span>Unable to Attend</span>
                                     </div>
                                 </label>
                             </div>
@@ -445,15 +431,16 @@
                         <div class="rsvp-field">
                             <label for="message" class="rsvp-label">
                                 <i class="far fa-comment-dots"></i>
-                                <span>Ucapan &amp; Doa Restu</span>
+                                <span>Wishes &amp; Blessings</span>
                             </label>
-                            <textarea id="message" rows="2" placeholder="Tuliskan ucapan selamat &amp; doa..." required></textarea>
+                            <textarea id="message" rows="2" placeholder="Write your warm wishes &amp; blessings..."
+                                required></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <button type="submit" class="rsvp-submit-btn">
                             <i class="fas fa-paper-plane"></i>
-                            <span>Kirim Konfirmasi</span>
+                            <span>Send RSVP</span>
                         </button>
                     </form>
                 </div>
@@ -588,7 +575,8 @@
         </div>
     </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
     <script src="script2.js"></script>
 
