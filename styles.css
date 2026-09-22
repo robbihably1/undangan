@@ -138,6 +138,7 @@ h2,
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('images/foto3.jpg');
     background-size: cover;
     background-position: center 25%;
     filter: brightness(0.55) contrast(1.15);
@@ -558,14 +559,13 @@ h2,
 
 .bismillah {
     font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', 'Noto Naskh Arabic', serif;
-    font-size: 1.38rem;
+    font-size: 1.05rem;
     font-weight: 400;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.92);
-    margin: 0 auto 16px;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 auto 14px;
     direction: rtl;
     text-align: center;
-    text-shadow: 0 0 14px rgba(255, 255, 255, 0.18);
     letter-spacing: 0.5px;
 }
 
@@ -682,6 +682,26 @@ h2,
     gap: 12px;
     width: 100%;
     max-width: 390px;
+    position: relative;
+}
+
+/* Ampersand center symbol */
+.couple-ampersand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.18);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.12);
+    letter-spacing: -1px;
+    user-select: none;
 }
 
 .couple-editorial-card {
@@ -774,7 +794,7 @@ h2,
 
 
 /* ══════════════════════════════════════════════
-   OUR WEDDING DAY — Editorial Ceremony Focus
+   OUR WEDDING DAY — Clean Minimal Layout
    ═════════════════════════════════════════════ */
 .our-day-section-v2 {
     display: flex;
@@ -789,6 +809,7 @@ h2,
     max-width: 400px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -797,227 +818,141 @@ h2,
 
 /* Header */
 .wedding-day-header {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .wedding-day-title {
     font-family: var(--font-serif);
-    font-size: 1.95rem;
+    font-size: 1.9rem;
     font-weight: 400;
-    color: #ffffff;
-    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
     line-height: 1.2;
     margin: 0 0 6px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
 }
 
-.wedding-date-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 4px 14px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.wedding-day-date {
     font-family: var(--font-sans);
     font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 1.5px;
+    font-weight: 400;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
 }
 
-.wedding-date-tag i {
-    font-size: 0.68rem;
-    color: rgba(255, 255, 255, 0.85);
-}
-
-/* Floating Capsule Countdown */
+/* Countdown Capsule */
 .countdown-capsule {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 999px;
-    padding: 6px 18px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    margin: 0 auto 14px;
+    gap: 14px;
+    margin: 0 auto 20px;
 }
 
 .capsule-unit {
     display: inline-flex;
     align-items: baseline;
-    gap: 4px;
+    gap: 3px;
 }
 
 .capsule-val {
     font-family: var(--font-serif);
-    font-size: 1.22rem;
-    font-weight: 600;
-    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1;
     letter-spacing: -0.5px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
 .capsule-lbl {
     font-family: var(--font-sans);
-    font-size: 0.55rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.8px;
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
 }
 
 .capsule-dot {
-    color: rgba(255, 255, 255, 0.22);
-    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.6rem;
     user-select: none;
 }
 
-/* Ceremony Focus Cards */
-.ceremony-cards-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* Divider */
+.wd-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto 20px;
+}
+
+/* Ceremony List */
+.wd-ceremony-list {
     width: 100%;
-    margin-bottom: 14px;
-}
-
-.ceremony-card {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 12px 16px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.015) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-    text-align: left;
-}
-
-.ceremony-card:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.055) 0%, rgba(255, 255, 255, 0.025) 100%);
-    border-color: rgba(255, 255, 255, 0.16);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.ceremony-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.05));
-    border-radius: 3px 0 0 3px;
-}
-
-.ceremony-icon-badge {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 1.05rem;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-}
-
-.ceremony-main {
-    flex: 1;
-    min-width: 0;
     display: flex;
     flex-direction: column;
+    margin-bottom: 22px;
 }
 
-.ceremony-top-row {
+.wd-ceremony-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    margin-bottom: 2px;
+    padding: 0 2px;
 }
 
-.ceremony-badge {
-    font-family: var(--font-sans);
-    font-size: 0.55rem;
-    font-weight: 600;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.55);
-}
-
-.ceremony-time {
-    font-family: var(--font-sans);
-    font-size: 0.64rem;
-    font-weight: 500;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.06);
-    padding: 2px 8px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
+.wd-ceremony-label {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.82);
     letter-spacing: 0.3px;
     white-space: nowrap;
 }
 
-.ceremony-time i {
-    font-size: 0.58rem;
-    opacity: 0.85;
+.wd-ceremony-sep {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 6px;
 }
 
-.ceremony-title {
-    font-family: var(--font-serif);
-    font-size: 1.18rem;
-    font-weight: 500;
-    color: #ffffff;
-    line-height: 1.2;
-    margin: 0 0 3px;
-    letter-spacing: 0.4px;
-}
-
-.ceremony-venue {
+.wd-ceremony-time {
     font-family: var(--font-sans);
-    font-size: 0.70rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.64rem;
     font-weight: 400;
-    line-height: 1.4;
-    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.wd-ceremony-venue {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.48);
+    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
     gap: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 4px 0 0 2px;
+    text-align: left;
 }
 
-.ceremony-venue i {
-    font-size: 0.62rem;
-    color: rgba(255, 255, 255, 0.75);
+.wd-ceremony-venue i {
+    font-size: 0.55rem;
+    opacity: 0.6;
 }
 
-/* Add to Calendar Action Button */
+.wd-ceremony-gap {
+    height: 14px;
+}
+
+/* Calendar Button */
 .calendar-action-wrap {
     text-align: center;
     width: 100%;
@@ -1027,38 +962,33 @@ h2,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 9px 22px;
+    gap: 7px;
+    padding: 7px 18px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    color: #ffffff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
     font-family: var(--font-sans);
-    font-size: 0.74rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.8px;
     text-decoration: none;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: all 0.25s ease;
 }
 
 .save-calendar-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 12px rgba(255, 255, 255, 0.12);
-    transform: translateY(-2px);
-    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.65);
 }
 
 .save-calendar-btn i {
-    font-size: 0.76rem;
-    color: rgba(255, 255, 255, 0.85);
-    transition: transform 0.3s ease;
+    font-size: 0.65rem;
+    opacity: 0.7;
 }
 
-.save-calendar-btn:hover i {
-    transform: rotate(15deg);
-}
+
+
+
 
 
 
@@ -1831,95 +1761,107 @@ body {
 }
 
 /* Section: The Couple */
+.anim-slide-up .reveal {
+    transform: none;
+}
+
+/* Card Cowo: dari atas ke bawah */
+.anim-slide-up .couple-editorial-card:first-child,
+.anim-slide-up .groom-card {
+    opacity: 0;
+    transform: translateY(-80px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+    will-change: opacity, transform;
+}
+
+/* Card Cewe: dari bawah ke atas */
+.anim-slide-up .couple-editorial-card:last-child,
+.anim-slide-up .bride-card {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+    will-change: opacity, transform;
+}
+
+/* Lalu tulisan The Couple muncul */
 .anim-slide-up .couple-minimal-header {
     opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(-16px) scale(0.96);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s, transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.55s;
+    will-change: opacity, transform;
 }
 
-.anim-slide-up .couple-editorial-card:first-child {
+/* Dan icon & nya muncul */
+.anim-slide-up .couple-ampersand {
     opacity: 0;
-    transform: translateX(-35px) translateY(20px);
-    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition: opacity 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s, transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s;
+    will-change: opacity, transform;
 }
 
-.anim-slide-up .couple-editorial-card:last-child {
-    opacity: 0;
-    transform: translateX(35px) translateY(20px);
-    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
-}
-
-.section-in.anim-slide-up .couple-minimal-header,
-.section-in.anim-slide-up .couple-editorial-card {
+/* Saat section masuk viewport */
+.section-in.anim-slide-up .couple-editorial-card:first-child,
+.section-in.anim-slide-up .groom-card,
+.section-in.anim-slide-up .couple-editorial-card:last-child,
+.section-in.anim-slide-up .bride-card {
     opacity: 1;
-    transform: translate(0, 0);
+    transform: translateY(0);
 }
 
-/* Section: Our Day / Countdown (Editorial Ceremony Focus) */
+.section-in.anim-slide-up .couple-minimal-header {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.section-in.anim-slide-up .couple-ampersand {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.section-in.anim-slide-up .couple-editorial-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Section: Our Day / Countdown */
 .anim-count .wedding-day-header {
     opacity: 0;
-    transform: translateY(-16px);
+    transform: translateY(-14px);
     transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .anim-count .countdown-capsule {
     opacity: 0;
-    transform: translateY(12px) scale(0.96);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+    transform: translateY(10px) scale(0.97);
+    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
 }
 
-.anim-count .ceremony-card:first-child {
+.anim-count .wd-divider {
     opacity: 0;
-    transform: translateX(-24px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.24s;
+    transition: all 0.6s ease 0.2s;
 }
 
-.anim-count .ceremony-card:last-child {
+.anim-count .wd-ceremony-list {
     opacity: 0;
-    transform: translateX(24px);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.36s;
+    transform: translateY(14px);
+    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
 }
 
 .anim-count .calendar-action-wrap {
     opacity: 0;
-    transform: translateY(14px);
-    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.48s;
+    transform: translateY(10px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.38s;
 }
 
 .section-in.anim-count .wedding-day-header,
 .section-in.anim-count .countdown-capsule,
-.section-in.anim-count .ceremony-card,
+.section-in.anim-count .wd-divider,
+.section-in.anim-count .wd-ceremony-list,
 .section-in.anim-count .calendar-action-wrap {
     opacity: 1;
     transform: translate(0, 0) scale(1);
 }
 
-/* Micro-animations in Our Day Ceremony Cards */
-.ceremony-card:first-child .ceremony-icon-badge i {
-    display: inline-block;
-    animation: ringGleam 3.5s ease-in-out infinite;
-    transform-origin: center center;
-}
 
-@keyframes ringGleam {
-    0%, 100% { transform: rotate(0deg) scale(1); }
-    15% { transform: rotate(-12deg) scale(1.15); color: #ffffff; }
-    30% { transform: rotate(10deg) scale(1.15); }
-    45% { transform: rotate(0deg) scale(1); }
-}
-
-.ceremony-card:last-child .ceremony-icon-badge i {
-    display: inline-block;
-    animation: glassClink 3.5s ease-in-out infinite 0.5s;
-    transform-origin: bottom center;
-}
-
-@keyframes glassClink {
-    0%, 100% { transform: rotate(0deg) scale(1); }
-    15% { transform: rotate(-12deg) scale(1.12); color: #ffffff; }
-    30% { transform: rotate(12deg) scale(1.12); }
-    45% { transform: rotate(0deg) scale(1); }
-}
 
 /* Section: Location */
 .anim-zoom .location-header {
@@ -2051,20 +1993,50 @@ body {
     transform: translate(0, 0) rotate(0deg);
 }
 
-/* Section: Closing */
-.anim-closing .closing-content {
+/* Section: Closing — staggered per element */
+.anim-closing .closing-title {
     opacity: 0;
-    transform: translateY(30px) scale(0.96);
-    transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+    transform: translateY(20px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section-in.anim-closing .closing-content {
+.anim-closing .closing-message {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+
+.anim-closing .closing-divider {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: opacity 0.6s ease 0.32s,
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.32s;
+}
+
+.anim-closing .closing-names {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.44s,
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.44s;
+}
+
+.section-in.anim-closing .closing-title,
+.section-in.anim-closing .closing-message,
+.section-in.anim-closing .closing-names {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
+}
+
+.section-in.anim-closing .closing-divider {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .closing-names p {
-    animation: softHeartBeat 4s ease-in-out infinite;
+    animation: softHeartBeat 4s ease-in-out infinite 0.8s;
 }
 
 @keyframes softHeartBeat {
@@ -2116,8 +2088,8 @@ body {
     position: relative;
     background: rgba(255, 255, 255, 0.04) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 20px;
-    padding: 22px 18px 20px;
+    border-radius: 18px;
+    padding: 16px 16px 14px;
     box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25), inset 0 0 1px rgba(255, 255, 255, 0.05) !important;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -2126,7 +2098,7 @@ body {
 }
 
 .rsvp-header {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     text-align: center;
 }
 
@@ -2134,11 +2106,11 @@ body {
 
 .rsvp-title {
     font-family: var(--font-serif);
-    font-size: 1.95rem;
+    font-size: 1.55rem;
     font-weight: 400;
     color: #ffffff;
-    letter-spacing: 1px;
-    margin: 0 0 4px;
+    letter-spacing: 0.5px;
+    margin: 0 0 3px;
     line-height: 1.15;
 }
 
@@ -2156,7 +2128,7 @@ body {
 }
 
 .rsvp-field {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .rsvp-label {
@@ -2180,13 +2152,13 @@ body {
 .rsvp-form-modern input[type="text"],
 .rsvp-form-modern textarea {
     width: 100%;
-    padding: 9px 12px;
+    padding: 7px 10px;
     background: rgba(255, 255, 255, 0.015);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    border-radius: 10px;
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     font-weight: 400;
     transition: all 0.2s ease;
     box-sizing: border-box;
@@ -2210,7 +2182,7 @@ body {
 
 .rsvp-form-modern textarea {
     resize: none;
-    min-height: 52px;
+    min-height: 44px;
     line-height: 1.4;
 }
 
@@ -2241,14 +2213,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
-    padding: 9px 12px;
+    gap: 6px;
+    padding: 7px 10px;
     background: rgba(255, 255, 255, 0.015);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    border-radius: 10px;
     color: rgba(255, 255, 255, 0.5);
     font-family: var(--font-sans);
-    font-size: 0.76rem;
+    font-size: 0.72rem;
     font-weight: 500;
     letter-spacing: 0.4px;
     transition: all 0.2s ease;
@@ -2280,14 +2252,14 @@ body {
 /* Sleek Dark Minimalist Button */
 .rsvp-submit-btn {
     width: 100%;
-    margin-top: 4px;
-    padding: 10px 18px;
+    margin-top: 2px;
+    padding: 8px 16px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    border-radius: 12px;
+    border-radius: 10px;
     font-family: var(--font-sans);
-    font-size: 0.76rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -2432,15 +2404,6 @@ body {
     margin: 0;
 }
 
-/* Animation for closing section - smooth fade */
-#closing .closing-content {
-    opacity: 0;
-    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-#closing.in-view .closing-content {
-    opacity: 1;
-}
 
 /* ══════════════════════════════════════════════
    FOOTER
