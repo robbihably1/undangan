@@ -26,38 +26,48 @@ document.addEventListener('DOMContentLoaded', () => {
         return num.toString();
     };
 
-    // Play/Pause video on click
-    video.addEventListener('click', () => {
-        if (video.paused) {
-            video.play();
-            videoSection.classList.remove('paused');
-            playIcon.classList.remove('show');
-        } else {
-            video.pause();
+    // Video play/pause state synchronization
+    video.addEventListener('play', () => {
+        videoSection.classList.remove('paused');
+        playIcon.classList.remove('show');
+    });
+
+    video.addEventListener('playing', () => {
+        videoSection.classList.remove('paused');
+        playIcon.classList.remove('show');
+    });
+
+    video.addEventListener('pause', () => {
+        // Only show pause overlay if the section is actively visible in viewport
+        const rect = videoSection.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible) {
             videoSection.classList.add('paused');
             playIcon.classList.add('show');
         }
     });
 
-    // Double click to like
-    let lastClickTime = 0;
-    video.addEventListener('click', (e) => {
-        const currentTime = new Date().getTime();
-        const timeDiff = currentTime - lastClickTime;
+    // Handle single tap for play/pause and double tap for like
+    let clickTimeout = null;
+    let clickCount = 0;
 
-        if (timeDiff < 300 && timeDiff > 0) {
-            // Double click detected
-            handleLike();
+    video.addEventListener('click', (e) => {
+        clickCount++;
+        if (clickCount === 1) {
+            clickTimeout = setTimeout(() => {
+                clickCount = 0;
+                if (video.paused) {
+                    video.play().catch(() => {});
+                } else {
+                    video.pause();
+                }
+            }, 250);
+        } else if (clickCount >= 2) {
+            clearTimeout(clickTimeout);
+            clickCount = 0;
+            handleLike(true);
             showHeartAnimation(e.clientX, e.clientY);
-            
-            // Prevent play/pause toggle on double click by forcing play if it was paused by the first click
-            if (video.paused) {
-                video.play();
-                videoSection.classList.remove('paused');
-                playIcon.classList.remove('show');
-            }
         }
-        lastClickTime = currentTime;
     });
 
     const showHeartAnimation = (x, y) => {
@@ -80,7 +90,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     };
 
-    const handleLike = () => {
+    const handleLike = (forceLike = false) => {
+        if (forceLike) {
+            if (!isLiked) {
+                isLiked = true;
+                likes++;
+                likeBtn.classList.add('active');
+                likeCount.textContent = formatNumber(likes);
+            }
+            return;
+        }
         if (!isLiked) {
             isLiked = true;
             likes++;
@@ -200,9 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initialize state
-    if (video.paused) {
-        videoSection.classList.add('paused');
-        playIcon.classList.add('show');
-    }
+    // Ensure clean initial state (never show pause icon until user explicitly pauses)
+    videoSection.classList.remove('paused');
+    playIcon.classList.remove('show');
 });

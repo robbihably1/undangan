@@ -133,12 +133,28 @@ const sectionObserver = new IntersectionObserver((entries) => {
             if (entry.target.id === 'location') {
                 refreshLeafletMap();
             }
+            if (entry.target.id === 'tiktok') {
+                const tiktokVideo = entry.target.querySelector('video');
+                const playIcon = entry.target.querySelector('.play-icon');
+                if (playIcon) playIcon.classList.remove('show');
+                if (tiktokVideo) {
+                    tiktokVideo.play().catch(() => {});
+                }
+            }
         } else {
             entry.target.classList.remove('in-view');
             entry.target.classList.remove('section-in');
             if (entry.target.id === 'location' && leafletMap) {
                 leafletMap.setView([VENUE_LAT, VENUE_LNG], FAR_ZOOM, { animate: false });
                 if (venueMarker) venueMarker.closePopup();
+            }
+            if (entry.target.id === 'tiktok') {
+                const tiktokVideo = entry.target.querySelector('video');
+                const playIcon = entry.target.querySelector('.play-icon');
+                if (playIcon) playIcon.classList.remove('show');
+                if (tiktokVideo) {
+                    tiktokVideo.pause();
+                }
             }
         }
     });
