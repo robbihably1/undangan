@@ -162,6 +162,14 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 // ── Countdown Timer ───────────────────────────────────────────
 const targetDate = new Date("Dec 20, 2026 08:00:00").getTime();
+const RING_CIRCUMFERENCE = 2 * Math.PI * 36; // ~226.2
+
+const updateRing = (selector, value, max) => {
+    const ring = document.querySelector(selector);
+    if (!ring) return;
+    const progress = Math.min(value / max, 1);
+    ring.style.strokeDashoffset = RING_CIRCUMFERENCE * (1 - progress);
+};
 
 const updateCountdown = () => {
     const now = new Date().getTime();
@@ -172,13 +180,28 @@ const updateCountdown = () => {
             const el = document.getElementById(id);
             if (el) el.innerText = '00';
         });
+        updateRing('.ring-days', 0, 365);
+        updateRing('.ring-hours', 0, 24);
+        updateRing('.ring-mins', 0, 60);
+        updateRing('.ring-secs', 0, 60);
         return;
     }
 
-    if (document.getElementById('days')) document.getElementById('days').innerText = Math.floor(distance / 86400000).toString().padStart(2, '0');
-    if (document.getElementById('hours')) document.getElementById('hours').innerText = Math.floor((distance % 86400000) / 3600000).toString().padStart(2, '0');
-    if (document.getElementById('minutes')) document.getElementById('minutes').innerText = Math.floor((distance % 3600000) / 60000).toString().padStart(2, '0');
-    if (document.getElementById('seconds')) document.getElementById('seconds').innerText = Math.floor((distance % 60000) / 1000).toString().padStart(2, '0');
+    const days = Math.floor(distance / 86400000);
+    const hours = Math.floor((distance % 86400000) / 3600000);
+    const minutes = Math.floor((distance % 3600000) / 60000);
+    const seconds = Math.floor((distance % 60000) / 1000);
+
+    if (document.getElementById('days')) document.getElementById('days').innerText = days.toString().padStart(2, '0');
+    if (document.getElementById('hours')) document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+    if (document.getElementById('minutes')) document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+    if (document.getElementById('seconds')) document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+
+    // Animate rings
+    updateRing('.ring-days', days, 365);
+    updateRing('.ring-hours', hours, 24);
+    updateRing('.ring-mins', minutes, 60);
+    updateRing('.ring-secs', seconds, 60);
 };
 
 setInterval(updateCountdown, 1000);

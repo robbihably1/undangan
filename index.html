@@ -138,61 +138,121 @@
         <section id="countdown" class="section-dark our-day-section-v2">
             <div class="container reveal">
 
+                <!-- Decorative Top Ornament -->
+                <div class="wd-ornament-top">
+                    <svg width="120" height="24" viewBox="0 0 120 24" fill="none">
+                        <path d="M0 12 Q30 0 60 12 Q90 24 120 12" stroke="rgba(255,255,255,0.15)" stroke-width="1" fill="none"/>
+                        <circle cx="60" cy="12" r="3" fill="rgba(255,255,255,0.12)"/>
+                        <circle cx="60" cy="12" r="6" stroke="rgba(255,255,255,0.08)" stroke-width="0.5" fill="none"/>
+                    </svg>
+                </div>
+
                 <!-- Title -->
-                <div class="wedding-day-header" style="padding: 0 8px;">
+                <div class="wedding-day-header">
+                    <span class="wd-eyebrow">Save the Date</span>
                     <h2 class="wedding-day-title">Our Wedding Day</h2>
                     <p class="wedding-day-date">Sunday, 20 December 2026</p>
                 </div>
 
                 <!-- Countdown -->
-                <div class="countdown-capsule">
-                    <div class="capsule-unit">
-                        <span class="capsule-val" id="days">00</span>
-                        <span class="capsule-lbl">Days</span>
+                <div class="countdown-grid">
+                    <div class="countdown-card">
+                        <div class="countdown-ring">
+                            <svg viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="36" class="ring-bg"/>
+                                <circle cx="40" cy="40" r="36" class="ring-fg ring-days"/>
+                            </svg>
+                            <span class="countdown-num" id="days">00</span>
+                        </div>
+                        <span class="countdown-label">Days</span>
                     </div>
-                    <span class="capsule-dot">·</span>
-                    <div class="capsule-unit">
-                        <span class="capsule-val" id="hours">00</span>
-                        <span class="capsule-lbl">Hours</span>
+                    <div class="countdown-card">
+                        <div class="countdown-ring">
+                            <svg viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="36" class="ring-bg"/>
+                                <circle cx="40" cy="40" r="36" class="ring-fg ring-hours"/>
+                            </svg>
+                            <span class="countdown-num" id="hours">00</span>
+                        </div>
+                        <span class="countdown-label">Hours</span>
                     </div>
-                    <span class="capsule-dot">·</span>
-                    <div class="capsule-unit">
-                        <span class="capsule-val" id="minutes">00</span>
-                        <span class="capsule-lbl">Mins</span>
+                    <div class="countdown-card">
+                        <div class="countdown-ring">
+                            <svg viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="36" class="ring-bg"/>
+                                <circle cx="40" cy="40" r="36" class="ring-fg ring-mins"/>
+                            </svg>
+                            <span class="countdown-num" id="minutes">00</span>
+                        </div>
+                        <span class="countdown-label">Mins</span>
                     </div>
-                    <span class="capsule-dot">·</span>
-                    <div class="capsule-unit">
-                        <span class="capsule-val" id="seconds">00</span>
-                        <span class="capsule-lbl">Secs</span>
+                    <div class="countdown-card">
+                        <div class="countdown-ring">
+                            <svg viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="36" class="ring-bg"/>
+                                <circle cx="40" cy="40" r="36" class="ring-fg ring-secs"/>
+                            </svg>
+                            <span class="countdown-num" id="seconds">00</span>
+                        </div>
+                        <span class="countdown-label">Secs</span>
                     </div>
                 </div>
 
-                <!-- Divider -->
-                <div class="wd-divider"></div>
+                <!-- Decorative Divider -->
+                <div class="wd-elegant-divider">
+                    <span class="wd-divider-line"></span>
+                    <i class="fas fa-heart wd-divider-icon"></i>
+                    <span class="wd-divider-line"></span>
+                </div>
 
-                <!-- Ceremony List -->
-                <div class="wd-ceremony-list" style="padding: 0 8px;">
-                    <div class="wd-ceremony-item">
-                        <span class="wd-ceremony-label">Marriage Ceremony</span>
-                        <span class="wd-ceremony-sep"></span>
-                        <span class="wd-ceremony-time">08.00 – 10.00 WIB</span>
-                    </div>
-                    <div class="wd-ceremony-venue">
-                        <i class="fas fa-location-dot"></i>
-                        Bride's Residence
+                <!-- Ceremony Cards -->
+                <div class="wd-events-grid">
+                    <!-- Marriage Ceremony Card -->
+                    <div class="wd-event-card">
+                        <div class="wd-event-icon-wrap">
+                            <i class="fas fa-ring"></i>
+                        </div>
+                        <h3 class="wd-event-name">Marriage Ceremony</h3>
+                        <div class="wd-event-detail">
+                            <i class="far fa-clock"></i>
+                            <span>08.00 – 10.00 WIB</span>
+                        </div>
+                        <div class="wd-event-detail">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Bride's Residence</span>
+                        </div>
                     </div>
 
-                    <div class="wd-ceremony-gap"></div>
+                    <!-- Wedding Reception Card -->
+                    <div class="wd-event-card">
+                        <div class="wd-event-icon-wrap">
+                            <i class="fas fa-champagne-glasses"></i>
+                        </div>
+                        <h3 class="wd-event-name">Wedding Reception</h3>
+                        <div class="wd-event-detail">
+                            <i class="far fa-clock"></i>
+                            <span>11.00 WIB – Finish</span>
+                        </div>
+                        <div class="wd-event-detail">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Ds. Nguri, Lembeyan, Magetan</span>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="wd-ceremony-item">
-                        <span class="wd-ceremony-label">Wedding Reception</span>
-                        <span class="wd-ceremony-sep"></span>
-                        <span class="wd-ceremony-time">11.00 WIB – Finish</span>
-                    </div>
-                    <div class="wd-ceremony-venue">
-                        <i class="fas fa-location-dot"></i>
-                        Ds. Nguri, Lembeyan, Magetan
-                    </div>
+                <!-- Save to Calendar Button -->
+                <div class="wd-calendar-wrap">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Robbi+%26+Lugas&dates=20261220T010000Z/20261220T100000Z&details=You+are+invited+to+the+wedding+of+Robbi+%26+Lugas&location=Ds.+Nguri+Lembeyan+Magetan" target="_blank" class="wd-save-btn">
+                        <i class="far fa-calendar-plus"></i>
+                        <span>Add to Calendar</span>
+                    </a>
+                </div>
+
+                <!-- Decorative Bottom Ornament -->
+                <div class="wd-ornament-bottom">
+                    <svg width="80" height="16" viewBox="0 0 80 16" fill="none">
+                        <path d="M0 8 Q20 0 40 8 Q60 16 80 8" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+                    </svg>
                 </div>
 
             </div>
