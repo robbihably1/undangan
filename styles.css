@@ -3030,4 +3030,40 @@ footer p {
         margin-top: -12px;
         margin-bottom: -12px;
     }
+
+    /* Shrink TikTok UI components on desktop to feel like ~80% zoom */
+    #tiktok .video-ui {
+        padding: 16px 12px;
+        padding-bottom: 60px;
+    }
+
+    #tiktok .video-info .username {
+        font-size: 0.78rem;
+    }
+
+    #tiktok .video-info .description {
+        font-size: 0.68rem;
+    }
+
+    #tiktok .music-info {
+        font-size: 0.62rem;
+    }
+
+    #tiktok .action-buttons {
+        gap: 10px;
+        width: 42px;
+    }
+
+    #tiktok .action-item .icon {
+        font-size: 1.45rem;
+    }
+
+    #tiktok .action-item .count {
+        font-size: 0.62rem;
+    }
+
+    #tiktok .action-item.profile img {
+        width: 34px;
+        height: 34px;
+    }
 }
