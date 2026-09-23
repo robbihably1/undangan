@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const likeCount = likeBtn.querySelector('.count');
     const favCount = favBtn.querySelector('.count');
 
-    let isLiked = false;
-    let isFav = false;
-    let likes = 125000;
-    let favs = 10000;
+    let isLiked = true;
+    let isFav = true;
+    let likes = 20;
+    let favs = 26;
 
     // Helper to format numbers (e.g. 125000 -> 125K)
     const formatNumber = (num) => {
@@ -91,25 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleLike = (forceLike = false) => {
-        if (forceLike) {
-            if (!isLiked) {
-                isLiked = true;
-                likes++;
-                likeBtn.classList.add('active');
-                likeCount.textContent = formatNumber(likes);
-            }
-            return;
-        }
         if (!isLiked) {
             isLiked = true;
             likes++;
             likeBtn.classList.add('active');
-        } else {
-            isLiked = false;
-            likes--;
-            likeBtn.classList.remove('active');
+            likeCount.textContent = formatNumber(likes);
         }
-        likeCount.textContent = formatNumber(likes);
     };
 
     // Like button click
@@ -121,12 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
             isFav = true;
             favs++;
             favBtn.classList.add('active');
-        } else {
-            isFav = false;
-            favs--;
-            favBtn.classList.remove('active');
+            favCount.textContent = formatNumber(favs);
         }
-        favCount.textContent = formatNumber(favs);
     });
 
     const getUrlParam = (key) => {
