@@ -735,9 +735,22 @@ h2,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center top;
+    transform: scale(2.0);
+    transform-origin: center 20%;
     display: block;
     filter: brightness(0.96) contrast(1.04);
+}
+
+/* Specific crop adjustments for Groom and Bride */
+.groom-card .editorial-photo-wrap img {
+    transform-origin: 15% 0%; /* 15% pushes him right, 0% pushes him down (more headroom) */
+    transform: scale(1.8);
+}
+
+.bride-card .editorial-photo-wrap img {
+    transform-origin: 50% 25%;
+    transform: scale(1.15) translateY(-8%); /* Pindah ke atas agar kepalanya lebih tinggi */
 }
 
 /* Minimalist Role Tag */
