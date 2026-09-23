@@ -3022,4 +3022,12 @@ footer p {
         min-height: 100% !important;
         height: 100% !important;
     }
+
+    /* Scale down Our Wedding Day section to feel like ~80% zoom on desktop */
+    .our-day-section-v2 .container {
+        transform: scale(0.82);
+        transform-origin: center center;
+        margin-top: -12px;
+        margin-bottom: -12px;
+    }
 }
