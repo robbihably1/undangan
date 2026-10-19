@@ -859,7 +859,7 @@ h2,
     font-weight: 500;
     letter-spacing: 3.5px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.7);
     display: block;
     margin-bottom: 6px;
 }
@@ -887,7 +887,7 @@ h2,
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.75);
     margin: 0;
 }
 
@@ -922,13 +922,13 @@ h2,
 
 .ring-bg {
     fill: none;
-    stroke: rgba(255, 255, 255, 0.06);
+    stroke: rgba(255, 255, 255, 0.12);
     stroke-width: 2;
 }
 
 .ring-fg {
     fill: none;
-    stroke: rgba(255, 255, 255, 0.25);
+    stroke: rgba(255, 255, 255, 0.45);
     stroke-width: 2;
     stroke-linecap: round;
     stroke-dasharray: 226.2;
@@ -955,7 +955,7 @@ h2,
     font-weight: 500;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.65);
 }
 
 /* ── Elegant Divider ────────────────────── */
@@ -971,18 +971,18 @@ h2,
 .wd-divider-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
 }
 
 .wd-divider-icon {
     font-size: 0.55rem;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
     animation: wd-pulse 3s ease-in-out infinite;
 }
 
 @keyframes wd-pulse {
-    0%, 100% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 0.45; transform: scale(1.15); }
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.15); }
 }
 
 /* ── Event Cards ────────────────────────── */
@@ -995,8 +995,8 @@ h2,
 }
 
 .wd-event-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.13);
     border-radius: 14px;
     padding: 16px 16px 14px;
     display: flex;
@@ -1035,8 +1035,8 @@ h2,
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1045,7 +1045,7 @@ h2,
 
 .wd-event-icon-wrap i {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .wd-event-name {
@@ -1066,7 +1066,7 @@ h2,
 
 .wd-event-detail i {
     font-size: 0.58rem;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.55);
     width: 14px;
     text-align: center;
 }
@@ -1075,7 +1075,7 @@ h2,
     font-family: var(--font-sans);
     font-size: 0.65rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.3px;
 }
 
@@ -1093,9 +1093,9 @@ h2,
     gap: 8px;
     padding: 9px 22px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.8);
     font-family: var(--font-sans);
     font-size: 0.62rem;
     font-weight: 500;
@@ -1108,15 +1108,15 @@ h2,
 }
 
 .wd-save-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.18);
-    color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
 }
 
 .wd-save-btn i {
     font-size: 0.72rem;
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 
