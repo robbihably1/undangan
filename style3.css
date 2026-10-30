@@ -1,4 +1,4 @@
-/* style3.css — Elegant Black & White theme
+﻿/* style3.css — Elegant Black & White theme
    Alternating ivory / black sections. Cover & TikTok are intentionally untouched. */
 
 :root {
@@ -96,7 +96,7 @@
 
 #couple .editorial-photo-wrap {
     border-radius: 3px;
-    box-shadow: 0 0 0 4px #fff;
+    box-shadow: 0 0 0 4px #f1ece1;
 }
 
 #couple .editorial-photo-wrap::after {
@@ -159,7 +159,7 @@
 }
 
 #countdown .wd-event-card {
-    background: #ffffff;
+    background: #f1ece1;
     border: 1px solid var(--hairline);
     box-shadow: 0 10px 30px rgba(18, 18, 18, 0.06);
     border-radius: 4px;
@@ -202,7 +202,7 @@
 }
 
 #countdown .wd-save-btn:hover {
-    background: #fff;
+    background: #f1ece1;
     color: var(--ink);
     box-shadow: 0 8px 22px rgba(18, 18, 18, 0.15);
 }
@@ -224,7 +224,7 @@
 /* ───────── Gallery (ivory) ───────── */
 #gallery .gallery-img {
     border-radius: 2px;
-    box-shadow: 0 0 0 3px #fff, 0 6px 14px rgba(18, 18, 18, 0.14);
+    box-shadow: 0 0 0 3px #f1ece1, 0 6px 14px rgba(18, 18, 18, 0.14);
 }
 
 #gallery .gallery-grid {
@@ -233,7 +233,7 @@
 }
 
 #gallery .gallery-img:hover {
-    box-shadow: 0 0 0 3px #fff, 0 12px 22px rgba(18, 18, 18, 0.28);
+    box-shadow: 0 0 0 3px #f1ece1, 0 12px 22px rgba(18, 18, 18, 0.28);
 }
 
 /* ───────── RSVP (ivory) ───────── */
@@ -242,7 +242,7 @@
 }
 
 #rsvp .rsvp-modern-card {
-    background: #ffffff !important;
+    background: #f1ece1 !important;
     border: 1px solid var(--hairline) !important;
     border-radius: 4px;
     box-shadow: 0 18px 44px rgba(18, 18, 18, 0.1) !important;
@@ -279,7 +279,7 @@
 #rsvp .rsvp-form-modern input[type="text"]:focus,
 #rsvp .rsvp-form-modern textarea:focus {
     border-color: var(--ink);
-    background: #fff;
+    background: #f1ece1;
     box-shadow: 0 0 0 2px rgba(18, 18, 18, 0.06);
 }
 
@@ -293,7 +293,7 @@
 #rsvp .attendance-card:hover .card-inner {
     border-color: var(--ink);
     color: var(--ink);
-    background: #fff;
+    background: #f1ece1;
 }
 
 #rsvp .attendance-card input[type="radio"]:checked + .card-inner {
@@ -311,7 +311,7 @@
 }
 
 #rsvp .rsvp-submit-btn:hover {
-    background: #fff;
+    background: #f1ece1;
     color: var(--ink);
 }
 
@@ -388,7 +388,7 @@
 /* Couple */
 #couple .couple-minimal-title { color: var(--ink); }
 #couple .couple-editorial-card {
-    background: #ffffff;
+    background: #f1ece1;
     border: 1px solid var(--hairline);
     border-radius: 4px;
     box-shadow: 0 12px 30px rgba(18, 18, 18, 0.08);
@@ -414,3 +414,19 @@
 
 /* Gift */
 #gift h2 { color: var(--ink); text-shadow: none; }
+
+/* Map pin: red */
+.custom-map-pin .pin-icon {
+    color: #e53935;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+.custom-map-pin:hover .pin-icon { color: #c62828; }
+.custom-map-pin .pin-pulse { background: rgba(229, 57, 53, 0.4); }
+
+/* Form fields & attendance options sit a touch darker than their card */
+#rsvp .rsvp-form-modern input[type="text"],
+#rsvp .rsvp-form-modern textarea,
+#rsvp .attendance-card .card-inner { background: #e9e3d6; }
+#rsvp .rsvp-form-modern input[type="text"]:focus,
+#rsvp .rsvp-form-modern textarea:focus,
+#rsvp .attendance-card:hover .card-inner { background: #f1ece1; }
