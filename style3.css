@@ -943,3 +943,6 @@
     letter-spacing: 1.8px;
     box-shadow: none;
 }
+
+/* Cover: no ivory strip at the bottom edge */
+#cover.cover-modern::after { content: none; display: none; }
