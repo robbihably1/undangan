@@ -946,3 +946,19 @@
 
 /* Cover: no ivory strip at the bottom edge */
 #cover.cover-modern::after { content: none; display: none; }
+
+/* Location: keep the map inside the inner frame */
+#location .location-header {
+    border-bottom: none;
+    padding: 36px 24px 16px;
+}
+#location .map-container-fullbleed {
+    flex: 0 0 auto;
+    width: auto;
+    margin: 0 24px 26px;
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    box-shadow: 0 10px 26px rgba(18, 18, 18, 0.08);
+    overflow: hidden;
+}
+#location #map { min-height: 340px; height: 340px; }
