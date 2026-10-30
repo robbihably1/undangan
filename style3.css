@@ -357,3 +357,9 @@
 #closing footer p {
     color: var(--ink-mute);
 }
+
+/* Map: standard light tiles */
+.leaflet-container {
+    background: #e8e4da !important;
+}
+

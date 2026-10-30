@@ -464,20 +464,10 @@ const initLeafletMap = () => {
     if (leafletMap.boxZoom) leafletMap.boxZoom.disable();
     if (leafletMap.keyboard) leafletMap.keyboard.disable();
 
-    // Native Esri Dark Gray Base
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    // Standard street map (Esri World Street Map - works locally and when hosted)
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
         attribution: 'Tiles &copy; Esri',
-        className: 'esri-dark-base',
-        maxNativeZoom: 16,
-        maxZoom: 18
-    }).addTo(leafletMap);
-
-    // Labels & Street Names (bright and crisp)
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-        attribution: '',
-        className: 'esri-dark-labels',
-        maxNativeZoom: 16,
-        maxZoom: 18
+        maxZoom: 19
     }).addTo(leafletMap);
 
     // Custom Glowing Pin Marker
