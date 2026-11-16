@@ -4,8 +4,8 @@ const mainContent = document.getElementById('main-content');
 const bgm = document.getElementById('bgm');
 const heroGreeting = document.querySelector('.hero-greeting');
 
-// ── Guest name in the URL: /?to={base64} ──────────────────────
-// Links are generated on /adm_robbi as URL-safe Base64 (UTF-8). Plain-text ?to=Name links
+// ── Guest name in the URL: /?id={base64} ──────────────────────
+// Links are generated on /adm_robbi as URL-safe Base64 (UTF-8). Plain-text ?id=Name links
 // from before still work as a fallback.
 const encodeGuestParam = (name) => {
     const bytes = new TextEncoder().encode(String(name).trim());
