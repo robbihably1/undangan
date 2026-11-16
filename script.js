@@ -138,7 +138,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
                 const playIcon = entry.target.querySelector('.play-icon');
                 if (playIcon) playIcon.classList.remove('show');
                 if (tiktokVideo) {
-                    tiktokVideo.play().catch(() => {});
+                    tiktokVideo.play().catch(() => { });
                 }
             }
         } else {
@@ -337,11 +337,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (galleryModal && modalImg && closeModalBtn) {
         const galleryItems = Array.from(galleryImages);
-    let activeGalleryIndex = 0;
+        let activeGalleryIndex = 0;
 
         // Open modal on image click
         galleryItems.forEach((img, idx) => {
-            img.addEventListener('click', function() {
+            img.addEventListener('click', function () {
                 activeGalleryIndex = idx;
                 galleryModal.style.display = 'flex';
                 modalImg.src = this.src;
@@ -377,13 +377,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Close modal on close button click
-        closeModalBtn.addEventListener('click', function() {
+        closeModalBtn.addEventListener('click', function () {
             galleryModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
 
         // Close modal when clicking outside the image
-        galleryModal.addEventListener('click', function(e) {
+        galleryModal.addEventListener('click', function (e) {
             if (e.target === galleryModal) {
                 galleryModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && galleryModal.style.display === 'flex') {
                 galleryModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
@@ -486,7 +486,7 @@ const initLeafletMap = () => {
 
     const popupContent = `
         <div class="map-popup-card">
-            <h4>Toko Lugas</h4>
+            <h4>Lugas' Home</h4>
             <p>Ds. Nguri Rt.02 Rw.04 Kec. Lembeyan Kab. Magetan</p>
             <a href="https://www.google.com/maps/dir/?api=1&destination=${VENUE_LAT},${VENUE_LNG}" target="_blank" rel="noopener noreferrer" class="btn btn-gold map-nav-btn">
                 <i class="fas fa-location-arrow"></i> Petunjuk Arah
