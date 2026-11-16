@@ -33,7 +33,7 @@ const decodeGuestParam = (raw) => {
 
 const setHeroGreeting = () => {
     const params = new URLSearchParams(window.location.search);
-    const guestName = params.get('to');
+    const guestName = params.get('id') || params.get('to');
     const guestDisplay = document.getElementById('guest-name-display');
 
     if (guestName) {
@@ -285,7 +285,7 @@ if (wishesContainer) loadWishes();
 const rsvpForm = document.getElementById('rsvp-form');
 
 const urlParams = new URLSearchParams(window.location.search);
-const guestNameFromUrl = urlParams.get('to');
+const guestNameFromUrl = urlParams.get('id') || urlParams.get('to');
 if (guestNameFromUrl) {
     const nameInput = document.getElementById('name');
     if (nameInput) nameInput.value = decodeGuestParam(guestNameFromUrl);
