@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const buildShareUrl = (guestName = '') => {
         const shareUrl = normalizeUrlPath(new URL(window.location.href));
         if (guestName) {
-            shareUrl.searchParams.set('to', guestName);
+            shareUrl.searchParams.set('to', encodeGuestParam(guestName));
         } else {
             shareUrl.searchParams.delete('to');
         }
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Share button click
     shareBtn.addEventListener('click', () => {
-        const guestName = document.getElementById('name')?.value.trim() || getUrlParam('to');
+        const guestName = document.getElementById('name')?.value.trim() || decodeGuestParam(getUrlParam('to'));
         shareToWhatsapp(guestName);
     });
 

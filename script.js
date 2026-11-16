@@ -4,13 +4,40 @@ const mainContent = document.getElementById('main-content');
 const bgm = document.getElementById('bgm');
 const heroGreeting = document.querySelector('.hero-greeting');
 
+// ── Guest name in the URL: /?to={base64} ──────────────────────
+// Links are generated on /adm_robbi as URL-safe Base64 (UTF-8). Plain-text ?to=Name links
+// from before still work as a fallback.
+const encodeGuestParam = (name) => {
+    const bytes = new TextEncoder().encode(String(name).trim());
+    let bin = '';
+    bytes.forEach((b) => { bin += String.fromCharCode(b); });
+    return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+};
+
+const decodeGuestParam = (raw) => {
+    if (!raw) return '';
+    const value = raw.trim();
+    // URLSearchParams turns a raw "+" into a space, so put it back before decoding
+    const candidate = value.replace(/ /g, '+');
+    if (/^[A-Za-z0-9+/_-]+={0,2}$/.test(candidate) && candidate.replace(/=+$/, '').length % 4 !== 1) {
+        try {
+            let b64 = candidate.replace(/-/g, '+').replace(/_/g, '/');
+            while (b64.length % 4) b64 += '=';
+            const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+            const text = new TextDecoder('utf-8', { fatal: true }).decode(bytes).trim();
+            if (text && !/[\u0000-\u001f\u007f\ufffd]/.test(text)) return text;
+        } catch (err) { /* not Base64 → treat as plain text */ }
+    }
+    try { return decodeURIComponent(value.replace(/\+/g, ' ')); } catch (err) { return value; }
+};
+
 const setHeroGreeting = () => {
     const params = new URLSearchParams(window.location.search);
     const guestName = params.get('to');
     const guestDisplay = document.getElementById('guest-name-display');
 
     if (guestName) {
-        const decoded = decodeURIComponent(guestName.replace(/\+/g, ' '));
+        const decoded = decodeGuestParam(guestName);
         if (guestDisplay) guestDisplay.textContent = decoded;
         if (heroGreeting) {
             heroGreeting.textContent = `Dear ${decoded}`;
@@ -261,7 +288,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const guestNameFromUrl = urlParams.get('to');
 if (guestNameFromUrl) {
     const nameInput = document.getElementById('name');
-    if (nameInput) nameInput.value = decodeURIComponent(guestNameFromUrl.replace(/\+/g, ' '));
+    if (nameInput) nameInput.value = decodeGuestParam(guestNameFromUrl);
 }
 
 if (rsvpForm) {
@@ -298,7 +325,7 @@ if (rsvpForm) {
                 e.target.reset();
                 if (guestNameFromUrl) {
                     const nameInput = document.getElementById('name');
-                    if (nameInput) nameInput.value = decodeURIComponent(guestNameFromUrl.replace(/\+/g, ' '));
+                    if (nameInput) nameInput.value = decodeGuestParam(guestNameFromUrl);
                 }
                 loadWishes();
 
