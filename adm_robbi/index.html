@@ -8,7 +8,8 @@
     <title>Generator Undangan WhatsApp · Robbi &amp; Lugas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -23,7 +24,9 @@
             --hairline: rgba(18, 18, 18, 0.14);
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -34,9 +37,15 @@
             padding: 32px 16px 48px;
         }
 
-        .wrap { max-width: 640px; margin: 0 auto; }
+        .wrap {
+            max-width: 640px;
+            margin: 0 auto;
+        }
 
-        header { text-align: center; margin-bottom: 24px; }
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
 
         .eyebrow {
             font-size: 0.7rem;
@@ -72,7 +81,10 @@
             margin-bottom: 8px;
         }
 
-        .row { display: flex; gap: 10px; }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
 
         input[type="text"],
         textarea {
@@ -88,7 +100,10 @@
         }
 
         input[type="text"]:focus,
-        textarea:focus { border-color: var(--ink); background: var(--ivory); }
+        textarea:focus {
+            border-color: var(--ink);
+            background: var(--ivory);
+        }
 
         textarea {
             min-height: 420px;
@@ -97,7 +112,8 @@
             font-size: 0.92rem;
         }
 
-        button, .btn {
+        button,
+        .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -118,10 +134,21 @@
             transition: opacity .2s, transform .1s;
         }
 
-        button:hover, .btn:hover { opacity: .88; }
-        button:active, .btn:active { transform: translateY(1px); }
+        button:hover,
+        .btn:hover {
+            opacity: .88;
+        }
 
-        .hint { font-size: 0.78rem; color: var(--ink-mute); margin: 8px 0 0; }
+        button:active,
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .hint {
+            font-size: 0.78rem;
+            color: var(--ink-mute);
+            margin: 8px 0 0;
+        }
 
         .link-box {
             display: flex;
@@ -136,13 +163,28 @@
             word-break: break-all;
         }
 
-        .link-box a { color: var(--ink); flex: 1; }
+        .link-box a {
+            color: var(--ink);
+            flex: 1;
+        }
 
-        .actions { margin-top: 14px; }
-        .actions > button { width: 100%; padding: 14px 20px; font-size: 0.85rem; }
+        .actions {
+            margin-top: 14px;
+        }
 
-        #result { display: none; }
-        #result.show { display: block; }
+        .actions>button {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 0.85rem;
+        }
+
+        #result {
+            display: none;
+        }
+
+        #result.show {
+            display: block;
+        }
 
         .toast {
             position: fixed;
@@ -159,11 +201,19 @@
             transition: opacity .25s, transform .25s;
         }
 
-        .toast.show { opacity: 1; transform: translate(-50%, 0); }
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
 
         @media (max-width: 480px) {
-            .row { flex-direction: column; }
-            textarea { min-height: 380px; }
+            .row {
+                flex-direction: column;
+            }
+
+            textarea {
+                min-height: 380px;
+            }
         }
     </style>
 </head>
@@ -259,7 +309,7 @@ Kami yang berbahagia,
 
         const buildInviteUrl = (name) => {
             const url = getInviteBase();
-            url.search = '?to=' + encodeGuestParam(name);
+            url.search = '?id=' + encodeGuestParam(name);
             url.hash = '';
             return url.toString();
         };
