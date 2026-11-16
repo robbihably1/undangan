@@ -360,7 +360,7 @@
 
 /* Map: standard light tiles */
 .leaflet-container {
-    background: #f2ede5 !important; /* matches the ivory section behind the map */
+    background: #f1f1f1 !important; /* × ivory layer on #map::after = section ivory */
 }
 
 
@@ -964,10 +964,23 @@
 #location #map { min-height: 340px; height: 340px; }
 
 
-/* Map tiles tinted to the ivory background (filter #map-ivory-tint lives in index.html):
-   land (#f6f3d4) becomes #f2ede5, roads stay a touch lighter, labels stay dark, pin stays red. */
-#map .leaflet-tile-pane { filter: url(#map-ivory-tint); }
-.map-tint-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* Map tinted to the ivory background — plain CSS only (SVG url() filters are ignored by
+   many mobile browsers). Tiles go grayscale (land ≈ #f1f1f1), then an ivory layer is
+   multiplied on top: land → ≈ #f1ede5, roads stay a touch lighter, labels stay dark. */
+#map { isolation: isolate; }
+#map .leaflet-tile-pane {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+#map::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #fffaf2;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 450; /* above tiles & marker, below zoom controls */
+}
 
 /* ═══ Cover: "Open Invitation" button motion so guests know it's tappable ═══ */
 /* 1) Soft ivory ring that pulses outward */
