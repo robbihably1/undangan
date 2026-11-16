@@ -968,3 +968,49 @@
    land (#f6f3d4) becomes #f2ede5, roads stay a touch lighter, labels stay dark, pin stays red. */
 #map .leaflet-tile-pane { filter: url(#map-ivory-tint); }
 .map-tint-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ═══ Cover: "Open Invitation" button motion so guests know it's tappable ═══ */
+/* 1) Soft ivory ring that pulses outward */
+#cover .open-invitation-btn {
+    animation: openBtnPulse 2.4s ease-out infinite;
+}
+@keyframes openBtnPulse {
+    0%   { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(241, 236, 225, 0.6); }
+    70%  { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 16px rgba(241, 236, 225, 0); }
+    100% { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(241, 236, 225, 0); }
+}
+
+/* 2) Light sweep across the button */
+#cover .open-invitation-btn .btn-glow {
+    display: block;
+    background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.9) 50%, transparent 80%);
+    animation: btnShimmer 3.2s ease-in-out infinite;
+}
+
+/* 3) Envelope icon gives a small wiggle every few seconds */
+#cover .open-invitation-btn i {
+    display: inline-block;
+    transform-origin: 50% 80%;
+    animation: openBtnIcon 3.2s ease-in-out infinite;
+}
+@keyframes openBtnIcon {
+    0%, 62%, 100% { transform: rotate(0) scale(1); }
+    68% { transform: rotate(-14deg) scale(1.12); }
+    74% { transform: rotate(12deg) scale(1.12); }
+    80% { transform: rotate(-8deg) scale(1.06); }
+    86% { transform: rotate(0) scale(1); }
+}
+
+/* Hover: stop the attention cues and keep the lift */
+#cover .open-invitation-btn:hover { animation: none; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35); }
+#cover .open-invitation-btn:hover i { animation: none; transform: scale(1.15); }
+
+@media (prefers-reduced-motion: reduce) {
+    #cover .open-invitation-btn,
+    #cover .open-invitation-btn i,
+    #cover .open-invitation-btn .btn-glow { animation: none; }
+}
+
+/* Keep icon & label above the light sweep */
+#cover .open-invitation-btn > i,
+#cover .open-invitation-btn > span:not(.btn-glow) { position: relative; z-index: 1; }
