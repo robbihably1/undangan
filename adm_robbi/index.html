@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Generator Undangan WhatsApp · Robbi &amp; Lugas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ivory: #f8f5ef;
+            --ivory-deep: #efeae0;
+            --card: #f1ece1;
+            --field: #e9e3d6;
+            --ink: #121212;
+            --ink-soft: #4a4a4a;
+            --ink-mute: #7d7a73;
+            --hairline: rgba(18, 18, 18, 0.14);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
+            color: var(--ink);
+            font-family: 'Inter', system-ui, sans-serif;
+            padding: 32px 16px 48px;
+        }
+
+        .wrap { max-width: 640px; margin: 0 auto; }
+
+        header { text-align: center; margin-bottom: 24px; }
+
+        .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-mute);
+            margin: 0 0 6px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-size: 2.2rem;
+            margin: 0;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--hairline);
+            border-radius: 6px;
+            box-shadow: 0 14px 36px rgba(18, 18, 18, 0.08);
+            padding: 22px;
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-bottom: 8px;
+        }
+
+        .row { display: flex; gap: 10px; }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            font: inherit;
+            color: var(--ink);
+            background: var(--field);
+            border: 1px solid var(--hairline);
+            border-radius: 4px;
+            padding: 12px 14px;
+            outline: none;
+            transition: border-color .2s, background .2s;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus { border-color: var(--ink); background: var(--ivory); }
+
+        textarea {
+            min-height: 420px;
+            resize: vertical;
+            line-height: 1.55;
+            font-size: 0.92rem;
+        }
+
+        button, .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: 1px solid var(--ink);
+            background: var(--ink);
+            color: #fff;
+            cursor: pointer;
+            transition: opacity .2s, transform .1s;
+        }
+
+        button:hover, .btn:hover { opacity: .88; }
+        button:active, .btn:active { transform: translateY(1px); }
+
+        .hint { font-size: 0.78rem; color: var(--ink-mute); margin: 8px 0 0; }
+
+        .link-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--field);
+            border: 1px dashed var(--hairline);
+            border-radius: 4px;
+            padding: 10px 12px;
+            margin-bottom: 14px;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .link-box a { color: var(--ink); flex: 1; }
+
+        .actions { margin-top: 14px; }
+        .actions > button { width: 100%; padding: 14px 20px; font-size: 0.85rem; }
+
+        #result { display: none; }
+        #result.show { display: block; }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 20px);
+            background: var(--ink);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .25s, transform .25s;
+        }
+
+        .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+        @media (max-width: 480px) {
+            .row { flex-direction: column; }
+            textarea { min-height: 380px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <p class="eyebrow">Admin · Robbi &amp; Lugas</p>
+            <h1>Generator Undangan WhatsApp</h1>
+        </header>
+
+        <form class="card" id="gen-form" autocomplete="off">
+            <label for="guest">Nama Tamu</label>
+            <div class="row">
+                <input type="text" id="guest" placeholder="Contoh: Bapak Ahmad &amp; Keluarga" required>
+                <button type="submit"><i class="fas fa-wand-magic-sparkles"></i> Generate</button>
+            </div>
+            <p class="hint">Nama akan tampil di cover undangan dan otomatis terisi di form RSVP.</p>
+        </form>
+
+        <section class="card" id="result">
+            <label>Link Undangan</label>
+            <div class="link-box">
+                <i class="fas fa-link"></i>
+                <a id="invite-link" href="#" target="_blank" rel="noopener"></a>
+            </div>
+
+            <label for="message">Teks Undangan (boleh diedit sebelum dicopy)</label>
+            <textarea id="message" spellcheck="false"></textarea>
+
+            <div class="actions">
+                <button type="button" id="copy-btn"><i class="far fa-copy"></i> Copy Teks Undangan</button>
+            </div>
+        </section>
+    </div>
+
+    <div class="toast" id="toast">Tersalin!</div>
+
+    <script>
+        // ── Default WhatsApp text. {nama} and {link} are filled in automatically. ──
+        const WA_TEMPLATE = `Assalamu'alaikum Warahmatullahi Wabarakatuh
+
+Kepada Yth.
+Bapak/Ibu/Saudara/i
+*{nama}*
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:
+
+*Robbi & Lugas*
+
+🗓️ Minggu, 20 Desember 2026
+💍 Akad Nikah: 08.00 – 09.00 WIB
+🥂 Resepsi: 10.00 – 12.00 WIB
+📍 Ds. Nguri Rt.02 Rw.04, Kec. Lembeyan, Kab. Magetan
+
+Informasi lengkap acara, lokasi, serta konfirmasi kehadiran dapat dilihat melalui link undangan berikut:
+{link}
+
+Merupakan suatu kebahagiaan dan kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+
+Mohon maaf jika ada kesalahan dalam penulisan nama/gelar.
+
+Terima kasih atas perhatiannya.
+
+Wassalamu'alaikum Warahmatullahi Wabarakatuh
+
+Kami yang berbahagia,
+*Robbi & Lugas*`;
+
+        // URL-safe Base64 (UTF-8) — must match decodeGuestParam() in ../script.js
+        const encodeGuestParam = (name) => {
+            const bytes = new TextEncoder().encode(String(name).trim());
+            let bin = '';
+            bytes.forEach((b) => { bin += String.fromCharCode(b); });
+            return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        };
+
+        // Returns the base URL for the invitation page
+        const getInviteBase = () => {
+            const url = new URL(window.location.href);
+            let path = url.pathname;
+            if (url.protocol === 'file:') {
+                // When opened locally: file:///.../adm_robbi/index.html or file:///.../adm_robbi.html
+                path = path.replace(/\/adm_robbi(?:\/index\.html)?$|\/adm_robbi\.html$/, '') + '/index.html';
+                url.pathname = path;
+            } else {
+                // On web server / GitHub Pages: .../adm_robbi/ -> .../
+                path = path.replace(/\/adm_robbi(?:\/index\.html|\/)?$|\/adm_robbi\.html$/, '') + '/';
+                url.pathname = path;
+            }
+            return url;
+        };
+
+        const buildInviteUrl = (name) => {
+            const url = getInviteBase();
+            url.search = '?to=' + encodeGuestParam(name);
+            url.hash = '';
+            return url.toString();
+        };
+
+        const $ = (id) => document.getElementById(id);
+        const form = $('gen-form');
+        const guestInput = $('guest');
+        const result = $('result');
+        const linkEl = $('invite-link');
+        const messageEl = $('message');
+        const toast = $('toast');
+        let toastTimer;
+
+        const showToast = (text) => {
+            toast.textContent = text;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+        };
+
+        const copyText = async (text) => {
+            try {
+                await navigator.clipboard.writeText(text);
+            } catch (err) {
+                // Fallback for http:// or older browsers
+                const tmp = document.createElement('textarea');
+                tmp.value = text;
+                tmp.style.position = 'fixed';
+                tmp.style.opacity = '0';
+                document.body.appendChild(tmp);
+                tmp.select();
+                document.execCommand('copy');
+                tmp.remove();
+            }
+        };
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = guestInput.value.replace(/\s+/g, ' ').trim();
+            if (!name) { guestInput.focus(); return; }
+
+            const link = buildInviteUrl(name);
+            linkEl.href = link;
+            linkEl.textContent = link;
+            messageEl.value = WA_TEMPLATE.replace(/\{nama\}/g, name).replace(/\{link\}/g, link);
+
+            result.classList.add('show');
+            result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        $('copy-btn').addEventListener('click', async () => {
+            await copyText(messageEl.value);
+            showToast('Teks undangan tersalin!');
+        });
+    </script>
+</body>
+
+</html>
