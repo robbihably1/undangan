@@ -489,7 +489,7 @@ const initLeafletMap = () => {
             <h4>Lugas' Home</h4>
             <p>Ds. Nguri Rt.02 Rw.04 Kec. Lembeyan Kab. Magetan</p>
             <a href="https://www.google.com/maps/dir/?api=1&destination=${VENUE_LAT},${VENUE_LNG}" target="_blank" rel="noopener noreferrer" class="btn btn-gold map-nav-btn">
-                <i class="fas fa-location-arrow"></i> Petunjuk Arah
+                <i class="fas fa-location-arrow"></i> Directions
             </a>
         </div>
     `;
