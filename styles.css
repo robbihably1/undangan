@@ -3042,7 +3042,14 @@ footer p {
     /* Shrink TikTok UI components on desktop to feel like ~80% zoom */
     #tiktok .video-ui {
         padding: 16px 12px;
-        padding-bottom: 60px;
+        padding-bottom: 84px;
+    }
+
+    #tiktok .tiktok-bottom-nav {
+        height: 74px;
+        padding-bottom: 20px;
+        border-bottom-left-radius: 23px;
+        border-bottom-right-radius: 23px;
     }
 
     #tiktok .video-info .username {

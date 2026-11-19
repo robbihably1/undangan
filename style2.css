@@ -27,9 +27,10 @@
 .tiktok-video {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    transform: scale(1.14) translateX(14px);
-    transform-origin: center center;
+    object-fit: cover;
+    object-position: 42% 0%;
+    transform: translateY(-28px);
+    transform-origin: center top;
     background-color: #000;
     cursor: pointer;
 }
@@ -93,7 +94,7 @@
     padding: 20px 15px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     z-index: 5;
-    padding-bottom: 80px;
+    padding-bottom: 92px;
     /* Leave space for potential bottom navigation */
 }
 
@@ -497,4 +498,116 @@
     font-size: 1.2rem;
     cursor: pointer;
     padding: 5px;
+}
+
+/* ══════════════════════════════════════════════
+   TikTok Bottom Navigation Bar (Display Only / Disabled)
+   ═════════════════════════════════════════════ */
+.tiktok-bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    padding-bottom: 18px;
+    background-color: #000;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 15;
+    pointer-events: none; /* Purely decorative display */
+    user-select: none;
+    -webkit-user-select: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-sizing: border-box;
+}
+
+.tiktok-bottom-nav .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8a8b91;
+    text-decoration: none;
+    cursor: default;
+    gap: 3px;
+    height: 100%;
+}
+
+.tiktok-bottom-nav .nav-item.active {
+    color: #ffffff;
+}
+
+.tiktok-bottom-nav .nav-item i {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.tiktok-bottom-nav .nav-item span {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1;
+}
+
+/* Iconic TikTok Create (+) Button */
+.tiktok-bottom-nav .create-btn-item {
+    flex: 0 0 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tiktok-create-btn {
+    position: relative;
+    width: 44px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tiktok-create-btn .btn-cyan {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 38px;
+    height: 30px;
+    background-color: #25F4EE;
+    border-radius: 8px;
+}
+
+.tiktok-create-btn .btn-red {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 38px;
+    height: 30px;
+    background-color: #FE2C55;
+    border-radius: 8px;
+}
+
+.tiktok-create-btn .btn-core {
+    position: absolute;
+    left: 3px;
+    top: 0;
+    width: 38px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    z-index: 2;
+}
+
+.tiktok-create-btn .btn-core i {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: #000000;
 }
