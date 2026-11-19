@@ -165,6 +165,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
                 const playIcon = entry.target.querySelector('.play-icon');
                 if (playIcon) playIcon.classList.remove('show');
                 if (tiktokVideo) {
+                    tiktokVideo.muted = true;
                     tiktokVideo.play().catch(() => { });
                 }
             }
@@ -513,7 +514,7 @@ const initLeafletMap = () => {
 
     const popupContent = `
         <div class="map-popup-card">
-            <h4>Lugas' Home</h4>
+            <h4>Bride's Home</h4>
             <p>Ds. Nguri Rt.02 Rw.04 Kec. Lembeyan Kab. Magetan</p>
             <a href="https://www.google.com/maps/dir/?api=1&destination=${VENUE_LAT},${VENUE_LNG}" target="_blank" rel="noopener noreferrer" class="btn btn-gold map-nav-btn">
                 <i class="fas fa-location-arrow"></i> Directions
