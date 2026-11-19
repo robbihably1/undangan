@@ -296,7 +296,7 @@
     background: #f1ece1;
 }
 
-#rsvp .attendance-card input[type="radio"]:checked + .card-inner {
+#rsvp .attendance-card input[type="radio"]:checked+.card-inner {
     background: var(--ink);
     border-color: var(--ink);
     color: #fff;
@@ -360,7 +360,8 @@
 
 /* Map: standard light tiles */
 .leaflet-container {
-    background: #f1f1f1 !important; /* × ivory layer on #map::after = section ivory */
+    background: #f1f1f1 !important;
+    /* × ivory layer on #map::after = section ivory */
 }
 
 
@@ -386,7 +387,10 @@
 }
 
 /* Couple */
-#couple .couple-minimal-title { color: var(--ink); }
+#couple .couple-minimal-title {
+    color: var(--ink);
+}
+
 #couple .couple-editorial-card {
     background: #f1ece1;
     border: 1px solid var(--hairline);
@@ -395,55 +399,109 @@
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
-#couple .editorial-photo-wrap { box-shadow: 0 0 0 1px var(--hairline); }
-#couple .editorial-role { color: var(--ink-mute); }
-#couple .editorial-name { color: var(--ink); }
-#couple .editorial-parents { color: var(--ink-soft); }
-#couple .editorial-parents strong { color: var(--ink); }
-#couple .couple-ampersand { color: rgba(18, 18, 18, 0.35); text-shadow: none; }
+
+#couple .editorial-photo-wrap {
+    box-shadow: 0 0 0 1px var(--hairline);
+}
+
+#couple .editorial-role {
+    color: var(--ink-mute);
+}
+
+#couple .editorial-name {
+    color: var(--ink);
+}
+
+#couple .editorial-parents {
+    color: var(--ink-soft);
+}
+
+#couple .editorial-parents strong {
+    color: var(--ink);
+}
+
+#couple .couple-ampersand {
+    color: rgba(18, 18, 18, 0.35);
+    text-shadow: none;
+}
 
 /* Location */
 #location .location-header {
     background: transparent;
     border-bottom: 1px solid var(--hairline);
 }
-#location .location-header h2 { color: var(--ink); text-shadow: none; }
+
+#location .location-header h2 {
+    color: var(--ink);
+    text-shadow: none;
+}
+
 #location .location-address,
-#location .location-address i { color: var(--ink-soft); }
-#location .map-container-fullbleed { border-bottom: 1px solid var(--hairline); }
+#location .location-address i {
+    color: var(--ink-soft);
+}
+
+#location .map-container-fullbleed {
+    border-bottom: 1px solid var(--hairline);
+}
 
 /* Gift */
-#gift h2 { color: var(--ink); text-shadow: none; }
+#gift h2 {
+    color: var(--ink);
+    text-shadow: none;
+}
 
 /* Map pin: red */
 .custom-map-pin .pin-icon {
     color: #e53935;
     filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
 }
-.custom-map-pin:hover .pin-icon { color: #c62828; }
-.custom-map-pin .pin-pulse { background: rgba(229, 57, 53, 0.4); }
+
+.custom-map-pin:hover .pin-icon {
+    color: #c62828;
+}
+
+.custom-map-pin .pin-pulse {
+    background: rgba(229, 57, 53, 0.4);
+}
 
 /* Form fields & attendance options sit a touch darker than their card */
 #rsvp .rsvp-form-modern input[type="text"],
 #rsvp .rsvp-form-modern textarea,
-#rsvp .attendance-card .card-inner { background: #e9e3d6; }
+#rsvp .attendance-card .card-inner {
+    background: #e9e3d6;
+}
+
 #rsvp .rsvp-form-modern input[type="text"]:focus,
 #rsvp .rsvp-form-modern textarea:focus,
-#rsvp .attendance-card:hover .card-inner { background: #f1ece1; }
+#rsvp .attendance-card:hover .card-inner {
+    background: #f1ece1;
+}
 
 /* ═══ Cover: soft charcoal tone + ivory edge, so it flows into the ivory sections ═══ */
-#cover.cover-modern { background-color: #2b2b2e; }
+#cover.cover-modern {
+    background-color: #2b2b2e;
+}
 
-#cover .cover-bg { filter: brightness(0.85) contrast(1.02) saturate(0.9); }
+#cover .cover-bg {
+    filter: brightness(0.85) contrast(1.02) saturate(0.9);
+}
+
+#cover .cover-bg {
+    background-image: url('images/cover/cover.jpg');
+    background-position: center 45%;
+    filter: brightness(0.88) contrast(1.03) saturate(0.95);
+}
 
 #cover .cover-overlay {
-    background: linear-gradient(
-        180deg,
-        rgba(43, 43, 46, 0.55) 0%,
-        rgba(43, 43, 46, 0.34) 35%,
-        rgba(43, 43, 46, 0.40) 62%,
-        rgba(43, 43, 46, 0.72) 100%
-    );
+    background: linear-gradient(180deg,
+            rgba(43, 43, 46, 0.55) 0%,
+            rgba(43, 43, 46, 0.34) 35%,
+            rgba(43, 43, 46, 0.40) 62%,
+            rgba(43, 43, 46, 0.72) 100% rgba(32, 32, 36, 0.62) 0%,
+            rgba(32, 32, 36, 0.30) 34%,
+            rgba(32, 32, 36, 0.26) 58%,
+            rgba(32, 32, 36, 0.76) 100%);
 }
 
 /* Fine inner frame, same language as the other sections */
@@ -470,7 +528,9 @@
 
 #cover .cover-names .name,
 #cover .cover-names .ampersand,
-#cover .cover-guest .guest-name { color: #f8f5ef; }
+#cover .cover-guest .guest-name {
+    color: #f8f5ef;
+}
 
 #cover .cover-date-pill {
     background: rgba(43, 43, 46, 0.45);
@@ -484,16 +544,25 @@
     color: #26262a;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
 }
-#cover .open-invitation-btn i { color: #26262a; }
+
+#cover .open-invitation-btn i {
+    color: #26262a;
+}
+
 #cover .open-invitation-btn:hover {
     background: #f8f5ef;
     color: #26262a;
     border-color: #f8f5ef;
 }
-#cover .open-invitation-btn .btn-glow { display: none; }
+
+#cover .open-invitation-btn .btn-glow {
+    display: none;
+}
 
 /* ═══ Gift: soft light cards (no ATM look), same language as other sections ═══ */
-#gift .gift-grid { gap: 14px; }
+#gift .gift-grid {
+    gap: 14px;
+}
 
 #gift .atm-card,
 #gift .bca-card,
@@ -509,6 +578,7 @@
     box-shadow: 0 10px 26px rgba(18, 18, 18, 0.07);
     position: relative;
 }
+
 #gift .atm-card:hover {
     transform: translateY(-3px);
     border-color: var(--ink);
@@ -527,13 +597,16 @@
 
 /* no chip; logo / title centred with a divider below */
 #gift .atm-chip,
-#gift .atm-chip-silver { display: none; }
+#gift .atm-chip-silver {
+    display: none;
+}
 
 #gift .atm-card-header {
     justify-content: center;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--hairline);
 }
+
 #gift .bank-logo-wrap,
 #gift .address-card .bank-logo-wrap {
     background: transparent !important;
@@ -541,8 +614,14 @@
     padding: 0;
     height: 36px;
 }
-#gift .bank-logo-atm { height: 28px; }
-#gift .bca-card .bank-logo-atm { height: 34px; }
+
+#gift .bank-logo-atm {
+    height: 28px;
+}
+
+#gift .bca-card .bank-logo-atm {
+    height: 34px;
+}
 
 #gift .gift-card-title {
     color: var(--ink);
@@ -551,9 +630,17 @@
     letter-spacing: 3px;
 }
 
-#gift .atm-card-body { align-items: center; margin: 2px 0; }
+#gift .atm-card-body {
+    align-items: center;
+    margin: 2px 0;
+}
+
 #gift .card-number-label,
-#gift .card-holder-label { color: var(--ink-mute); text-shadow: none; }
+#gift .card-holder-label {
+    color: var(--ink-mute);
+    text-shadow: none;
+}
+
 #gift .card-number {
     color: var(--ink);
     text-shadow: none;
@@ -562,14 +649,21 @@
     font-size: 1.45rem;
     letter-spacing: 3px;
 }
+
 #gift .card-address {
     color: var(--ink-soft);
     text-shadow: none;
     text-align: center;
 }
-#gift .card-holder-name { color: var(--ink); text-shadow: none; }
 
-#gift .atm-card-footer { align-items: center; }
+#gift .card-holder-name {
+    color: var(--ink);
+    text-shadow: none;
+}
+
+#gift .atm-card-footer {
+    align-items: center;
+}
 
 #gift .copy-btn-atm {
     background: var(--ink);
@@ -578,6 +672,7 @@
     border-radius: 3px;
     box-shadow: none;
 }
+
 #gift .copy-btn-atm:hover {
     background: #f1ece1;
     color: var(--ink);
@@ -587,7 +682,9 @@
 
 /* Gift: text-only header (no logos) */
 #gift .bca-card .bank-logo-wrap,
-#gift .mandiri-card .bank-logo-wrap { display: none; }
+#gift .mandiri-card .bank-logo-wrap {
+    display: none;
+}
 
 #gift .bca-card .atm-card-header::before,
 #gift .mandiri-card .atm-card-header::before {
@@ -599,8 +696,14 @@
     color: var(--ink);
     line-height: 36px;
 }
-#gift .bca-card .atm-card-header::before { content: 'BCA'; }
-#gift .mandiri-card .atm-card-header::before { content: 'MANDIRI'; }
+
+#gift .bca-card .atm-card-header::before {
+    content: 'BCA';
+}
+
+#gift .mandiri-card .atm-card-header::before {
+    content: 'MANDIRI';
+}
 
 #gift .address-card .gift-card-title {
     font-family: var(--font-serif);
@@ -610,10 +713,15 @@
     text-indent: 6px;
     line-height: 36px;
 }
-#gift .atm-card-header { padding-bottom: 10px; }
+
+#gift .atm-card-header {
+    padding-bottom: 10px;
+}
 
 /* ═══ Wedding Gift — elegant account panel ═══ */
-#gift { padding: 40px 20px; }
+#gift {
+    padding: 40px 20px;
+}
 
 #gift .gift-elegant {
     max-width: 340px;
@@ -734,11 +842,13 @@
     width: 70%;
     position: relative;
 }
+
 #gift .gift-sep span {
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(18, 18, 18, 0.3), transparent);
 }
+
 #gift .gift-sep i {
     font-size: 0.55rem;
     color: var(--ink);
@@ -746,7 +856,10 @@
 }
 
 /* ═══ Wedding Gift v3 — icon header + two refined account cards ═══ */
-#gift { --accent: #a8946a; padding: 44px 20px 48px; }
+#gift {
+    --accent: #a8946a;
+    padding: 44px 20px 48px;
+}
 
 #gift .gift-icon-ring {
     width: 60px;
@@ -761,6 +874,7 @@
     color: var(--ink);
     font-size: 1.1rem;
 }
+
 #gift .gift-icon-ring::before {
     content: '';
     position: absolute;
@@ -783,16 +897,27 @@
     width: 55%;
     margin: 0 auto 14px;
 }
+
 #gift .gift-rule span {
     flex: 1;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
-#gift .gift-rule i { font-size: 0.5rem; color: var(--accent); }
 
-#gift .gift-lead { margin-bottom: 26px; }
+#gift .gift-rule i {
+    font-size: 0.5rem;
+    color: var(--accent);
+}
 
-#gift .gift-stack { display: flex; flex-direction: column; gap: 16px; }
+#gift .gift-lead {
+    margin-bottom: 26px;
+}
+
+#gift .gift-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
 #gift .gift-card {
     position: relative;
@@ -806,10 +931,12 @@
     box-shadow: 0 14px 30px rgba(18, 18, 18, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 #gift .gift-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 18px 36px rgba(18, 18, 18, 0.13);
 }
+
 /* inner hairline frame */
 #gift .gift-card::before {
     content: '';
@@ -818,6 +945,7 @@
     border: 1px solid rgba(18, 18, 18, 0.07);
     pointer-events: none;
 }
+
 /* champagne corner accents */
 #gift .gift-corner {
     position: absolute;
@@ -828,8 +956,20 @@
     border-width: 0;
     pointer-events: none;
 }
-#gift .gift-corner.tl { top: 10px; left: 10px; border-top-width: 1px; border-left-width: 1px; }
-#gift .gift-corner.br { bottom: 10px; right: 10px; border-bottom-width: 1px; border-right-width: 1px; }
+
+#gift .gift-corner.tl {
+    top: 10px;
+    left: 10px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+}
+
+#gift .gift-corner.br {
+    bottom: 10px;
+    right: 10px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+}
 
 #gift .gift-bank {
     font-family: var(--font-serif);
@@ -842,6 +982,7 @@
     padding-bottom: 10px;
     position: relative;
 }
+
 #gift .gift-bank::after {
     content: '';
     position: absolute;
@@ -892,22 +1033,51 @@
     letter-spacing: 2.2px;
     box-shadow: 0 6px 14px rgba(18, 18, 18, 0.18);
 }
+
 #gift .gift-copy:hover {
     background: transparent;
     color: var(--ink);
 }
 
 /* ═══ Gift v4 — compact & simple ═══ */
-#gift { padding: 28px 20px 32px; }
+#gift {
+    padding: 28px 20px 32px;
+}
 
-#gift .gift-icon-ring { width: 40px; height: 40px; margin-bottom: 8px; font-size: 0.85rem; }
-#gift .gift-icon-ring::before { inset: 4px; }
-#gift .gift-elegant h2 { font-size: 1.8rem; margin-bottom: 6px; }
-#gift .gift-rule { margin-bottom: 8px; }
-#gift .gift-lead { font-size: 0.88rem; line-height: 1.55; margin-bottom: 16px; max-width: 280px; }
+#gift .gift-icon-ring {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
 
-#gift .gift-elegant { max-width: 300px; }
-#gift .gift-stack { gap: 10px; }
+#gift .gift-icon-ring::before {
+    inset: 4px;
+}
+
+#gift .gift-elegant h2 {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+#gift .gift-rule {
+    margin-bottom: 8px;
+}
+
+#gift .gift-lead {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+    max-width: 280px;
+}
+
+#gift .gift-elegant {
+    max-width: 300px;
+}
+
+#gift .gift-stack {
+    gap: 10px;
+}
 
 #gift .gift-card {
     padding: 14px 16px 14px;
@@ -915,10 +1085,17 @@
     border: 1px solid var(--hairline);
     box-shadow: 0 6px 16px rgba(18, 18, 18, 0.05);
 }
-#gift .gift-card:hover { transform: none; box-shadow: 0 8px 20px rgba(18, 18, 18, 0.09); }
+
+#gift .gift-card:hover {
+    transform: none;
+    box-shadow: 0 8px 20px rgba(18, 18, 18, 0.09);
+}
+
 #gift .gift-card::before,
 #gift .gift-corner,
-#gift .gift-label { display: none; }
+#gift .gift-label {
+    display: none;
+}
 
 #gift .gift-bank {
     font-size: 0.8rem;
@@ -927,7 +1104,10 @@
     margin-bottom: 8px;
     padding-bottom: 7px;
 }
-#gift .gift-bank::after { width: 20px; }
+
+#gift .gift-bank::after {
+    width: 20px;
+}
 
 #gift .gift-number {
     font-size: 1.1rem;
@@ -935,7 +1115,11 @@
     text-indent: 3px;
     margin-bottom: 3px;
 }
-#gift .gift-holder { font-size: 0.82rem; margin-bottom: 10px; }
+
+#gift .gift-holder {
+    font-size: 0.82rem;
+    margin-bottom: 10px;
+}
 
 #gift .gift-copy {
     padding: 6px 16px;
@@ -945,13 +1129,17 @@
 }
 
 /* Cover: no ivory strip at the bottom edge */
-#cover.cover-modern::after { content: none; display: none; }
+#cover.cover-modern::after {
+    content: none;
+    display: none;
+}
 
 /* Location: keep the map inside the inner frame */
 #location .location-header {
     border-bottom: none;
     padding: 36px 24px 16px;
 }
+
 #location .map-container-fullbleed {
     flex: 0 0 auto;
     width: auto;
@@ -961,17 +1149,25 @@
     box-shadow: 0 10px 26px rgba(18, 18, 18, 0.08);
     overflow: hidden;
 }
-#location #map { min-height: 340px; height: 340px; }
+
+#location #map {
+    min-height: 340px;
+    height: 340px;
+}
 
 
 /* Map tinted to the ivory background — plain CSS only (SVG url() filters are ignored by
    many mobile browsers). Tiles go grayscale (land ≈ #f1f1f1), then an ivory layer is
    multiplied on top: land → ≈ #f1ede5, roads stay a touch lighter, labels stay dark. */
-#map { isolation: isolate; }
+#map {
+    isolation: isolate;
+}
+
 #map .leaflet-tile-pane {
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
+
 #map::after {
     content: '';
     position: absolute;
@@ -979,7 +1175,8 @@
     background: #fffaf2;
     mix-blend-mode: multiply;
     pointer-events: none;
-    z-index: 450; /* above tiles & marker, below zoom controls */
+    z-index: 450;
+    /* above tiles & marker, below zoom controls */
 }
 
 /* ═══ Cover: "Open Invitation" button motion so guests know it's tappable ═══ */
@@ -987,10 +1184,19 @@
 #cover .open-invitation-btn {
     animation: openBtnPulse 2.4s ease-out infinite;
 }
+
 @keyframes openBtnPulse {
-    0%   { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(241, 236, 225, 0.6); }
-    70%  { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 16px rgba(241, 236, 225, 0); }
-    100% { box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(241, 236, 225, 0); }
+    0% {
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(241, 236, 225, 0.6);
+    }
+
+    70% {
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 16px rgba(241, 236, 225, 0);
+    }
+
+    100% {
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28), 0 0 0 0 rgba(241, 236, 225, 0);
+    }
 }
 
 /* 2) Light sweep across the button */
@@ -1006,24 +1212,120 @@
     transform-origin: 50% 80%;
     animation: openBtnIcon 3.2s ease-in-out infinite;
 }
+
 @keyframes openBtnIcon {
-    0%, 62%, 100% { transform: rotate(0) scale(1); }
-    68% { transform: rotate(-14deg) scale(1.12); }
-    74% { transform: rotate(12deg) scale(1.12); }
-    80% { transform: rotate(-8deg) scale(1.06); }
-    86% { transform: rotate(0) scale(1); }
+
+    0%,
+    62%,
+    100% {
+        transform: rotate(0) scale(1);
+    }
+
+    68% {
+        transform: rotate(-14deg) scale(1.12);
+    }
+
+    74% {
+        transform: rotate(12deg) scale(1.12);
+    }
+
+    80% {
+        transform: rotate(-8deg) scale(1.06);
+    }
+
+    86% {
+        transform: rotate(0) scale(1);
+    }
 }
 
 /* Hover: stop the attention cues and keep the lift */
-#cover .open-invitation-btn:hover { animation: none; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35); }
-#cover .open-invitation-btn:hover i { animation: none; transform: scale(1.15); }
+#cover .open-invitation-btn:hover {
+    animation: none;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+#cover .open-invitation-btn:hover i {
+    animation: none;
+    transform: scale(1.15);
+}
 
 @media (prefers-reduced-motion: reduce) {
+
     #cover .open-invitation-btn,
     #cover .open-invitation-btn i,
-    #cover .open-invitation-btn .btn-glow { animation: none; }
+    #cover .open-invitation-btn .btn-glow {
+        animation: none;
+    }
 }
 
 /* Keep icon & label above the light sweep */
-#cover .open-invitation-btn > i,
-#cover .open-invitation-btn > span:not(.btn-glow) { position: relative; z-index: 1; }
+#cover .open-invitation-btn>i,
+#cover .open-invitation-btn>span:not(.btn-glow) {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ═══ Gallery: 10-photo editorial 2-3-3-2 layout (from images/gallery/) ═══ */
+#gallery .gallery-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 9px;
+    padding: 4px;
+}
+
+#gallery .gallery-img {
+    grid-column: span 2;
+    height: clamp(98px, 13.5vh, 122px);
+    object-fit: cover;
+    object-position: center 36%;
+}
+
+/* Featured top & bottom pairs (2 wide portraits on row 1 and row 4) */
+#gallery .gallery-img:nth-child(1),
+#gallery .gallery-img:nth-child(2),
+#gallery .gallery-img:nth-child(9),
+#gallery .gallery-img:nth-child(10) {
+    grid-column: span 3;
+    height: clamp(114px, 16vh, 144px);
+}
+
+/* Per-photo focal points so faces, gowns & floral arches stay cleanly framed */
+#gallery .gallery-img:nth-child(1) {
+    object-position: center 33%;
+}
+
+#gallery .gallery-img:nth-child(2) {
+    object-position: center 30%;
+}
+
+#gallery .gallery-img:nth-child(3) {
+    object-position: center 40%;
+}
+
+#gallery .gallery-img:nth-child(4) {
+    object-position: center 35%;
+}
+
+#gallery .gallery-img:nth-child(5) {
+    object-position: center 40%;
+}
+
+#gallery .gallery-img:nth-child(6) {
+    object-position: center 35%;
+}
+
+#gallery .gallery-img:nth-child(7) {
+    object-position: center 46%;
+}
+
+#gallery .gallery-img:nth-child(8) {
+    object-position: center 32%;
+}
+
+#gallery .gallery-img:nth-child(9) {
+    object-position: center 33%;
+}
+
+#gallery .gallery-img:nth-child(10) {
+    object-position: center 35%;
+}

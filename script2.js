@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const shareToWhatsapp = (guestName = '') => {
         const url = buildShareUrl(guestName);
-        const text = `Undangan Pernikahan Robbi & Lugas\n\nBuka link undangan berikut:\n${url}`;
+        const text = `Undangan Pernikahan Lugas & Robbi\n\nBuka link undangan berikut:\n${url}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     };
 
