@@ -26,6 +26,28 @@ document.addEventListener('DOMContentLoaded', () => {
         return num.toString();
     };
 
+    // Keep video strictly silent (never conflicts with BGM) and loop cleanly within 0..24s
+    const MAX_VIDEO_SECONDS = 24;
+    video.defaultMuted = true;
+    video.muted = true;
+    video.volume = 0;
+
+    video.addEventListener('volumechange', () => {
+        if (!video.muted || video.volume !== 0) {
+            video.muted = true;
+            video.volume = 0;
+        }
+    });
+
+    video.addEventListener('timeupdate', () => {
+        if (video.currentTime >= MAX_VIDEO_SECONDS) {
+            video.currentTime = 0;
+            if (!video.paused) {
+                video.play().catch(() => {});
+            }
+        }
+    });
+
     // Video play/pause state synchronization
     video.addEventListener('play', () => {
         videoSection.classList.remove('paused');

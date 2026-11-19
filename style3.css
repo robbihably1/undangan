@@ -425,6 +425,19 @@
     text-shadow: none;
 }
 
+/* Stagger groom card slightly higher than bride card so their eye-lines meet naturally */
+#couple .couple-editorial-grid {
+    align-items: start;
+}
+
+#couple .bride-card {
+    margin-top: 38px;
+}
+
+#couple .groom-card {
+    margin-bottom: 38px;
+}
+
 /* Location */
 #location .location-header {
     background: transparent;
@@ -484,24 +497,63 @@
 }
 
 #cover .cover-bg {
-    filter: brightness(0.85) contrast(1.02) saturate(0.9);
-}
-
-#cover .cover-bg {
     background-image: url('images/cover/cover.jpg');
     background-position: center 45%;
-    filter: brightness(0.88) contrast(1.03) saturate(0.95);
+    filter: brightness(0.95) contrast(1.03) saturate(0.97);
 }
 
+/* Keep the top half (arch & both faces) crystal clear; smooth dark vignette only across the lower half behind the text */
 #cover .cover-overlay {
     background: linear-gradient(180deg,
-            rgba(43, 43, 46, 0.55) 0%,
-            rgba(43, 43, 46, 0.34) 35%,
-            rgba(43, 43, 46, 0.40) 62%,
-            rgba(43, 43, 46, 0.72) 100% rgba(32, 32, 36, 0.62) 0%,
-            rgba(32, 32, 36, 0.30) 34%,
-            rgba(32, 32, 36, 0.26) 58%,
-            rgba(32, 32, 36, 0.76) 100%);
+            rgba(24, 24, 28, 0.04) 0%,
+            rgba(24, 24, 28, 0.04) 44%,
+            rgba(24, 24, 28, 0.32) 58%,
+            rgba(24, 24, 28, 0.65) 75%,
+            rgba(24, 24, 28, 0.88) 100%);
+}
+
+/* Position cover title in the lower-center below both faces, with guest & button cleanly underneath */
+#cover .cover-container {
+    justify-content: flex-end;
+    gap: clamp(18px, 3.4vh, 32px);
+    padding: 28px 24px clamp(55px, 8vh, 80px);
+}
+
+#cover .cover-header {
+    margin: 0;
+    transform: none;
+}
+
+#cover .cover-badge {
+    margin-bottom: 5px;
+}
+
+#cover .cover-names {
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+    line-height: 1.05;
+}
+
+#cover .cover-names .name {
+    font-size: clamp(2.35rem, 9.5vw, 3.05rem);
+}
+
+#cover .cover-names .ampersand {
+    font-size: clamp(1.55rem, 5.8vw, 2.0rem);
+    margin: 0;
+}
+
+#cover .cover-date-pill {
+    padding: 5px 15px;
+}
+
+#cover .cover-footer {
+    position: static;
+    gap: 12px;
+    padding: 0;
 }
 
 /* Fine inner frame, same language as the other sections */

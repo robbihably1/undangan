@@ -735,17 +735,18 @@ h2,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center center;
     transform: none;
     display: block;
     filter: brightness(0.98) contrast(1.03);
 }
 
-/* Groom & Bride photos are precision-cropped 3:4 portraits in images/foto-mempelai/ */
+/* Groom & Bride photos are precision-cropped 4:5 portraits in images/foto-mempelai/
+   framed so Lugas (left, looking up-right) and Robbi (right, looking down-left) lock eyes */
 .groom-card .editorial-photo-wrap img,
 .bride-card .editorial-photo-wrap img {
     transform: none;
-    object-position: center 20%;
+    object-position: center center;
 }
 
 /* Minimalist Role Tag */
